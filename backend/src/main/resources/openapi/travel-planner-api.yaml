@@ -97,11 +97,11 @@ paths:
       summary: List accommodations for a destination
       description: Backend calls an external accommodations API internally
       parameters:
-        - name: destinationId
+        - name: destinationName
           in: query
           required: true
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: List of accommodations
@@ -117,11 +117,11 @@ paths:
       summary: List restaurants for a destination
       description: Backend calls the Google Places API internally
       parameters:
-        - name: destinationId
+        - name: destinationName
           in: query
           required: true
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: List of restaurants
@@ -137,11 +137,11 @@ paths:
       summary: List sights for a destination
       description: Backend calls the Google Places API internally
       parameters:
-        - name: destinationId
+        - name: destinationName
           in: query
           required: true
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: List of sights
