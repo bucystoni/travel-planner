@@ -1,0 +1,15 @@
+{
+  "places": [
+    {
+      "id": "ChIJyc_U0TTDQUcRYBEeDCnEAAQ",
+      "location": {
+        "latitude": 47.497912,
+        "longitude": 19.040235
+      },
+      "displayName": {
+        "text": "Budapest",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

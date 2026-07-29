@@ -1,0 +1,15 @@
+{
+  "places": [
+    {
+      "id": "ChIJdd4hrwug2EcRmSrV3Vo6llI",
+      "location": {
+        "latitude": 51.5072178,
+        "longitude": -0.12758619999999998
+      },
+      "displayName": {
+        "text": "London",
+        "languageCode": "en"
+      }
+    }
+  ]
+}
