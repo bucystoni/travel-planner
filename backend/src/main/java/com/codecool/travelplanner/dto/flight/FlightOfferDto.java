@@ -7,5 +7,6 @@ public record FlightOfferDto(
         String currency,
         String cabinClass,
         boolean requiresSelfTransfer,
+        int totalDurationMinutes,
         List<FlightSegmentDto> segments) {
 }

@@ -2,6 +2,8 @@ package com.codecool.travelplanner.dto.ignav;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.OffsetDateTime;
+
 public record SegmentDto(
 
         @JsonProperty("marketing_carrier_code")
@@ -23,7 +25,7 @@ public record SegmentDto(
         String departureTimezone,
 
         @JsonProperty("departure_time_utc")
-        String departureTimeUtc,
+        OffsetDateTime departureTimeUtc,
 
         @JsonProperty("arrival_airport")
         String arrivalAirport,
@@ -35,7 +37,7 @@ public record SegmentDto(
         String arrivalTimezone,
 
         @JsonProperty("arrival_time_utc")
-        String arrivalTimeUtc,
+        OffsetDateTime arrivalTimeUtc,
 
         @JsonProperty("duration_minutes")
         int durationMinutes,
