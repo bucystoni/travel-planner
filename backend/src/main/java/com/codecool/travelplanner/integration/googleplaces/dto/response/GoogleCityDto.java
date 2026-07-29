@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.integration.googleplaces.dto;
+package com.codecool.travelplanner.integration.googleplaces.dto.response;
 
 import com.codecool.travelplanner.model.Location;
 

@@ -1,7 +1,7 @@
 package com.codecool.travelplanner.integration.googleplaces;
 
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityResponseDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiResponseDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GoogleCityResponseDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.POI;
 import org.springframework.core.io.ClassPathResource;
@@ -10,7 +10,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.List;
 
-public class DummyPlaceSearchClient implements PlacesSearchClient {
+public class DummyPlacesSearchClient implements PlacesSearchClient {
 
     private final ObjectMapper mapper = new ObjectMapper();
 

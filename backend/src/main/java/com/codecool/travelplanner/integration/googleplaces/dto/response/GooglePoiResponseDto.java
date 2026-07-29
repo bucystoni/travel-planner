@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.integration.googleplaces.dto;
+package com.codecool.travelplanner.integration.googleplaces.dto.response;
 
 import java.util.List;
 

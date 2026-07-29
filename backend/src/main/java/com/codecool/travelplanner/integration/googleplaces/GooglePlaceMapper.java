@@ -1,9 +1,9 @@
 package com.codecool.travelplanner.integration.googleplaces;
 
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityResponseDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiResponseDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GoogleCityDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GoogleCityResponseDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GooglePoiDto;
+import com.codecool.travelplanner.integration.googleplaces.dto.response.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.POI;
 
