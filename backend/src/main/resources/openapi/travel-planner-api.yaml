@@ -46,12 +46,22 @@ paths:
     get:
       summary: Search/autocomplete destinations
       parameters:
-        - name: query
+        - name: destinationIataCode
           in: query
           required: true
           schema:
             type: string
-          description: The search term typed by the user
+        - name: departureIataCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
       responses:
         '200':
           description: List of matching destinations
@@ -60,23 +70,23 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Destination'
+                  $ref: '#/components/schemas/Flight'
 
   /flights:
     get:
       summary: Search flights by departure, destination, date
       parameters:
-        - name: departureCity
+        - name: destinationIataCode
           in: query
           required: true
           schema:
             type: string
-        - name: arrivalCity
+        - name: departureIataCode
           in: query
           required: true
           schema:
             type: string
-        - name: departureDate
+        - name: date
           in: query
           required: true
           schema:
@@ -277,63 +287,72 @@ components:
         token:
           type: string
 
-    Destination:
-      type: object
-      properties:
-        id:
-          type: integer
-        city:
-          type: string
-        country:
-          type: string
-
     Flight:
       type: object
       properties:
-        id:
+        priceAmount:
+          type: number
+          format: double
+        priceCurrency:
+          type: string
+        carrier:
+          type: string
+        airCraft:
+          type: string
+        flightNumber:
+          type: string
+        departureIataCode:
+          type: string
+        destinationIataCode:
+          type: string
+        durationMinutes:
           type: integer
-        airline:
+          format: int32
+        cabinClass:
           type: string
-        departureCity:
+        requiredSelfTransfer:
+          type: boolean
+        arrivalTime:
           type: string
-        arrivalCity:
+          format: date-time
+        departureTime:
           type: string
-        departureDate:
-          type: string
-          format: date
+          format: date-time
 
     Accommodation:
       type: object
       properties:
         id:
-          type: integer
+          type: string
         name:
           type: string
         address:
           type: string
-        rating:
-          type: number
+        websiteUri:
+          type: string
 
     Restaurant:
       type: object
       properties:
         id:
-          type: integer
+          type: string
         name:
           type: string
         address:
           type: string
-        rating:
-          type: number
+        websiteUri:
+          type: string
 
     Sight:
       type: object
       properties:
         id:
-          type: integer
+          type: string
         name:
           type: string
-        description:
+        address:
+          type: string
+        websiteUri:
           type: string
 
     Trip:
