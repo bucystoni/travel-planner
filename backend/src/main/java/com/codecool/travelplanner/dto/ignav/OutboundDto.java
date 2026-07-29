@@ -1,4 +1,11 @@
 package com.codecool.travelplanner.dto.ignav;
 
-public class OutboundDto {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+
+public record OutboundDto(
+        String carrier,
+        @JsonProperty("duration_minutes") int durationMinutes,
+        List<SegmentDto> segments) {
 }
