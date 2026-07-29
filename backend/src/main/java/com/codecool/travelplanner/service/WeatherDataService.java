@@ -2,6 +2,7 @@ package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import org.springframework.stereotype.Service;
+import com.codecool.travelplanner.dto.WeatherApiResponse;
 import org.springframework.web.client.RestClient;
 
 @Service
@@ -14,7 +15,7 @@ public class WeatherDataService {
         this.openWeatherConfiguration = openWeatherConfiguration;
     }
 
-    public String getForecast(double lat, double lon) {
+    public WeatherApiResponse getForecast(double lat, double lon) {
         String url = openWeatherConfiguration.getBaseUrl()
                 + "/data/2.5/forecast?lat=" + lat
                 + "&lon=" + lon
@@ -24,6 +25,6 @@ public class WeatherDataService {
         return restClient.get()
                 .uri(url)
                 .retrieve()
-                .body(String.class);
+                .body(WeatherApiResponse.class);
     }
 }
