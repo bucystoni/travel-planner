@@ -1,0 +1,410 @@
+openapi: 3.0.3
+info:
+  title: Travel Planner API
+  version: 1.0.0
+  description: Description of the TravelPlanner project API
+
+servers:
+  - url: http://localhost:8080/api
+
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: User successfully registered
+        '400':
+          description: Invalid input data
+
+  /auth/login:
+    post:
+      summary: Log in a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Invalid credentials
+
+  /destinations:
+    get:
+      summary: Search/autocomplete destinations
+      parameters:
+        - name: destinationIataCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: departureIataCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of matching destinations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flight'
+
+  /flights:
+    get:
+      summary: Search flights by departure, destination, date
+      parameters:
+        - name: destinationIataCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: departureIataCode
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of available flights
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flight'
+
+  /accommodations:
+    get:
+      summary: List accommodations for a destination
+      description: Backend calls an external accommodations API internally
+      parameters:
+        - name: destinationName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of accommodations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Accommodation'
+
+  /restaurants:
+    get:
+      summary: List restaurants for a destination
+      description: Backend calls the Google Places API internally
+      parameters:
+        - name: destinationName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of restaurants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Restaurant'
+
+  /sights:
+    get:
+      summary: List sights for a destination
+      description: Backend calls the Google Places API internally
+      parameters:
+        - name: destinationName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of sights
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sight'
+
+  /trips:
+    get:
+      summary: List all saved trips for the logged-in user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of saved trips
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+    post:
+      summary: Create a new trip
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripRequest'
+      responses:
+        '201':
+          description: Trip successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+
+  /trips/{id}:
+    get:
+      summary: Get a single trip by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trip details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        '404':
+          description: Trip not found
+    put:
+      summary: Update an existing trip
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripRequest'
+      responses:
+        '200':
+          description: Trip successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        '404':
+          description: Trip not found
+    delete:
+      summary: Delete a trip
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Trip successfully deleted
+        '404':
+          description: Trip not found
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    RegisterRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        name:
+          type: string
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+
+    Flight:
+      type: object
+      properties:
+        priceAmount:
+          type: number
+          format: double
+        priceCurrency:
+          type: string
+        carrier:
+          type: string
+        airCraft:
+          type: string
+        flightNumber:
+          type: string
+        departureIataCode:
+          type: string
+        destinationIataCode:
+          type: string
+        durationMinutes:
+          type: integer
+          format: int32
+        cabinClass:
+          type: string
+        requiredSelfTransfer:
+          type: boolean
+        arrivalTime:
+          type: string
+          format: date-time
+        departureTime:
+          type: string
+          format: date-time
+
+    Accommodation:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        websiteUri:
+          type: string
+
+    Restaurant:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        websiteUri:
+          type: string
+
+    Sight:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        websiteUri:
+          type: string
+
+    Trip:
+      type: object
+      properties:
+        id:
+          type: integer
+        destination:
+          type: string
+        flightTicket:
+          $ref: '#/components/schemas/Flight'
+        restaurant:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restaurant'
+        accommodation:
+          type: array
+          items:
+            $ref: '#/components/schemas/Accommodation'
+        sight:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sight'
+        departureDate:
+          type: string
+          format: date
+        returnDate:
+          type: string
+          format: date
+
+    TripRequest:
+      type: object
+      properties:
+        destination:
+          type: string
+        flightTicket:
+          $ref: '#/components/schemas/Flight'
+        restaurant:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restaurant'
+        accommodation:
+          type: array
+          items:
+            $ref: '#/components/schemas/Accommodation'
+        sight:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sight'
+        departureDate:
+          type: string
+          format: date
+        returnDate:
+          type: string
+          format: date
