@@ -1,6 +1,7 @@
 package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.IgnavConfig;
+import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -17,10 +18,10 @@ public class FlightDataService {
         this.ignavConfig = ignavConfig;
     }
 
-    public String getFlightData() {
+    public FlightResponseDto getFlightData() {
         String origin = "BUD";
-        String destination = "LHR";
-        LocalDate departureDate = LocalDate.of(2026, 8, 27);
+        String destination = "NRT";
+        LocalDate departureDate = LocalDate.of(2026, 9, 15);
         String url = ignavConfig.getBaseUrl() + "/fares/one-way";
 
         String body = """
@@ -31,13 +32,13 @@ public class FlightDataService {
         }
         """.formatted(origin, destination, departureDate);
 
-        String response = restClient.post()
+        FlightResponseDto response = restClient.post()
                 .uri(url)
                 .header("X-Api-Key", ignavConfig.getApiKey())
                 .header("Content-Type", "application/json")
                 .body(body)
                 .retrieve()
-                .body(String.class);
+                .body(FlightResponseDto.class);
         return response;
     }
 }
