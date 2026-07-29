@@ -1,0 +1,184 @@
+{
+  "places": [
+    {
+      "id": "ChIJSWN4ldUEdkgRGqo3OSnf1CY",
+      "formattedAddress": "52 Haymarket, London SW1Y 4RP, UK",
+      "websiteUri": "http://www.fallowrestaurant.com/",
+      "displayName": {
+        "text": "Fallow",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJHdd94hwbdkgRihDCyn0FD1Y",
+      "formattedAddress": "The Now Building Rooftop, Outernet, Denmark St, London WC2H 0LA, UK",
+      "websiteUri": "https://tattu.co.uk/locations/tattu-london/",
+      "displayName": {
+        "text": "Tattu London",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJOTAQhtMEdkgR9ZmC_mZR0UM",
+      "formattedAddress": "24 Great Windmill St, London W1D 7LG, UK",
+      "websiteUri": "https://theblacklock.com/restaurants/blacklock-soho/?utm_source=SOHO_GMB&utm_medium=GMB&utm_campaign=SOHO_RES&utm_id=SOHO_GMB",
+      "displayName": {
+        "text": "Blacklock Soho",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ4co2k5kDdkgROKjVBk6wD8k",
+      "formattedAddress": "3 Bedale St, London SE1 9AL, UK",
+      "websiteUri": "http://oma.london/",
+      "displayName": {
+        "text": "OMA",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ-0sYC0UFdkgR22MCL9yb9sQ",
+      "formattedAddress": "25-29 Coventry St, Piccadilly Circus, London W1D 7AG, UK",
+      "websiteUri": "https://happyrestaurants.com/",
+      "displayName": {
+        "text": "Happy London",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJr_4cVy8FdkgRIrNbO93eUFM",
+      "formattedAddress": "160 Piccadilly, London W1J 9EB, UK",
+      "websiteUri": "https://www.thewolseleypiccadilly.com/",
+      "displayName": {
+        "text": "The Wolseley Piccadilly",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJb8xZZzgFdkgRvrsQVk8WJcI",
+      "formattedAddress": "3-4 Park Cl, London SW1X 7PQ, UK",
+      "websiteUri": "http://osteriaromana.co.uk/",
+      "displayName": {
+        "text": "Osteria romana",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ_aG9xo4FdkgRfibauonvBkY",
+      "formattedAddress": "10 Upper St Martin's Ln, London WC2H 9FB, UK",
+      "websiteUri": "http://www.oleasocial.co.uk/",
+      "displayName": {
+        "text": "Olea Social",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJbUnC58oEdkgR4pwzPtYGrbY",
+      "formattedAddress": "35 Maiden Ln, London WC2E 7LB, UK",
+      "websiteUri": "http://www.rules.co.uk/",
+      "displayName": {
+        "text": "Rules",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJyeTsrLoFdkgRdsewS8ne0fQ",
+      "formattedAddress": "16a Bedford St, London WC2E 9HE, UK",
+      "websiteUri": "https://theblacklock.com/coventgarden-reservations/?utm_source=GMB&utm_medium=website+click&utm_campaign=SDM&utm_id=GMB",
+      "displayName": {
+        "text": "Blacklock Covent Garden",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJlciW4jsFdkgRvV8ezEeIcB8",
+      "formattedAddress": "40, 42 William IV St, London WC2N 4DD, UK",
+      "websiteUri": "https://colonelsaab.co.uk/",
+      "displayName": {
+        "text": "Colonel Saab Trafalgar Square",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJiVvjYX0FdkgR8wbzgP3ygJ0",
+      "formattedAddress": "8-9 James St, London WC2E 8BT, UK",
+      "websiteUri": "https://gauchorestaurants.com/restaurants/covent-garden/",
+      "displayName": {
+        "text": "Gaucho Covent Garden",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ14izcNQEdkgR_KRFhObbsNk",
+      "formattedAddress": "36-44 Brewer St, London W1F 9TB, UK",
+      "websiteUri": "https://bills-website.co.uk/restaurants/soho/?utm_source=LocalGoogle&utm_medium=Organic",
+      "displayName": {
+        "text": "Bill's Soho Restaurant",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJxe02As0EdkgRZeOhNiEbtt8",
+      "formattedAddress": "St Martin's Courtyard, Slingsby Pl, London WC2H 9EF, UK",
+      "websiteUri": "https://bills-website.co.uk/restaurants/covent-garden/?utm_source=LocalGoogle&utm_medium=Organic",
+      "displayName": {
+        "text": "Bill's Covent Garden Restaurant",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJtwn55ikFdkgRAvOuPIWeLM0",
+      "formattedAddress": "42 Albemarle St, London W1S 4JH, UK",
+      "websiteUri": "http://www.gymkhanarestaurants.com/",
+      "displayName": {
+        "text": "Gymkhana",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJYS50-HsFdkgRGEdK8iJCmAQ",
+      "formattedAddress": "10 Berkeley Square, London W1J 6BR, UK",
+      "websiteUri": "https://amazonicorestaurant.com/london/",
+      "displayName": {
+        "text": "Amazónico",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJyUtvKA0bdkgRSlDGC0DA5VM",
+      "formattedAddress": "Upstairs, 66 Cowcross St, London EC1M 6BP, UK",
+      "websiteUri": "https://www.bouchonracine.com/new-home",
+      "displayName": {
+        "text": "Bouchon Racine",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJXWnxCtQEdkgRcG32UcQZFVQ",
+      "formattedAddress": "12 Denman St, London W1D 7HJ, UK",
+      "websiteUri": "http://www.kricketrestaurants.com/",
+      "displayName": {
+        "text": "Kricket Soho",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJTztGq9YEdkgRXRLmtU4BTqs",
+      "formattedAddress": "Cicchetti, 172-173 Piccadilly, London W1J 9EJ, UK",
+      "websiteUri": "https://sancarlo.co.uk/restaurants/london/cicchetti-piccadilly/",
+      "displayName": {
+        "text": "Cicchetti Piccadilly - London Piccadilly",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJZf2Jlc4EdkgRv83xDpKQfHA",
+      "formattedAddress": "31-32 Northumberland Ave, London WC2N 5BW, UK",
+      "websiteUri": "https://www.prezzo.co.uk/restaurants/london-northumberland-avenue/",
+      "displayName": {
+        "text": "Prezzo",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

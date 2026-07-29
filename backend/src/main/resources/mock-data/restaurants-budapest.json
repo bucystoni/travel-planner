@@ -1,0 +1,183 @@
+{
+  "places": [
+    {
+      "id": "ChIJ-_IwO2jcQUcRW8Ad_TPUD5c",
+      "formattedAddress": "Budapest, Kazinczy u. 24, 1075 Hungary",
+      "websiteUri": "http://www.fatmama.hu/",
+      "displayName": {
+        "text": "Fat Mama",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJozVaTlPdQUcR1fr59NeCfio",
+      "formattedAddress": "Budapest, Buda Castle, Csónak u. 1, 1015 Hungary",
+      "websiteUri": "http://www.aranybastya.com/",
+      "displayName": {
+        "text": "Aranybástya",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJkQtc62jcQUcR-LiTHtkcmfU",
+      "formattedAddress": "Budapest, Akácfa u. 47, 1073 Hungary",
+      "websiteUri": "https://mazeltov.hu/",
+      "displayName": {
+        "text": "Mazel Tov",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJvXgTfULdQUcRHOqe46DunGY",
+      "formattedAddress": "Budapest, Palota Hunyadi-udvar, 1014 Hungary",
+      "websiteUri": "https://foorseg.hu/",
+      "displayName": {
+        "text": "Royal Guard Cafe",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ2aY2SEHcQUcRE2SdVwIFD-I",
+      "formattedAddress": "Budapest, Kígyó u. 4, 1052 Hungary",
+      "websiteUri": "https://nagyfatalkonyhaja.hu/en/reservation/",
+      "displayName": {
+        "text": "Hell's Kitchen – Hungarian Restaurant",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJf7KakxXcQUcR_7yM-TR4_7s",
+      "formattedAddress": "Budapest, Széchenyi István tér 7-8, 1051 Hungary",
+      "websiteUri": "http://www.tokiobudapest.com/",
+      "displayName": {
+        "text": "TOKIO",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJCQvB0HbdQUcRoYV_UyRI-ko",
+      "formattedAddress": "Budapest, Clark Ádám tér 1, 1013 Hungary",
+      "websiteUri": "http://www.leobudapest.hu/",
+      "displayName": {
+        "text": "Leo Rooftop Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJrSkvahPcQUcRVYHeK8y0vHM",
+      "formattedAddress": "Budapest, Attila út 10, 1013 Hungary",
+      "websiteUri": "https://stand25.hu/",
+      "displayName": {
+        "text": "Stand25 Bistro",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJp5Wdn0DcQUcRw6i1bVAt44A",
+      "formattedAddress": "Budapest, Vigadó tér 3, 1052 Hungary",
+      "websiteUri": "https://spoonboat.hu/",
+      "displayName": {
+        "text": "Spoon The Boat",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJDbyJOj_dQUcRW6byMteT7Sc",
+      "formattedAddress": "Budapest, Nádor u. 5, 1051 Hungary",
+      "websiteUri": "http://www.retekbisztro.hu/",
+      "displayName": {
+        "text": "Retek Bisztro",
+        "languageCode": "hu"
+      }
+    },
+    {
+      "id": "ChIJM1KEgCTcQUcRnr7f9tjnbmo",
+      "formattedAddress": "Budapest, Krisztina tér 3, 1013 Hungary",
+      "websiteUri": "http://www.deryne.com/",
+      "displayName": {
+        "text": "Déryné",
+        "languageCode": "hu"
+      }
+    },
+    {
+      "id": "ChIJZ8KHrULcQUcRJjPMDlp05VI",
+      "formattedAddress": "Budapest, Kazinczy u. 3b, 1075 Hungary",
+      "websiteUri": "https://www.fuegobp.hu/",
+      "displayName": {
+        "text": "Restaurante Fuego",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJdWUV9MfdQUcRdhDjh6feS8g",
+      "formattedAddress": "Budapest, Király u. 26, 1061 Hungary",
+      "websiteUri": "http://www.twentysixbudapest.com/",
+      "displayName": {
+        "text": "Twentysix Budapest Restaurant",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ7S2F26jdQUcRgXSMPYxXPUo",
+      "formattedAddress": "Budapest, Károly krt. 5, 1075 Hungary",
+      "displayName": {
+        "text": "Zaytouna Restaurant Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJZb83JGjcQUcR1M0xNU7rtsI",
+      "formattedAddress": "Budapest, Wesselényi utca 18, 1077 Hungary",
+      "websiteUri": "https://reservours.com/gettogulyas/tablereservation?source=google",
+      "displayName": {
+        "text": "Gettó Gulyás",
+        "languageCode": "hu"
+      }
+    },
+    {
+      "id": "ChIJa7YxrdbdQUcRbheh241Eyts",
+      "formattedAddress": "Budapest, Országház u. 31, 1014 Hungary",
+      "websiteUri": "https://zsidai.com/baltazar/",
+      "displayName": {
+        "text": "Baltazár Grill Restaurant in the Buda Castle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJZyuokRzdQUcRShcx1x9QHwk",
+      "formattedAddress": "Budapest, Dob u. 19, 1074 Hungary",
+      "websiteUri": "https://budapestbites.com/",
+      "displayName": {
+        "text": "BUDAPEST BITES",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJcwRC87vdQUcR_mNjS-vrIp0",
+      "formattedAddress": "Budapest, Nádor u. 36/A, 1051 Hungary",
+      "websiteUri": "http://turkizrestaurant.com/",
+      "displayName": {
+        "text": "Türkiz Restaurant Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJeXPibkLcQUcR41_OWXCz9Tw",
+      "formattedAddress": "Budapest, Dob u. 5, 1074 Hungary",
+      "websiteUri": "http://dobrumba.hu/",
+      "displayName": {
+        "text": "Dobrumba",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJa-Z7rCPdQUcRoK82YBFGzrs",
+      "formattedAddress": "Budapest, Széchenyi István tér 7-8, 1051 Hungary",
+      "websiteUri": "https://vibebudapest.com/",
+      "displayName": {
+        "text": "VIBE Budapest",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

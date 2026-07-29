@@ -1,0 +1,178 @@
+{
+  "places": [
+    {
+      "id": "ChIJDw826jzcQUcRdiUBqV86zj0",
+      "formattedAddress": "Budapest, Szent György tér, 1014 Hungary",
+      "websiteUri": "https://budavar.hu/budai-var/",
+      "displayName": {
+        "text": "Buda Castle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ1yuefiLcQUcR1Uppb4xy0GI",
+      "formattedAddress": "Budapest, Szentháromság tér 2, 1014 Hungary",
+      "websiteUri": "https://matyas-templom.hu/",
+      "displayName": {
+        "text": "The Church of Our Lady of Buda Castle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJaSHx-YfbQUcRPylIurx8QTQ",
+      "formattedAddress": "Budapest, Hősök tere, 1146 Hungary",
+      "displayName": {
+        "text": "Heroes' Square",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ982jOl7BQUcRy7x_rqz8Qt0",
+      "formattedAddress": "Budapest, Szent István tér 1, 1051 Hungary",
+      "websiteUri": "https://bazilikabudapest.hu/",
+      "displayName": {
+        "text": "St. Stephen's Basilica",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJnam0fyLcQUcRRl4jRKg8Ji8",
+      "formattedAddress": "Budapest, 1014 Hungary",
+      "websiteUri": "https://budavar.hu/halaszbastya/",
+      "displayName": {
+        "text": "Fisherman's Bastion",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJPaPURhDcQUcRbg-P_7giITQ",
+      "formattedAddress": "Budapest, Kossuth Lajos tér 1-3, 1055 Hungary",
+      "websiteUri": "https://www.parlament.hu/",
+      "displayName": {
+        "text": "Hungarian Parliament Building",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJKRqatz_cQUcRpMnQhdf-QB4",
+      "formattedAddress": "Budapest, Széchenyi Lánchíd, 1051 Hungary",
+      "displayName": {
+        "text": "Széchenyi Chain Bridge",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJoaLtEYfbQUcRjp9d1Wfk97w",
+      "formattedAddress": "Budapest, Vajdahunyad stny., 1146 Hungary",
+      "websiteUri": "https://www.mezogazdasagimuzeum.hu/",
+      "displayName": {
+        "text": "Vajdahunyad Castle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJWYjR8CLcQUcRE3oO60E2KSw",
+      "formattedAddress": "Budapest, Úri u. 9, 1014 Hungary",
+      "websiteUri": "http://www.labirintus.eu/",
+      "displayName": {
+        "text": "Labyrinth",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJWxyWHkncQUcRqc0s9KKGkeQ",
+      "formattedAddress": "Budapest, Citadella stny. 1, 1118 Hungary",
+      "websiteUri": "https://citadella.hu/",
+      "displayName": {
+        "text": "Citadel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJR23j6TzcQUcRqF4cE19ukl4",
+      "formattedAddress": "Budapest, Buda Castle, Szent György tér 2-E épület, 1014 Hungary",
+      "websiteUri": "http://www.varmuzeum.hu/",
+      "displayName": {
+        "text": "Budapesti Történeti Múzeum - Vármúzeum / Budapest History Museum - Castle Museum",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ32QtdBbcQUcR1mrLvmwZjvY",
+      "formattedAddress": "Budapest, 1054 Hungary",
+      "displayName": {
+        "text": "Shoes on the Danube Bank",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJi0AgeDzcQUcRxQls2xxjXFo",
+      "formattedAddress": "Budapest, Szent György u., 1013 Hungary",
+      "websiteUri": "https://www.kozterkep.hu/~/995/matyas_kutja_budapest_strobl_alajos_1904.html",
+      "displayName": {
+        "text": "Fountain of King Matthias",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJXR1ewHbbQUcRtxZzu2lpMnE",
+      "formattedAddress": "Budapest, 1138 Hungary",
+      "displayName": {
+        "text": "Budapest Evening Sightseeing Cruise",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJgX9jHULcQUcR3fqpcEtL7x8",
+      "formattedAddress": "Budapest, Asbóth u. 6, 1075 Hungary",
+      "websiteUri": "https://www.citysightseeingbudapest.org/",
+      "displayName": {
+        "text": "City Sightseeing Budapest",
+        "languageCode": "hu"
+      }
+    },
+    {
+      "id": "ChIJU2_fQWndQUcR8Z7DMQeIz6w",
+      "formattedAddress": "Budapest, 1138 Hungary",
+      "displayName": {
+        "text": "Budapest Sign",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJD5G-NEDcQUcRMB_lFEHvArE",
+      "formattedAddress": "Budapest, Deák Ferenc tér 2, 1052 Hungary",
+      "websiteUri": "https://www.fokert.hu/nevezetesfa/_222/",
+      "displayName": {
+        "text": "Elizabeth Square",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJieH570_cQUcR2b38lSylsiA",
+      "formattedAddress": "Budapest, Fővám tér, 1056 Hungary",
+      "websiteUri": "https://hu.wikipedia.org/wiki/F%C5%91v%C3%A1m_t%C3%A9r",
+      "displayName": {
+        "text": "Fővám Square",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJy-FlwDzcQUcRNKfIJUqXtoQ",
+      "formattedAddress": "Budapest, Alagút, 1012 Hungary",
+      "displayName": {
+        "text": "Budai Castle Tunnel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJQXp_gTvcQUcRzUXUn2vk4i8",
+      "formattedAddress": "Budapest, Szent György tér 2, 1014 Hungary",
+      "websiteUri": "https://en.mng.hu/",
+      "displayName": {
+        "text": "Hungarian National Gallery",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

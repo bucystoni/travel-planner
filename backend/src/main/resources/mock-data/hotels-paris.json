@@ -1,0 +1,184 @@
+{
+  "places": [
+    {
+      "id": "ChIJL3ZCE_Zv5kcRHpn_t5e-I8I",
+      "formattedAddress": "72 Bd de Strasbourg, 75010 Paris, France",
+      "websiteUri": "https://www.grand-hotel-paris.com/",
+      "displayName": {
+        "text": "Grand Hôtel de Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJi1FfWkdt5kcRWKTSoeZ8pjQ",
+      "formattedAddress": "64 74 Bd de Belleville, 75020 Paris, France",
+      "websiteUri": "https://all.accor.com/lien_externe.svlt?goto=fiche_hotel&code_hotel=B4F3&merchantid=seo-maps-FR-B4F3&sourceid=aw-cen&utm_medium=seo%20maps&utm_source=google%20Maps&utm_campaign=seo%20maps",
+      "displayName": {
+        "text": "Novotel Paris 20 Belleville",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJdd0U-Mtx5kcRW9XD3n-4LhE",
+      "formattedAddress": "39 Rue Delambre, 75014 Paris, France",
+      "websiteUri": "http://www.hotel-apollinaire.com/",
+      "displayName": {
+        "text": "Hôtel Apollinaire",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJHc3uLhhw5kcRnMj8J2siPjQ",
+      "formattedAddress": "31 Rue du Commerce, 75015 Paris, France",
+      "websiteUri": "http://www.hotel-31.com/",
+      "displayName": {
+        "text": "Hôtel 31 - Paris Tour Eiffel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ3es3oz5w5kcR9EQzxS_q1f0",
+      "formattedAddress": "7 Rue du Général Beuret, 75015 Paris, France",
+      "websiteUri": "https://www.orsohotels.com/hotel-ami",
+      "displayName": {
+        "text": "Hotel AMI",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJoeGMMmtu5kcRW0PIRo_mOnE",
+      "formattedAddress": "23 Rue des Messageries, 75010 Paris, France",
+      "websiteUri": "http://www.hotelparislafayette.com/",
+      "displayName": {
+        "text": "Paris Lafayette Hotel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJfVJ1hCVw5kcR2hEyO0ggzN4",
+      "formattedAddress": "9 Vla de Saxe, 75007 Paris, France",
+      "websiteUri": "https://www.villa-saxe-eiffel.com/en/",
+      "displayName": {
+        "text": "Hôtel Villa Saxe Eiffel",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJi6yKVNlx5kcRI4hpxKMwiko",
+      "formattedAddress": "2 Rue Saint-Sulpice, 75006 Paris, France",
+      "websiteUri": "https://www.hotel-louis2.com/",
+      "displayName": {
+        "text": "Hôtel Louis II - Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJCygz8ehv5kcR6rXB5Zoy-qs",
+      "formattedAddress": "24 Rue de Bassano, 75116 Paris, France",
+      "websiteUri": "http://www.hotelelyseesbassanoparis.com/",
+      "displayName": {
+        "text": "Elysées Bassano Hotel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJFZgS7TRu5kcR3lX4D5x1XH4",
+      "formattedAddress": "12 Rue Greffulhe, 75008 Paris, France",
+      "websiteUri": "http://www.lemalown.com/",
+      "displayName": {
+        "text": "Le Malown Hôtel",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJvcfB2ktu5kcRkOssggAWvMA",
+      "formattedAddress": "41 Rue de Clichy, 75009 Paris, France",
+      "websiteUri": "https://hotelrdeparis.com/",
+      "displayName": {
+        "text": "Hôtel R de Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJXQFW49Zx5kcRaUxn4GOsoOo",
+      "formattedAddress": "65 Rue des Saints-Pères, 75006 Paris, France",
+      "websiteUri": "https://www.esprit-de-france.com/fr/hotels/hotel-des-saints-peres?utm_source=google&utm_medium=gmb&utm_campaign=fiche",
+      "displayName": {
+        "text": "Hôtel des Saints Pères 4 étoiles Paris 6ème - Esprit de France",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJDRm1jJdv5kcRfxJyo9eqKaQ",
+      "formattedAddress": "3 Rue Verniquet, 75017 Paris, France",
+      "websiteUri": "https://www.hotel-de-neuville-arc-de-triomphe.com/",
+      "displayName": {
+        "text": "The Neuville hotel Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ-xIZQG1u5kcRKaNALPdLHFk",
+      "formattedAddress": "133 Rue du Faubourg Saint-Denis, 75010 Paris, France",
+      "websiteUri": "http://www.midnighthotelparis.com/",
+      "displayName": {
+        "text": "Midnight Hôtel Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJEVvNIjhu5kcR8-1-51oAtsY",
+      "formattedAddress": "51 Rue de la Victoire, 75009 Paris, France",
+      "websiteUri": "http://www.hotelmogador.com/",
+      "displayName": {
+        "text": "Hôtel Mogador",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJyy2HBEFu5kcROTx1VY2O9cU",
+      "formattedAddress": "27 Rue Louise-Émilie de la Tour d'Auvergne, 75009 Paris, France",
+      "websiteUri": "https://www.hotel-marena.com/",
+      "displayName": {
+        "text": "Marena",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJA472w_Vt5kcRQSivoBUlgaM",
+      "formattedAddress": "22 Rue de Belfort, 75011 Paris, France",
+      "websiteUri": "https://www.hoteldebelfort.com/",
+      "displayName": {
+        "text": "Hôtel de Belfort",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJg-_Mjo5x5kcRw538vmRhCYg",
+      "formattedAddress": "205 Av. de Choisy, 75013 Paris, France",
+      "websiteUri": "https://hotel-paris-italie.com/fr",
+      "displayName": {
+        "text": "Hotel Paris Italie",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJVVUJl_Rv5kcRWSLAapo51Ss",
+      "formattedAddress": "155 Av. de Malakoff, 75116 Paris, France",
+      "websiteUri": "https://hoteltoujours.paris/?utm_source=gmb&utm_medium=organic&utm_campaign=gmb_toujours",
+      "displayName": {
+        "text": "Hôtel Toujours",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJcSCQ9M5x5kcRUpuhuULkdQ8",
+      "formattedAddress": "14 Rue Stanislas, 75006 Paris, France",
+      "websiteUri": "http://www.hotel-le-six.com/en/?utm_source=google&utm_medium=organic&utm_campaign=Knowledge_Graph",
+      "displayName": {
+        "text": "Hôtel Le Six",
+        "languageCode": "fr"
+      }
+    }
+  ]
+}

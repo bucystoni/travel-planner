@@ -1,0 +1,15 @@
+{
+  "places": [
+    {
+      "id": "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+      "location": {
+        "latitude": 48.857547499999995,
+        "longitude": 2.3513764999999998
+      },
+      "displayName": {
+        "text": "Paris",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

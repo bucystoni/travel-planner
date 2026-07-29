@@ -1,0 +1,120 @@
+{
+  "places": [
+    {
+      "id": "ChIJc2nSALkEdkgRkuoJJBfzkUI",
+      "formattedAddress": "Riverside Building, County Hall, Westminster Bridge Rd, London SE1 7PB, UK",
+      "websiteUri": "https://www.londoneye.com/",
+      "displayName": {
+        "text": "London Eye",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ3TgfM0kDdkgRZ2TV4d1Jv6g",
+      "formattedAddress": "London EC3N 4AB, UK",
+      "websiteUri": "https://www.hrp.org.uk/tower-of-london/",
+      "displayName": {
+        "text": "Tower of London",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJDbhTs1ADdkgR-2MjTkoJXXg",
+      "formattedAddress": "32 London Bridge St, London SE1 9SG, UK",
+      "websiteUri": "https://www.theviewfromtheshard.com/",
+      "displayName": {
+        "text": "The View from The Shard",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJtV5bzSAFdkgRpwLZFPWrJgo",
+      "formattedAddress": "London SW1A 1AA, UK",
+      "websiteUri": "https://www.rct.uk/visit/buckingham-palace",
+      "displayName": {
+        "text": "Buckingham Palace",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJSdtli0MDdkgRLW9aCBpCeJ4",
+      "formattedAddress": "Tower Bridge Rd, London SE1 2UP, UK",
+      "websiteUri": "https://www.towerbridge.org.uk/",
+      "displayName": {
+        "text": "Tower Bridge",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ2dGMjMMEdkgRqVqkuXQkj7c",
+      "formattedAddress": "London SW1A 0AA, UK",
+      "websiteUri": "https://www.parliament.uk/bigben",
+      "displayName": {
+        "text": "Big Ben",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJh7wHoqwEdkgR3l-vqQE1HTo",
+      "formattedAddress": "St. Paul's Churchyard, London EC4M 8AD, UK",
+      "websiteUri": "https://www.stpauls.co.uk/",
+      "displayName": {
+        "text": "St. Paul's Cathedral",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJLzVDusQEdkgRelObBaL_jto",
+      "formattedAddress": "Dean's Yard, London SW1P 3PA, UK",
+      "websiteUri": "https://www.westminster-abbey.org/",
+      "displayName": {
+        "text": "Westminster Abbey",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJmZuNDMQEdkgRfB9O9456eQc",
+      "formattedAddress": "London SW1A 0AA, UK",
+      "websiteUri": "https://www.parliament.uk/about/living-heritage/building/palace/",
+      "displayName": {
+        "text": "Palace of Westminster",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ03GSCloDdkgRe_s-p2vyvQA",
+      "formattedAddress": "32 London Bridge St, London SE1 9SG, UK",
+      "websiteUri": "https://www.the-shard.com/",
+      "displayName": {
+        "text": "The Shard",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJkYISzKsEdkgRHE5RL_zqXL0",
+      "formattedAddress": "Thames Embankment, London EC4V 3QH, UK",
+      "websiteUri": "https://www.cityoflondon.gov.uk/things-to-do/architecture/bridges",
+      "displayName": {
+        "text": "Millennium Bridge",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJcWfE87UEdkgRoYClOMTsOQQ",
+      "formattedAddress": "Strand, London WC2R 1LA, UK",
+      "websiteUri": "https://www.somersethouse.org.uk/",
+      "displayName": {
+        "text": "Somerset House",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJIY2LA94FdkgR8bMUNTdGYW4",
+      "formattedAddress": "Festival Pier, London SE1 8XZ, UK",
+      "displayName": {
+        "text": "River Thames",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

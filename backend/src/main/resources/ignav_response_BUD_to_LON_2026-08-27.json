@@ -1,0 +1,505 @@
+{
+  "origin": "BUD",
+  "destination": "LHR",
+  "departure_date": "2026-08-27",
+  "itineraries": [
+    {
+      "price": {
+        "amount": 180.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "British Airways",
+        "duration_minutes": 175,
+        "segments": [
+          {
+            "marketing_carrier_code": "BA",
+            "flight_number": "871",
+            "operating_carrier_name": "British Airways",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T07:35:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T05:35:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T09:30:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T08:30:00Z",
+            "duration_minutes": 175,
+            "aircraft": "Airbus A319"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "b0a985fc43d541a0ad5749d68af58526"
+    },
+    {
+      "price": {
+        "amount": 190.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "British Airways",
+        "duration_minutes": 160,
+        "segments": [
+          {
+            "marketing_carrier_code": "BA",
+            "flight_number": "867",
+            "operating_carrier_name": "British Airways",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T17:55:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T15:55:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T19:35:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T18:35:00Z",
+            "duration_minutes": 160,
+            "aircraft": "Airbus A320"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "ba6214ceda774c99a95269d0864c59a9"
+    },
+    {
+      "price": {
+        "amount": 206.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Lufthansa",
+        "duration_minutes": 370,
+        "segments": [
+          {
+            "marketing_carrier_code": "LH",
+            "flight_number": "1679",
+            "operating_carrier_name": "Lufthansa",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T17:30:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T15:30:00Z",
+            "arrival_airport": "MUC",
+            "arrival_time_local": "2026-08-27T18:50:00",
+            "arrival_timezone": "Europe/Berlin",
+            "arrival_time_utc": "2026-08-27T16:50:00Z",
+            "duration_minutes": 80,
+            "aircraft": "Airbus A320"
+          },
+          {
+            "marketing_carrier_code": "LH",
+            "flight_number": "2484",
+            "operating_carrier_name": "Lufthansa",
+            "departure_airport": "MUC",
+            "departure_time_local": "2026-08-27T21:35:00",
+            "departure_timezone": "Europe/Berlin",
+            "departure_time_utc": "2026-08-27T19:35:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T22:40:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T21:40:00Z",
+            "duration_minutes": 125,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "01a76006617a41099bd67b2ba598ce40"
+    },
+    {
+      "price": {
+        "amount": 210.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "British Airways",
+        "duration_minutes": 165,
+        "segments": [
+          {
+            "marketing_carrier_code": "BA",
+            "flight_number": "865",
+            "operating_carrier_name": "British Airways",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T14:25:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T12:25:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T16:10:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T15:10:00Z",
+            "duration_minutes": 165,
+            "aircraft": "Airbus A320"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "8aa9c10f0e674d2190198fda5b29ba70"
+    },
+    {
+      "price": {
+        "amount": 210.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Eurowings",
+        "duration_minutes": 500,
+        "segments": [
+          {
+            "marketing_carrier_code": "EW",
+            "flight_number": "9783",
+            "operating_carrier_name": "Eurowings",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T09:05:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T07:05:00Z",
+            "arrival_airport": "DUS",
+            "arrival_time_local": "2026-08-27T10:55:00",
+            "arrival_timezone": "Europe/Berlin",
+            "arrival_time_utc": "2026-08-27T08:55:00Z",
+            "duration_minutes": 110,
+            "aircraft": "Airbus A320"
+          },
+          {
+            "marketing_carrier_code": "EW",
+            "flight_number": "9466",
+            "operating_carrier_name": "Eurowings",
+            "departure_airport": "DUS",
+            "departure_time_local": "2026-08-27T16:00:00",
+            "departure_timezone": "Europe/Berlin",
+            "departure_time_utc": "2026-08-27T14:00:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T16:25:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T15:25:00Z",
+            "duration_minutes": 85,
+            "aircraft": "Airbus A319"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "checked": 2
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "ccbd35e69a85404193c3cffff00c8316"
+    },
+    {
+      "price": {
+        "amount": 212.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "British Airways",
+        "duration_minutes": 165,
+        "segments": [
+          {
+            "marketing_carrier_code": "BA",
+            "flight_number": "863",
+            "operating_carrier_name": "British Airways",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T11:40:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T09:40:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T13:25:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T12:25:00Z",
+            "duration_minutes": 165,
+            "aircraft": "Airbus A320"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "378fade969cb4747a3f4d476474a9b0b"
+    },
+    {
+      "price": {
+        "amount": 242.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "KLM",
+        "duration_minutes": 260,
+        "segments": [
+          {
+            "marketing_carrier_code": "KL",
+            "flight_number": "1366",
+            "operating_carrier_name": "KLM",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T14:15:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T12:15:00Z",
+            "arrival_airport": "AMS",
+            "arrival_time_local": "2026-08-27T16:25:00",
+            "arrival_timezone": "Europe/Amsterdam",
+            "arrival_time_utc": "2026-08-27T14:25:00Z",
+            "duration_minutes": 130,
+            "aircraft": "Embraer 195 E2"
+          },
+          {
+            "marketing_carrier_code": "KL",
+            "flight_number": "1013",
+            "operating_carrier_name": "KLM",
+            "departure_airport": "AMS",
+            "departure_time_local": "2026-08-27T17:15:00",
+            "departure_timezone": "Europe/Amsterdam",
+            "departure_time_utc": "2026-08-27T15:15:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T17:35:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T16:35:00Z",
+            "duration_minutes": 80,
+            "aircraft": "Embraer 195 E2"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "874961ba3b6b451e9336333546e2bb90"
+    },
+    {
+      "price": {
+        "amount": 269.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Eurowings",
+        "duration_minutes": 325,
+        "segments": [
+          {
+            "marketing_carrier_code": "EW",
+            "flight_number": "2783",
+            "operating_carrier_name": "Eurowings",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T14:40:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T12:40:00Z",
+            "arrival_airport": "STR",
+            "arrival_time_local": "2026-08-27T16:10:00",
+            "arrival_timezone": "Europe/Berlin",
+            "arrival_time_utc": "2026-08-27T14:10:00Z",
+            "duration_minutes": 90,
+            "aircraft": "Airbus A319"
+          },
+          {
+            "marketing_carrier_code": "EW",
+            "flight_number": "2464",
+            "operating_carrier_name": "Eurowings",
+            "departure_airport": "STR",
+            "departure_time_local": "2026-08-27T18:25:00",
+            "departure_timezone": "Europe/Berlin",
+            "departure_time_utc": "2026-08-27T16:25:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T19:05:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T18:05:00Z",
+            "duration_minutes": 100,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "checked": 2
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "355c0aa9c3a946c1a71c3a0f74f51073"
+    },
+    {
+      "price": {
+        "amount": 276.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Lufthansa",
+        "duration_minutes": 280,
+        "segments": [
+          {
+            "marketing_carrier_code": "LH",
+            "flight_number": "1685",
+            "operating_carrier_name": "Lufthansa",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T09:10:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T07:10:00Z",
+            "arrival_airport": "MUC",
+            "arrival_time_local": "2026-08-27T10:30:00",
+            "arrival_timezone": "Europe/Berlin",
+            "arrival_time_utc": "2026-08-27T08:30:00Z",
+            "duration_minutes": 80,
+            "aircraft": "Airbus A320"
+          },
+          {
+            "marketing_carrier_code": "LH",
+            "flight_number": "2474",
+            "operating_carrier_name": "Lufthansa",
+            "departure_airport": "MUC",
+            "departure_time_local": "2026-08-27T11:45:00",
+            "departure_timezone": "Europe/Berlin",
+            "departure_time_utc": "2026-08-27T09:45:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T12:50:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T11:50:00Z",
+            "duration_minutes": 125,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "38893a1ca601468e85526cda251a4c38"
+    },
+    {
+      "price": {
+        "amount": 281.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Brussels Airlines",
+        "duration_minutes": 275,
+        "segments": [
+          {
+            "marketing_carrier_code": "SN",
+            "flight_number": "2826",
+            "operating_carrier_name": "Brussels Airlines",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T18:00:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T16:00:00Z",
+            "arrival_airport": "BRU",
+            "arrival_time_local": "2026-08-27T20:05:00",
+            "arrival_timezone": "Europe/Brussels",
+            "arrival_time_utc": "2026-08-27T18:05:00Z",
+            "duration_minutes": 125,
+            "aircraft": "Airbus A320"
+          },
+          {
+            "marketing_carrier_code": "SN",
+            "flight_number": "2103",
+            "operating_carrier_name": "Brussels Airlines",
+            "departure_airport": "BRU",
+            "departure_time_local": "2026-08-27T21:20:00",
+            "departure_timezone": "Europe/Brussels",
+            "departure_time_utc": "2026-08-27T19:20:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T21:35:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T20:35:00Z",
+            "duration_minutes": 75,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "0e67eb61e25343c089d8a3460079e0d6"
+    },
+    {
+      "price": {
+        "amount": 399.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "SWISS",
+        "duration_minutes": 330,
+        "segments": [
+          {
+            "marketing_carrier_code": "LX",
+            "flight_number": "2255",
+            "operating_carrier_name": "SWISS",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T14:50:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T12:50:00Z",
+            "arrival_airport": "ZRH",
+            "arrival_time_local": "2026-08-27T16:30:00",
+            "arrival_timezone": "Europe/Zurich",
+            "arrival_time_utc": "2026-08-27T14:30:00Z",
+            "duration_minutes": 100,
+            "aircraft": "Embraer 195"
+          },
+          {
+            "marketing_carrier_code": "LX",
+            "flight_number": "338",
+            "operating_carrier_name": "SWISS",
+            "departure_airport": "ZRH",
+            "departure_time_local": "2026-08-27T18:30:00",
+            "departure_timezone": "Europe/Zurich",
+            "departure_time_utc": "2026-08-27T16:30:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T19:20:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T18:20:00Z",
+            "duration_minutes": 110,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "4d736f7a03af4543bc04ebdc20135c24"
+    },
+    {
+      "price": {
+        "amount": 786.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Austrian",
+        "duration_minutes": 270,
+        "segments": [
+          {
+            "marketing_carrier_code": "OS",
+            "flight_number": "636",
+            "operating_carrier_name": "Austrian",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-08-27T15:10:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-08-27T13:10:00Z",
+            "arrival_airport": "VIE",
+            "arrival_time_local": "2026-08-27T15:55:00",
+            "arrival_timezone": "Europe/Vienna",
+            "arrival_time_utc": "2026-08-27T13:55:00Z",
+            "duration_minutes": 45,
+            "aircraft": "Embraer 195"
+          },
+          {
+            "marketing_carrier_code": "OS",
+            "flight_number": "337",
+            "operating_carrier_name": "Austrian",
+            "departure_airport": "VIE",
+            "departure_time_local": "2026-08-27T17:15:00",
+            "departure_timezone": "Europe/Vienna",
+            "departure_time_utc": "2026-08-27T15:15:00Z",
+            "arrival_airport": "LHR",
+            "arrival_time_local": "2026-08-27T18:40:00",
+            "arrival_timezone": "Europe/London",
+            "arrival_time_utc": "2026-08-27T17:40:00Z",
+            "duration_minutes": 145,
+            "aircraft": "Airbus A320neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "ab2b5c14627b49aa8e416e42ded468d4"
+    }
+  ]
+}
