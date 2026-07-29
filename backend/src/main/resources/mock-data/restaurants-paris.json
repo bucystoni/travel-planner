@@ -1,0 +1,183 @@
+{
+  "places": [
+    {
+      "id": "ChIJ62uOOx1u5kcRhQssBujerII",
+      "formattedAddress": "16 Rue des Archives, 75004 Paris, France",
+      "websiteUri": "https://le-ju-paris.fr/",
+      "displayName": {
+        "text": "Le Ju'",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJHwzjqZJv5kcRCir2RjPAaKE",
+      "formattedAddress": "23 Bd de Sébastopol, 75001 Paris, France",
+      "websiteUri": "http://www.restaurantchouchouparis.fr/",
+      "displayName": {
+        "text": "Chouchou",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ0Y7Uk_lv5kcRxQMuMKFtVmc",
+      "formattedAddress": "47 R. de Turbigo, 75003 Paris, France",
+      "websiteUri": "https://www.privateaser.com/lieu/44897-le-marais-restaurant",
+      "displayName": {
+        "text": "Le Marais Restaurant Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJaYIUUk9u5kcRfAhRNL_ZJgw",
+      "formattedAddress": "20bis Rue de Douai, 75009 Paris, France",
+      "websiteUri": "https://www.bigmammagroup.com/italian-restaurants/pink-mamma?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-website",
+      "displayName": {
+        "text": "Pink Mamma",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJxYJUC2lv5kcRlhdpWba_aGU",
+      "formattedAddress": "8 Quai du Louvre, 75001 Paris, France",
+      "websiteUri": "http://letoutparis.fr/?y_source=1_MjM2NzUwMDEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "displayName": {
+        "text": "Le Tout-Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJY2oZZf1x5kcRZTsJlVMjTOg",
+      "formattedAddress": "52 Rue François Miron, 75004 Paris, France",
+      "websiteUri": "http://aubourguignondumarais.fr/?utm_source=gmb",
+      "displayName": {
+        "text": "Au Bourguignon du Marais",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJR4kFR0xv5kcR-x6duNRh3uE",
+      "formattedAddress": "18 Rue La Boétie, 75008 Paris, France",
+      "websiteUri": "https://restaurantsphere.com/",
+      "displayName": {
+        "text": "Sphère",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJxaKkUudx5kcR7DyJdf662DE",
+      "formattedAddress": "90 Bd Saint-Germain, 75005 Paris, France",
+      "websiteUri": "http://www.louloufriendlydiner.com/",
+      "displayName": {
+        "text": "Loulou",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ7WkibR5u5kcR12JLnyKyw3E",
+      "formattedAddress": "8 Rue Saint-Martin, 75004 Paris, France",
+      "displayName": {
+        "text": "Le P'tit Bistrot",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJ_QwlZC9u5kcRM4LKKEFIOTE",
+      "formattedAddress": "107 Rue de Rivoli, 75001 Paris, France",
+      "websiteUri": "http://loulou-paris.com/",
+      "displayName": {
+        "text": "Loulou",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ7ayOGeNx5kcReHHR9KTXiz0",
+      "formattedAddress": "6 Rue Jean du Bellay, 75004 Paris, France",
+      "websiteUri": "http://www.lesaintregis-paris.com/",
+      "displayName": {
+        "text": "Le Saint-Regis - Paris",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJUSmUXUFv5kcR2GGP6Dn34pw",
+      "formattedAddress": "37 Rue Sainte-Croix de la Bretonnerie, 75004 Paris, France",
+      "websiteUri": "https://eataly.fr/",
+      "displayName": {
+        "text": "Eataly Paris Marais",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJw_cV8Btu5kcRWM7vwSaK4pI",
+      "formattedAddress": "63 Rue Rambuteau, 75004 Paris, France",
+      "websiteUri": "https://bistrotchezloulou.com/",
+      "displayName": {
+        "text": "Loulou",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJZXST6-5v5kcR2yYcipYCUqA",
+      "formattedAddress": "19 Av. Kléber, 75116 Paris, France",
+      "websiteUri": "https://www.peninsula.com/en/paris/hotel-fine-dining/french-rooftop-loiseau-blanc",
+      "displayName": {
+        "text": "L'Oiseau Blanc",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJc_aNNwBx5kcRuGMhYHbNvxk",
+      "formattedAddress": "119 bis Rue Monge, 75005 Paris, France",
+      "websiteUri": "https://caferestaurantjules.fr/",
+      "displayName": {
+        "text": "Jules Café Restaurant (Paris 5)",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJ05AX-wJu5kcR-2CTIOumOiw",
+      "formattedAddress": "44 Rue Vieille du Temple, 75004 Paris, France",
+      "websiteUri": "https://le-colimacon.fr/",
+      "displayName": {
+        "text": "Le Colimaçon",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJn_GGMDRv5kcRjfzk8tIGObY",
+      "formattedAddress": "27 Rue Aubry le Boucher, 75004 Paris, France",
+      "websiteUri": "https://losteria.net/fr/restaurants/restaurant/paris-chatelet/",
+      "displayName": {
+        "text": "L'Osteria Paris Chatelet",
+        "languageCode": "de"
+      }
+    },
+    {
+      "id": "ChIJTdiHcqxv5kcRVgEUqDEcnbY",
+      "formattedAddress": "58 Bd de Sébastopol, 75003 Paris, France",
+      "websiteUri": "https://www.sacrefrenchy.com/",
+      "displayName": {
+        "text": "Sacré Frenchy !",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJU8BNx-5x5kcRNSC_roNvBRs",
+      "formattedAddress": "71 Rue Mouffetard, 75005 Paris, France",
+      "websiteUri": "https://www.instagram.com/lesbaux_paris/",
+      "displayName": {
+        "text": "Les Baux de Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ_0Wm5Btu5kcRIRhQosDYhYw",
+      "formattedAddress": "65 Rue Rambuteau, 75004 Paris, France",
+      "websiteUri": "https://lepetitmarcelparis.fr/",
+      "displayName": {
+        "text": "Le Petit Marcel",
+        "languageCode": "en"
+      }
+    }
+  ]
+}

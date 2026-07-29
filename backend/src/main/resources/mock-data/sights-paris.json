@@ -1,0 +1,181 @@
+{
+  "places": [
+    {
+      "id": "ChIJATr1n-Fx5kcRjQb6q6cdQDY",
+      "formattedAddress": "6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France",
+      "websiteUri": "https://www.notredamedeparis.fr/",
+      "displayName": {
+        "text": "Notre-Dame Cathedral of Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJjx37cOxv5kcRPWQuEW5ntdk",
+      "formattedAddress": "Pl. Charles de Gaulle, 75008 Paris, France",
+      "websiteUri": "https://www.paris-arc-de-triomphe.fr/",
+      "displayName": {
+        "text": "Arc de Triomphe",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJLU7jZClu5kcR4PcOOO6p3I0",
+      "formattedAddress": "Av. Gustave Eiffel, 75007 Paris, France",
+      "websiteUri": "https://www.toureiffel.paris/fr",
+      "displayName": {
+        "text": "Eiffel Tower",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJAQAAMCxu5kcRx--_4QnbGcI",
+      "formattedAddress": "75001 Paris, France",
+      "websiteUri": "https://parisjetaime.com/culture/jardin-des-tuileries-p3545",
+      "displayName": {
+        "text": "Tuileries Garden",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJD3uTd9hx5kcR1IQvGfr8dbk",
+      "formattedAddress": "75001 Paris, France",
+      "websiteUri": "https://www.louvre.fr/",
+      "displayName": {
+        "text": "Louvre Museum",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJc8mX0udx5kcRWKcjTwDr5QA",
+      "formattedAddress": "Pl. du Panthéon, 75005 Paris, France",
+      "websiteUri": "https://www.paris-pantheon.fr/",
+      "displayName": {
+        "text": "Panthéon",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJR3122B9u5kcRaCck3PlB9DM",
+      "formattedAddress": "10 Bd du Palais, 75001 Paris, France",
+      "websiteUri": "https://www.sainte-chapelle.fr/",
+      "displayName": {
+        "text": "Sainte-Chapelle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJR3122B9u5kcRajG2bEZLypA",
+      "formattedAddress": "2 Bd du Palais, 75001 Paris, France",
+      "websiteUri": "https://www.paris-conciergerie.fr/",
+      "displayName": {
+        "text": "Conciergerie",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJGxZyXh5u5kcRLmPA07LoheA",
+      "formattedAddress": "Square de la Tour Saint-Jacques, 75004 Paris, France",
+      "displayName": {
+        "text": "Tour Saint-Jacques",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJdbbQwbZx5kcRs7Qu5nPw18g",
+      "formattedAddress": "1 Av. du Colonel Henri Rol-Tanguy, 75014 Paris, France",
+      "websiteUri": "https://www.catacombes.paris.fr/",
+      "displayName": {
+        "text": "Catacombs of Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ442GNENu5kcRGYUrvgqHw88",
+      "formattedAddress": "35 Rue du Chevalier de la Barre, 75018 Paris, France",
+      "websiteUri": "https://www.sacre-coeur-montmartre.com/",
+      "displayName": {
+        "text": "Basilique du Sacré-Cœur de Montmartre",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJiQxv_05u5kcRESFIh6-QTvQ",
+      "formattedAddress": "82 Bd de Clichy, 75018 Paris, France",
+      "websiteUri": "https://www.moulinrouge.fr/",
+      "displayName": {
+        "text": "Moulin Rouge",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJe2jeNttx5kcRi_mJsGHdkQc",
+      "formattedAddress": "75006 Paris, France",
+      "websiteUri": "https://jardin.senat.fr/",
+      "displayName": {
+        "text": "Jardin du Luxembourg",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJAQppDdJx5kcRv5Arh3daFX8",
+      "formattedAddress": "Pont de Bir-Hakeim, 75015 Paris, France",
+      "displayName": {
+        "text": "Promenade Jean-Paul Belmondo",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJHbrByclt5kcRn-ZGU8KjU_g",
+      "formattedAddress": "211 Av. Jean Jaurès, 75019 Paris, France",
+      "websiteUri": "https://lavillette.com/",
+      "displayName": {
+        "text": "La Villette",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJIbZBRIxv5kcRPrhYs1BXVJ0",
+      "formattedAddress": "Pl. de la République, 75011 Paris, France",
+      "displayName": {
+        "text": "Republic Square Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJryei4kRu5kcRgmdcbzUwGWQ",
+      "formattedAddress": "Square Jehan Rictus, 14 Pl. des Abbesses, 75018 Paris, France",
+      "websiteUri": "http://www.lesjetaime.com/",
+      "displayName": {
+        "text": "Le mur des je t'aime",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ9RPmD2Jv5kcRPq0bXsdkyC4",
+      "formattedAddress": "75008 Paris, France",
+      "websiteUri": "https://pinkytourparis.com/",
+      "displayName": {
+        "text": "Pinky Tour - Paris",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJtyJBjV1u5kcRDiOrjO8B6Iw",
+      "formattedAddress": "15 Av. Winston Churchill, 75008 Paris, France",
+      "websiteUri": "https://www.paris-tuktuk.fr/",
+      "displayName": {
+        "text": "Paris TUKTUK",
+        "languageCode": "fr"
+      }
+    },
+    {
+      "id": "ChIJ87weU0du5kcRsDjKb4Lm4f0",
+      "formattedAddress": "99 Rue de Rivoli, 75001 Paris, France",
+      "websiteUri": "https://babylontours.com/paris/",
+      "displayName": {
+        "text": "Babylon Tours Paris",
+        "languageCode": "fr"
+      }
+    }
+  ]
+}

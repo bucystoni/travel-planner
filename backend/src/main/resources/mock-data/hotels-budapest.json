@@ -1,0 +1,184 @@
+{
+  "places": [
+    {
+      "id": "ChIJi30qsrHdQUcRbxdt9aincTA",
+      "formattedAddress": "Budapest, Mérleg u. 4, 1051 Hungary",
+      "websiteUri": "http://www.mamaisonvibehoteldowntown.com/",
+      "displayName": {
+        "text": "Mamaison Vibe Hotel Downtown Budapest",
+        "languageCode": "cs"
+      }
+    },
+    {
+      "id": "ChIJX5J4z1zcQUcRnQ3Rjto2CeY",
+      "formattedAddress": "Budapest, Trefort u. 2, 1088 Hungary",
+      "websiteUri": "http://www.museumhotel.hu/",
+      "displayName": {
+        "text": "Museum Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJwdUFoevbQUcRrQSNMVgXIg8",
+      "formattedAddress": "Budapest, Zólyomi út 6, 1118 Hungary",
+      "websiteUri": "https://www.classichotel.hu/",
+      "displayName": {
+        "text": "Hotel Classic",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJQfSWoxXcQUcRbl0BsvXTMf0",
+      "formattedAddress": "Budapest, Vigyázó Ferenc u. 5, 1051 Hungary",
+      "websiteUri": "http://www.prestigehotelbudapest.com/",
+      "displayName": {
+        "text": "Prestige Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJAx81Q8vdQUcRBXHowVnzveA",
+      "formattedAddress": "Budapest, Dessewffy u. 14, 1066 Hungary",
+      "websiteUri": "http://www.cortilebudapesthotel.com/",
+      "displayName": {
+        "text": "Cortile Hotel - Adults Only",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJQ4rim8PdQUcR5O-_SMPGWfg",
+      "formattedAddress": "Budapest, Apor Péter u. 3, 1011 Hungary",
+      "websiteUri": "https://www.carltonhotel.hu/",
+      "displayName": {
+        "text": "Carlton Hotel Buda Castle",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJyXdc30XcQUcRq-ZgVzolEew",
+      "formattedAddress": "Budapest, Belgrád rkp. 24, 1056 Hungary",
+      "websiteUri": "http://www.hotelvision.hu/",
+      "displayName": {
+        "text": "Hotel Vision Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJLyxmDlraQUcR-6ALxt2d_ck",
+      "formattedAddress": "Budapest, Eötvös u. 25/a, 1067 Hungary",
+      "websiteUri": "https://www.easyhotel.com/hotels/hungary/budapest/budapest-oktogon?utm_source=google&utm_medium=organic&utm_campaign=GMB-franchised-budapest-oktagon",
+      "displayName": {
+        "text": "TL Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ94jV8MrbQUcRS76f775NOeI",
+      "formattedAddress": "Budapest, Garam u. 4/a, 1133 Hungary",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/budfd-four-points-budapest-danube/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "displayName": {
+        "text": "Four Points by Sheraton Budapest Danube",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJizUAukDcQUcR-eEUv-w3lyI",
+      "formattedAddress": "Budapest, Apáczai Csere János u. 7, 1052 Hungary",
+      "websiteUri": "https://budapest.zenithoteles.com/?partner=8480&utm_source=google&utm_medium=organic&utm_campaign=MyBusiness&utm",
+      "displayName": {
+        "text": "Hotel Zenit Budapest Palace",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJczsuWUXcQUcRJlNjNPF4EPc",
+      "formattedAddress": "Budapest, Váci u 83, 1056 Hungary",
+      "websiteUri": "https://www.mellowmoodhotels.com/hotels/estilo-fashion-hotel/",
+      "displayName": {
+        "text": "Estilo Hotel by Mellow Mood Hotels",
+        "languageCode": "hu"
+      }
+    },
+    {
+      "id": "ChIJS3lyakDcQUcRhHOxez3aqUA",
+      "formattedAddress": "Budapest, Erzsébet tér 7-8, 1051 Hungary",
+      "websiteUri": "https://www.kempinski.com/en/hotel-corvinus-budapest?utm_medium=organic&utm_source=google&utm_campaign=KIBUD&utm_content=gmb&source=S308962248",
+      "displayName": {
+        "text": "Kempinski Hotel Corvinus Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ2zovB2rcQUcRmkERjIcQoXc",
+      "formattedAddress": "Budapest, Rumbach Sebestyén u. 14, 1075 Hungary",
+      "websiteUri": "https://roombach.com/?utm_source=google&utm_medium=organic&utm_campaign=Knowledge_Graph",
+      "displayName": {
+        "text": "ROOMbach Hotel Budapest Center",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJieNKcdHEQUcRTyOkbcNGOIs",
+      "formattedAddress": "Budapest, Viola u. 10, 1094 Hungary",
+      "websiteUri": "http://www.actorhotel.hu/",
+      "displayName": {
+        "text": "Actor Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJ80yvn0bcQUcR8tkbtdUbnPI",
+      "formattedAddress": "Budapest, Váci u 36, 1056 Hungary",
+      "websiteUri": "https://www.marriott.com/en-us/hotels/budlc-matild-palace-a-luxury-collection-hotel-budapest/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      "displayName": {
+        "text": "Matild Palace, a Luxury Collection Hotel, Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJXTQqvjHcQUcRkZuhCnQJZWc",
+      "formattedAddress": "Budapest, Hegyalja út 23, 1016 Hungary",
+      "websiteUri": "http://www.charleshotel.hu/",
+      "displayName": {
+        "text": "Hotel Charles",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJVXRCPW3cQUcRrnO8BvBITQg",
+      "formattedAddress": "Budapest, Dessewffy u., 1066 Hungary",
+      "websiteUri": "https://www.dormero.de/hotel-budapest/",
+      "displayName": {
+        "text": "Dormero Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJlZAyA2zcQUcRsCDYy-8Q7PA",
+      "formattedAddress": "Budapest, Paulay Ede u. 50, 1061 Hungary",
+      "websiteUri": "https://threecorners.com/budapest/avenue-hotel/",
+      "displayName": {
+        "text": "Three Corners Avenue Hotel",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJUZJ83ETcQUcRmONKtiEOkbY",
+      "formattedAddress": "Budapest, Só u. 6, 1056 Hungary",
+      "websiteUri": "http://www.charmhotelbudapest.com/",
+      "displayName": {
+        "text": "Boutique Hotel Budapest",
+        "languageCode": "en"
+      }
+    },
+    {
+      "id": "ChIJux5ewXncQUcRCRqaRj_uWwU",
+      "formattedAddress": "Budapest, Benczúr u. 35, 1068 Hungary",
+      "websiteUri": "http://www.hotelbenczur.hu//?utm_source=mybusiness&utm_medium=mybusiness",
+      "displayName": {
+        "text": "Benczúr Hotel",
+        "languageCode": "en"
+      }
+    }
+  ]
+}
