@@ -362,6 +362,20 @@ components:
           type: integer
         destination:
           type: string
+        flightTicket:
+          $ref: '#/components/schemas/Flight'
+        restaurant:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restaurant'
+        accommodation:
+          type: array
+          items:
+            $ref: '#/components/schemas/Accommodation'
+        sight:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sight'
         departureDate:
           type: string
           format: date
@@ -374,6 +388,20 @@ components:
       properties:
         destination:
           type: string
+        flightTicket:
+          $ref: '#/components/schemas/Flight'
+        restaurant:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restaurant'
+        accommodation:
+          type: array
+          items:
+            $ref: '#/components/schemas/Accommodation'
+        sight:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sight'
         departureDate:
           type: string
           format: date
