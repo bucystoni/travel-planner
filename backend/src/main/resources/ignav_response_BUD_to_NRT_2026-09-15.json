@@ -1,0 +1,550 @@
+{
+  "origin": "BUD",
+  "destination": "NRT",
+  "departure_date": "2026-09-15",
+  "itineraries": [
+    {
+      "price": {
+        "amount": 717.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "China Southern",
+        "duration_minutes": 1075,
+        "segments": [
+          {
+            "marketing_carrier_code": "CZ",
+            "flight_number": "650",
+            "operating_carrier_name": "China Southern",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T12:45:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T10:45:00Z",
+            "arrival_airport": "CAN",
+            "arrival_time_local": "2026-09-16T05:30:00",
+            "arrival_timezone": "Asia/Shanghai",
+            "arrival_time_utc": "2026-09-15T21:30:00Z",
+            "duration_minutes": 645,
+            "aircraft": "Boeing 787"
+          },
+          {
+            "marketing_carrier_code": "CZ",
+            "flight_number": "8101",
+            "operating_carrier_name": "China Southern",
+            "departure_airport": "CAN",
+            "departure_time_local": "2026-09-16T08:05:00",
+            "departure_timezone": "Asia/Shanghai",
+            "departure_time_utc": "2026-09-16T00:05:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T13:40:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T04:40:00Z",
+            "duration_minutes": 275,
+            "aircraft": "Airbus A321neo"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "4b8c9062f9f54b5ca3d4c081e2c03693"
+    },
+    {
+      "price": {
+        "amount": 724.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Turkish Airlines",
+        "duration_minutes": 1760,
+        "segments": [
+          {
+            "marketing_carrier_code": "TK",
+            "flight_number": "1038",
+            "operating_carrier_name": "Turkish Airlines",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T20:35:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T18:35:00Z",
+            "arrival_airport": "IST",
+            "arrival_time_local": "2026-09-15T23:40:00",
+            "arrival_timezone": "Europe/Istanbul",
+            "arrival_time_utc": "2026-09-15T20:40:00Z",
+            "duration_minutes": 125,
+            "aircraft": "Airbus A321neo"
+          },
+          {
+            "marketing_carrier_code": "TK",
+            "flight_number": "50",
+            "operating_carrier_name": "Turkish Airlines",
+            "departure_airport": "IST",
+            "departure_time_local": "2026-09-16T15:50:00",
+            "departure_timezone": "Europe/Istanbul",
+            "departure_time_utc": "2026-09-16T12:50:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-17T08:55:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T23:55:00Z",
+            "duration_minutes": 665,
+            "aircraft": "Boeing 787"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "1684bce70e4f42a2b6b64c2d847005cf"
+    },
+    {
+      "price": {
+        "amount": 850.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "LOT",
+        "duration_minutes": 900,
+        "segments": [
+          {
+            "marketing_carrier_code": "LO",
+            "flight_number": "532",
+            "operating_carrier_name": "LOT",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T20:25:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T18:25:00Z",
+            "arrival_airport": "WAW",
+            "arrival_time_local": "2026-09-15T21:40:00",
+            "arrival_timezone": "Europe/Warsaw",
+            "arrival_time_utc": "2026-09-15T19:40:00Z",
+            "duration_minutes": 75,
+            "aircraft": "Embraer 175"
+          },
+          {
+            "marketing_carrier_code": "LO",
+            "flight_number": "79",
+            "operating_carrier_name": "LOT",
+            "departure_airport": "WAW",
+            "departure_time_local": "2026-09-15T22:50:00",
+            "departure_timezone": "Europe/Warsaw",
+            "departure_time_utc": "2026-09-15T20:50:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T18:25:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T09:25:00Z",
+            "duration_minutes": 755,
+            "aircraft": "Boeing 787"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "f58a49fa907148beaa0c9cc71fd74829"
+    },
+    {
+      "price": {
+        "amount": 892.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "LOT",
+        "duration_minutes": 1085,
+        "segments": [
+          {
+            "marketing_carrier_code": "LO",
+            "flight_number": "534",
+            "operating_carrier_name": "LOT",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T09:45:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T07:45:00Z",
+            "arrival_airport": "WAW",
+            "arrival_time_local": "2026-09-15T11:00:00",
+            "arrival_timezone": "Europe/Warsaw",
+            "arrival_time_utc": "2026-09-15T09:00:00Z",
+            "duration_minutes": 75,
+            "aircraft": "Embraer 175"
+          },
+          {
+            "marketing_carrier_code": "LO",
+            "flight_number": "97",
+            "operating_carrier_name": "LOT",
+            "departure_airport": "WAW",
+            "departure_time_local": "2026-09-15T12:15:00",
+            "departure_timezone": "Europe/Warsaw",
+            "departure_time_utc": "2026-09-15T10:15:00Z",
+            "arrival_airport": "ICN",
+            "arrival_time_local": "2026-09-16T06:20:00",
+            "arrival_timezone": "Asia/Seoul",
+            "arrival_time_utc": "2026-09-15T21:20:00Z",
+            "duration_minutes": 665,
+            "aircraft": "Boeing 787"
+          },
+          {
+            "marketing_carrier_code": "OZ",
+            "flight_number": "102",
+            "operating_carrier_name": "Asiana Airlines",
+            "departure_airport": "ICN",
+            "departure_time_local": "2026-09-16T08:25:00",
+            "departure_timezone": "Asia/Seoul",
+            "departure_time_utc": "2026-09-15T23:25:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T10:50:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T01:50:00Z",
+            "duration_minutes": 145,
+            "aircraft": "Airbus A380"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": true,
+      "ignav_id": "277e7dfb96f44480aaaafbbcad55a6fa"
+    },
+    {
+      "price": {
+        "amount": 931.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Emirates",
+        "duration_minutes": 1110,
+        "segments": [
+          {
+            "marketing_carrier_code": "EK",
+            "flight_number": "112",
+            "operating_carrier_name": "Emirates",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T16:05:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T14:05:00Z",
+            "arrival_airport": "DXB",
+            "arrival_time_local": "2026-09-15T23:25:00",
+            "arrival_timezone": "Asia/Dubai",
+            "arrival_time_utc": "2026-09-15T19:25:00Z",
+            "duration_minutes": 320,
+            "aircraft": "Boeing 777"
+          },
+          {
+            "marketing_carrier_code": "EK",
+            "flight_number": "318",
+            "operating_carrier_name": "Emirates",
+            "departure_airport": "DXB",
+            "departure_time_local": "2026-09-16T02:40:00",
+            "departure_timezone": "Asia/Dubai",
+            "departure_time_utc": "2026-09-15T22:40:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T17:35:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T08:35:00Z",
+            "duration_minutes": 595,
+            "aircraft": "Airbus A380"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "d449fe6aaa3440a69c4660a30a8ca28c"
+    },
+    {
+      "price": {
+        "amount": 943.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Turkish Airlines",
+        "duration_minutes": 1015,
+        "segments": [
+          {
+            "marketing_carrier_code": "TK",
+            "flight_number": "1036",
+            "operating_carrier_name": "Turkish Airlines",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T09:00:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T07:00:00Z",
+            "arrival_airport": "IST",
+            "arrival_time_local": "2026-09-15T12:15:00",
+            "arrival_timezone": "Europe/Istanbul",
+            "arrival_time_utc": "2026-09-15T09:15:00Z",
+            "duration_minutes": 135,
+            "aircraft": "Boeing 737"
+          },
+          {
+            "marketing_carrier_code": "TK",
+            "flight_number": "50",
+            "operating_carrier_name": "Turkish Airlines",
+            "departure_airport": "IST",
+            "departure_time_local": "2026-09-15T15:50:00",
+            "departure_timezone": "Europe/Istanbul",
+            "departure_time_utc": "2026-09-15T12:50:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T08:55:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-15T23:55:00Z",
+            "duration_minutes": 665,
+            "aircraft": "Boeing 787"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "2222fd1318c64d90aa2d9670a4257908"
+    },
+    {
+      "price": {
+        "amount": 1116.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Finnair",
+        "duration_minutes": 1080,
+        "segments": [
+          {
+            "marketing_carrier_code": "AY",
+            "flight_number": "1252",
+            "operating_carrier_name": "Finnair",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T12:05:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T10:05:00Z",
+            "arrival_airport": "HEL",
+            "arrival_time_local": "2026-09-15T15:25:00",
+            "arrival_timezone": "Europe/Helsinki",
+            "arrival_time_utc": "2026-09-15T12:25:00Z",
+            "duration_minutes": 140,
+            "aircraft": "Embraer 190"
+          },
+          {
+            "marketing_carrier_code": "AY",
+            "flight_number": "73",
+            "operating_carrier_name": "Finnair",
+            "departure_airport": "HEL",
+            "departure_time_local": "2026-09-15T17:45:00",
+            "departure_timezone": "Europe/Helsinki",
+            "departure_time_utc": "2026-09-15T14:45:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T13:05:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T04:05:00Z",
+            "duration_minutes": 800,
+            "aircraft": "Airbus A350"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "c65b172378ec4324927078dff3c49a98"
+    },
+    {
+      "price": {
+        "amount": 1199.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Korean Air",
+        "duration_minutes": 845,
+        "segments": [
+          {
+            "marketing_carrier_code": "KE",
+            "flight_number": "964",
+            "operating_carrier_name": "Korean Air",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T20:10:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T18:10:00Z",
+            "arrival_airport": "ICN",
+            "arrival_time_local": "2026-09-16T13:40:00",
+            "arrival_timezone": "Asia/Seoul",
+            "arrival_time_utc": "2026-09-16T04:40:00Z",
+            "duration_minutes": 630,
+            "aircraft": "Boeing 787"
+          },
+          {
+            "marketing_carrier_code": "KE",
+            "flight_number": "707",
+            "operating_carrier_name": "Korean Air",
+            "departure_airport": "ICN",
+            "departure_time_local": "2026-09-16T14:45:00",
+            "departure_timezone": "Asia/Seoul",
+            "departure_time_utc": "2026-09-16T05:45:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T17:15:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T08:15:00Z",
+            "duration_minutes": 150,
+            "aircraft": "Airbus A220-300 Passenger"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1,
+        "checked": 1
+      },
+      "requires_self_transfer": false,
+      "ignav_id": "c73d340b1b02433395cbee5a1900a43c"
+    },
+    {
+      "price": {
+        "amount": 1199.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Korean Air",
+        "duration_minutes": 845,
+        "segments": [
+          {
+            "marketing_carrier_code": "KE",
+            "flight_number": "964",
+            "operating_carrier_name": "Korean Air",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T20:10:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T18:10:00Z",
+            "arrival_airport": "ICN",
+            "arrival_time_local": "2026-09-16T13:40:00",
+            "arrival_timezone": "Asia/Seoul",
+            "arrival_time_utc": "2026-09-16T04:40:00Z",
+            "duration_minutes": 630,
+            "aircraft": "Boeing 787"
+          },
+          {
+            "marketing_carrier_code": "LJ",
+            "flight_number": "209",
+            "operating_carrier_name": "Jin Air",
+            "departure_airport": "ICN",
+            "departure_time_local": "2026-09-16T14:45:00",
+            "departure_timezone": "Asia/Seoul",
+            "departure_time_utc": "2026-09-16T05:45:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T17:15:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T08:15:00Z",
+            "duration_minutes": 150,
+            "aircraft": "Boeing 777"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": true,
+      "ignav_id": "ebd0210e79934d9280c9f74ad3e02270"
+    },
+    {
+      "price": {
+        "amount": 1220.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Korean Air",
+        "duration_minutes": 915,
+        "segments": [
+          {
+            "marketing_carrier_code": "KE",
+            "flight_number": "964",
+            "operating_carrier_name": "Korean Air",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T20:10:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T18:10:00Z",
+            "arrival_airport": "ICN",
+            "arrival_time_local": "2026-09-16T13:40:00",
+            "arrival_timezone": "Asia/Seoul",
+            "arrival_time_utc": "2026-09-16T04:40:00Z",
+            "duration_minutes": 630,
+            "aircraft": "Boeing 787"
+          },
+          {
+            "marketing_carrier_code": "OZ",
+            "flight_number": "106",
+            "operating_carrier_name": "Asiana Airlines",
+            "departure_airport": "ICN",
+            "departure_time_local": "2026-09-16T15:45:00",
+            "departure_timezone": "Asia/Seoul",
+            "departure_time_utc": "2026-09-16T06:45:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T18:25:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-16T09:25:00Z",
+            "duration_minutes": 160,
+            "aircraft": "Airbus A330"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "bags": {
+        "carry_on": 1
+      },
+      "requires_self_transfer": true,
+      "ignav_id": "0742a83fadbd431fbba16fcc8c82e3fc"
+    },
+    {
+      "price": {
+        "amount": 2516.0,
+        "currency": "USD",
+        "status": "verified"
+      },
+      "outbound": {
+        "carrier": "Austrian",
+        "duration_minutes": 875,
+        "segments": [
+          {
+            "marketing_carrier_code": "OS",
+            "flight_number": "632",
+            "operating_carrier_name": "Austrian",
+            "departure_airport": "BUD",
+            "departure_time_local": "2026-09-15T11:15:00",
+            "departure_timezone": "Europe/Budapest",
+            "departure_time_utc": "2026-09-15T09:15:00Z",
+            "arrival_airport": "VIE",
+            "arrival_time_local": "2026-09-15T12:00:00",
+            "arrival_timezone": "Europe/Vienna",
+            "arrival_time_utc": "2026-09-15T10:00:00Z",
+            "duration_minutes": 45,
+            "aircraft": "Embraer 195"
+          },
+          {
+            "marketing_carrier_code": "OS",
+            "flight_number": "25",
+            "operating_carrier_name": "Austrian",
+            "departure_airport": "VIE",
+            "departure_time_local": "2026-09-15T13:30:00",
+            "departure_timezone": "Europe/Vienna",
+            "departure_time_utc": "2026-09-15T11:30:00Z",
+            "arrival_airport": "NRT",
+            "arrival_time_local": "2026-09-16T08:50:00",
+            "arrival_timezone": "Asia/Tokyo",
+            "arrival_time_utc": "2026-09-15T23:50:00Z",
+            "duration_minutes": 740,
+            "aircraft": "Boeing 777"
+          }
+        ]
+      },
+      "cabin_class": "economy",
+      "requires_self_transfer": false,
+      "ignav_id": "bc2f4e77e3584aaba0fc5c4d8fd976d5"
+    }
+  ]
+}
