@@ -1,10 +1,10 @@
 package com.codecool.travelplanner.mapper;
 
-import com.codecool.travelplanner.dto.flight.FlightOfferDto;
 import com.codecool.travelplanner.dto.flight.FlightSegmentDto;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.dto.ignav.ItineraryDto;
 import com.codecool.travelplanner.dto.ignav.SegmentDto;
+import com.codecool.travelplanner.model.FlightOfferDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,13 +27,13 @@ public class FlightMapper {
                 .map(this::toFlightSegment)
                 .toList();
 
-        return new FlightOfferDto(
-                itinerary.price().amount(),
-                itinerary.price().currency(),
-                itinerary.cabinClass(),
-                itinerary.requiresSelfTransfer(),
-                itinerary.outbound().durationMinutes(),
-                segments);
+        return new FlightOfferDto()
+                .price(itinerary.price().amount())
+                .currency(itinerary.price().currency())
+                .cabinClass(itinerary.cabinClass())
+                .requiresSelfTransfer(itinerary.requiresSelfTransfer())
+                .totalDurationMinutes(itinerary.outbound().durationMinutes())
+                .segments(segments);
     }
 
     private FlightSegmentDto toFlightSegment(SegmentDto segment) {

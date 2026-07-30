@@ -70,7 +70,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Flight'
+                  $ref: '#/components/schemas/FlightOfferDto'
 
   /flights:
     get:
@@ -92,6 +92,8 @@ paths:
           schema:
             type: string
             format: date
+
+          ?destinationIataCode=test&departureIataCode=test&date=2026-11-11
       responses:
         '200':
           description: List of available flights
@@ -100,7 +102,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Flight'
+                  $ref: '#/components/schemas/FlightOfferDto'
 
   /accommodations:
     get:
@@ -287,37 +289,48 @@ components:
         token:
           type: string
 
-    Flight:
+    FlightOfferDto:
       type: object
       properties:
-        priceAmount:
+        price:
           type: number
           format: double
-        priceCurrency:
+        currency:
           type: string
+        cabinClass:
+          type: string
+        requiresSelfTransfer:
+          type: boolean
+        totalDurationMinutes:
+          type: integer
+          format: int32
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlightSegmentDto'
+
+    FlightSegmentDto:
+      type: object
+      properties:
         carrier:
-          type: string
-        airCraft:
           type: string
         flightNumber:
           type: string
-        departureIataCode:
+        aircraft:
           type: string
-        destinationIataCode:
+        departureAirport:
           type: string
-        durationMinutes:
-          type: integer
-          format: int32
-        cabinClass:
+        arrivalAirport:
           type: string
-        requiredSelfTransfer:
-          type: boolean
-        arrivalTime:
-          type: string
-          format: date-time
         departureTime:
           type: string
           format: date-time
+        arrivalTime:
+          type: string
+          format: date-time
+        durationMinutes:
+          type: integer
+          format: int32
 
     Accommodation:
       type: object
@@ -363,7 +376,7 @@ components:
         destination:
           type: string
         flightTicket:
-          $ref: '#/components/schemas/Flight'
+          $ref: '#/components/schemas/FlightOfferDto'
         restaurant:
           type: array
           items:
@@ -389,7 +402,7 @@ components:
         destination:
           type: string
         flightTicket:
-          $ref: '#/components/schemas/Flight'
+          $ref: '#/components/schemas/FlightOfferDto'
         restaurant:
           type: array
           items:

@@ -86,10 +86,16 @@
                             <generatorName>spring</generatorName>
                             <apiPackage>com.codecool.travelplanner.api</apiPackage>
                             <modelPackage>com.codecool.travelplanner.model</modelPackage>
+
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useSpringBoot4>true</useSpringBoot4>
                             </configOptions>
+
+                            <schemaMappings>
+                                <schemaMapping>FlightSegmentDto=com.codecool.travelplanner.dto.flight.FlightSegmentDto</schemaMapping>
+                            </schemaMappings>
+
                         </configuration>
                     </execution>
                 </executions>
