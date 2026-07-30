@@ -11,19 +11,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class FlightDataService {
+public class ApiFlightDataService implements FlightDataProvider {
 
     private final RestClient restClient;
     private final IgnavConfig ignavConfig;
     private final FlightMapper flightMapper;
 
-    public FlightDataService(RestClient restClient, IgnavConfig ignavConfig, FlightMapper flightMapper) {
+    public ApiFlightDataService(RestClient restClient, IgnavConfig ignavConfig, FlightMapper flightMapper) {
         this.restClient = restClient;
         this.ignavConfig = ignavConfig;
         this.flightMapper = flightMapper;
     }
 
-    public List<FlightOfferDto> getFlightData() {
+    @Override
+    public List<FlightOfferDto> getFlightOffers() {
         String origin = "BUD";
         String destination = "NRT";
         LocalDate departureDate = LocalDate.of(2026, 9, 15);
