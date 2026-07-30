@@ -2,23 +2,28 @@ package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.IgnavConfig;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
+import com.codecool.travelplanner.mapper.FlightMapper;
+import com.codecool.travelplanner.model.FlightOfferDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class FlightDataService {
 
     private final RestClient restClient;
     private final IgnavConfig ignavConfig;
+    private final FlightMapper flightMapper;
 
-    public FlightDataService(RestClient restClient, IgnavConfig ignavConfig) {
+    public FlightDataService(RestClient restClient, IgnavConfig ignavConfig, FlightMapper flightMapper) {
         this.restClient = restClient;
         this.ignavConfig = ignavConfig;
+        this.flightMapper = flightMapper;
     }
 
-    public FlightResponseDto getFlightData() {
+    public List<FlightOfferDto> getFlightData() {
         String origin = "BUD";
         String destination = "NRT";
         LocalDate departureDate = LocalDate.of(2026, 9, 15);
@@ -39,6 +44,7 @@ public class FlightDataService {
                 .body(body)
                 .retrieve()
                 .body(FlightResponseDto.class);
-        return response;
+
+        return flightMapper.toFlightOffers(response);
     }
 }
