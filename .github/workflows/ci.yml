@@ -1,0 +1,73 @@
+# CI gate: runs on every pull request and on every push to development/main.
+# Two jobs run in parallel. If either one is red, the pull request cannot be merged
+# (that part is set up in GitHub, see the next step).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [development]
+
+# The jobs only need to read the repository.
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend (build + test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend   # every "run" below starts here
+    steps:
+      - uses: actions/checkout@v5
+
+      # The JDK version must match <java.version> in pom.xml.
+      # "cache: maven" keeps ~/.m2 between runs, so later runs are faster.
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      # Files committed from Windows usually lose the executable bit,
+      # and then Linux answers "./mvnw: Permission denied".
+      - name: Make the Maven wrapper executable
+        run: chmod +x mvnw
+
+      # "test" compiles main + test sources and runs the tests,
+      # so this single command covers question 1 and question 2.
+      # -B is batch mode: no colours, no progress spam, CI friendly output.
+      - name: Build and test
+        run: ./mvnw -B test
+
+  frontend:
+    name: Frontend (lint + test + build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v5
+
+      # Node 22 LTS. Vite 8 needs Node 20.19+ or 22.12+.
+      - name: Set up Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      # npm ci installs exactly what package-lock.json says. Never "npm install" in CI.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build

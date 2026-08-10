@@ -93,7 +93,7 @@ paths:
             type: string
             format: date
 
-          ?destinationIataCode=test&departureIataCode=test&date=2026-11-11
+
       responses:
         '200':
           description: List of available flights

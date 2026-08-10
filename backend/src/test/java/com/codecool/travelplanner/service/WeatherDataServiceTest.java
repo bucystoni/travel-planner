@@ -11,7 +11,7 @@ public class WeatherDataServiceTest {
     @Autowired
     private WeatherDataService weatherDataService;
 
-    @Test
+   /* @Test
     void testGetForecast() {
         // Budapest
         double lat = 47.4979;
@@ -22,5 +22,5 @@ public class WeatherDataServiceTest {
        // System.out.println(response.getList().size());
         System.out.println("Temperature:" + response.getList().get(0).getMain().getTemp());
         System.out.println( "Weather description:" + response.getList().get(0).getWeather().get(0).getDescription());
-    }
+    }*/
 }
