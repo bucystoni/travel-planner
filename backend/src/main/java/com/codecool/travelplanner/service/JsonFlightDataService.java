@@ -3,7 +3,6 @@ package com.codecool.travelplanner.service;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.mapper.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-@Primary
 public class JsonFlightDataService implements FlightDataProvider{
 
     private final ObjectMapper objectMapper;
