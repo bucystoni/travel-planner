@@ -23,6 +23,7 @@ public class ApiFlightDataService implements FlightDataProvider {
         this.flightMapper = flightMapper;
     }
 
+    //TODO: Add origin, destination and departure date as parameters for the final version
     @Override
     public List<FlightOfferDto> getFlightOffers() {
         String origin = "BUD";
