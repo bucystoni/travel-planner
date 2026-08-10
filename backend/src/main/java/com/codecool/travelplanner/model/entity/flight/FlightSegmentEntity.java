@@ -63,4 +63,44 @@ public class FlightSegmentEntity {
     public void setFlightOffer(FlightOfferEntity flightOffer) {
         this.flightOffer = flightOffer;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCarrier() {
+        return carrier;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getAircraft() {
+        return aircraft;
+    }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public OffsetDateTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public OffsetDateTime getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public int getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    public FlightOfferEntity getFlightOffer() {
+        return flightOffer;
+    }
 }

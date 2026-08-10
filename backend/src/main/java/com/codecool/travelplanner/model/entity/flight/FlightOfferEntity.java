@@ -66,4 +66,44 @@ public class FlightOfferEntity {
         segments.add(segment);
         segment.setFlightOffer(this);
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getCabinClass() {
+        return cabinClass;
+    }
+
+    public boolean isRequiresSelfTransfer() {
+        return requiresSelfTransfer;
+    }
+
+    public int getTotalDurationMinutes() {
+        return totalDurationMinutes;
+    }
+
+    public List<FlightSegmentEntity> getSegments() {
+        return segments;
+    }
 }
