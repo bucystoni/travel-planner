@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.model.entity;
+package com.codecool.travelplanner.model.entity.flight;
 
 import jakarta.persistence.*;
 
@@ -32,7 +32,7 @@ public class FlightOfferEntity {
     @Column(name = "total_duration_minutes")
     private int totalDurationMinutes;
 
-    @OneToMany(mappedBy = "flightOffer")
+    @OneToMany(mappedBy = "flightOffer", cascade = CascadeType.ALL)
     private List<FlightSegmentEntity> segments;
 
     public FlightOfferEntity() {}

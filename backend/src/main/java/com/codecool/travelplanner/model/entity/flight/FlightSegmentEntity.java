@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.model.entity;
+package com.codecool.travelplanner.model.entity.flight;
 
 import jakarta.persistence.*;
 
