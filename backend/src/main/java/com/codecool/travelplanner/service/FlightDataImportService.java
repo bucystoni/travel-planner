@@ -64,4 +64,8 @@ public class FlightDataImportService {
         }
     }
 
+    public boolean isDatabaseInitialized() {
+        return repository.count() > 0;
+    }
+
 }

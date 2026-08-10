@@ -15,6 +15,8 @@ public class FlightDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        flightDataImportService.importFlightData();
+        if (!flightDataImportService.isDatabaseInitialized()) {
+            flightDataImportService.importFlightData();
+        }
     }
 }
