@@ -1,26 +1,52 @@
 package com.codecool.travelplanner.service;
 
+import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import com.codecool.travelplanner.dto.WeatherApiResponse;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.client.MockRestServiceServer;
+import org.springframework.web.client.RestClient;
 
-@SpringBootTest
-public class WeatherDataServiceTest {
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-    @Autowired
-    private WeatherDataService weatherDataService;
+class WeatherDataServiceTest {
 
-   /* @Test
-    void testGetForecast() {
-        // Budapest
-        double lat = 47.4979;
-        double lon = 19.0402;
+    // The answer we pretend OpenWeather sends back.
+    private static final String FORECAST_JSON = """
+            {
+              "list": [
+                {
+                  "dt_txt": "2026-08-04 12:00:00",
+                  "main": { "temp": 21.5 },
+                  "weather": [ { "description": "clear sky" } ]
+                }
+              ]
+            }
+            """;
 
-        WeatherApiResponse response = weatherDataService.getForecast(lat, lon);
+    @Test
+    void getForecastReadsTemperatureAndDescription() {
+        // A RestClient whose requests are caught by the mock server instead of the network.
+        RestClient.Builder builder = RestClient.builder();
+        MockRestServiceServer server = MockRestServiceServer.bindTo(builder).build();
 
-       // System.out.println(response.getList().size());
-        System.out.println("Temperature:" + response.getList().get(0).getMain().getTemp());
-        System.out.println( "Weather description:" + response.getList().get(0).getWeather().get(0).getDescription());
-    }*/
+        OpenWeatherConfiguration config =
+                new OpenWeatherConfiguration("https://weather.test", "test-key");
+        WeatherDataService service = new WeatherDataService(builder.build(), config);
+
+        // This is also a test of the URL the service builds.
+        server.expect(requestTo("https://weather.test/data/2.5/forecast"
+                        + "?lat=47.4979&lon=19.0402&appid=test-key&units=metric"))
+                .andRespond(withSuccess(FORECAST_JSON, MediaType.APPLICATION_JSON));
+
+        WeatherApiResponse response = service.getForecast(47.4979, 19.0402);
+
+        assertThat(response.getList()).hasSize(1);
+        assertThat(response.getList().get(0).getMain().getTemp()).isEqualTo(21.5);
+        assertThat(response.getList().get(0).getWeather().get(0).getDescription())
+                .isEqualTo("clear sky");
+        server.verify(); // the request really happened
+    }
 }
