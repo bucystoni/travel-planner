@@ -5,10 +5,12 @@ import com.codecool.travelplanner.dto.ignav.ItineraryDto;
 import com.codecool.travelplanner.dto.ignav.SegmentDto;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.model.entity.flight.FlightSegmentEntity;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Component
 public class FlightEntityMapper {
 
 
