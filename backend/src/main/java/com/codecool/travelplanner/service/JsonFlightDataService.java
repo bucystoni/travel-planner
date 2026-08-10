@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,7 +27,9 @@ public class JsonFlightDataService implements FlightDataProvider{
     }
 
     @Override
-    public List<FlightOfferDto> getFlightOffers() {
+    public List<FlightOfferDto> getFlightOffers(String origin,
+                                                String destination,
+                                                LocalDate departureDate) {
         try {
             ClassPathResource resource =
                     new ClassPathResource("mock-data/ignav_response_BUD_to_LON_2026-08-27.json");

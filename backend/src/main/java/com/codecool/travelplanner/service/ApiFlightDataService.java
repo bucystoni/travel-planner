@@ -23,12 +23,11 @@ public class ApiFlightDataService implements FlightDataProvider {
         this.flightMapper = flightMapper;
     }
 
-    //TODO: Add origin, destination and departure date as parameters for the final version
     @Override
-    public List<FlightOfferDto> getFlightOffers() {
-        String origin = "BUD";
-        String destination = "NRT";
-        LocalDate departureDate = LocalDate.of(2026, 9, 15);
+    public List<FlightOfferDto> getFlightOffers(String origin,
+                                                String destination,
+                                                LocalDate departureDate) {
+
         String url = ignavConfig.getBaseUrl() + "/fares/one-way";
 
         String body = """

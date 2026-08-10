@@ -20,7 +20,10 @@ public class FlightsController implements FlightsApi {
 
     @Override
     public ResponseEntity<List<FlightOfferDto>> flightsGet(String destinationIataCode, String departureIataCode, LocalDate date) {
-        List<FlightOfferDto> tickets = flightDataProvider.getFlightOffers();
+        List<FlightOfferDto> tickets = flightDataProvider.getFlightOffers(
+                departureIataCode,
+                destinationIataCode,
+                date);
         return ResponseEntity.ok(tickets);
     }
 }
