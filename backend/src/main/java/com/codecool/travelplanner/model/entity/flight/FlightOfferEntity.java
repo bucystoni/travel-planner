@@ -3,11 +3,13 @@ package com.codecool.travelplanner.model.entity.flight;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "flight_offers")
 public class FlightOfferEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,10 +34,14 @@ public class FlightOfferEntity {
     @Column(name = "total_duration_minutes")
     private int totalDurationMinutes;
 
-    @OneToMany(mappedBy = "flightOffer", cascade = CascadeType.ALL)
-    private List<FlightSegmentEntity> segments;
+    @OneToMany(
+            mappedBy = "flightOffer",
+            cascade = CascadeType.ALL
+    )
+    private List<FlightSegmentEntity> segments = new ArrayList<>();
 
-    public FlightOfferEntity() {}
+    public FlightOfferEntity() {
+    }
 
     public FlightOfferEntity(
             String origin,
@@ -45,8 +51,7 @@ public class FlightOfferEntity {
             String currency,
             String cabinClass,
             boolean requiresSelfTransfer,
-            int totalDurationMinutes,
-            List<FlightSegmentEntity> segments) {
+            int totalDurationMinutes) {
         this.origin = origin;
         this.destination = destination;
         this.departureDate = departureDate;
@@ -55,6 +60,10 @@ public class FlightOfferEntity {
         this.cabinClass = cabinClass;
         this.requiresSelfTransfer = requiresSelfTransfer;
         this.totalDurationMinutes = totalDurationMinutes;
-        this.segments = segments;
+    }
+
+    public void addSegment(FlightSegmentEntity segment) {
+        segments.add(segment);
+        segment.setFlightOffer(this);
     }
 }

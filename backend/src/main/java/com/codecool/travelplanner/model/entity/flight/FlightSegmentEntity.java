@@ -7,6 +7,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "flight_segments")
 public class FlightSegmentEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,7 +38,8 @@ public class FlightSegmentEntity {
     @JoinColumn(name = "flight_offer_id")
     private FlightOfferEntity flightOffer;
 
-    public FlightSegmentEntity() {}
+    public FlightSegmentEntity() {
+    }
 
     public FlightSegmentEntity(
             String carrier,
@@ -47,19 +49,18 @@ public class FlightSegmentEntity {
             String arrivalAirport,
             OffsetDateTime departureTime,
             OffsetDateTime arrivalTime,
-            int durationMinutes,
-            FlightOfferEntity flightOffer) {
+            int durationMinutes) {
         this.carrier = carrier;
         this.flightNumber = flightNumber;
         this.aircraft = aircraft;
         this.departureAirport = departureAirport;
-        this.arrivalAirport= arrivalAirport;
+        this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.durationMinutes = durationMinutes;
-        this.flightOffer = flightOffer;
-
     }
 
-
+    public void setFlightOffer(FlightOfferEntity flightOffer) {
+        this.flightOffer = flightOffer;
+    }
 }
