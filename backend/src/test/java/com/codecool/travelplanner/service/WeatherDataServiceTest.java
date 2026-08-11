@@ -43,11 +43,11 @@ class WeatherDataServiceTest {
 
         WeatherApiResponse response = service.getForecast(47.4979, 19.0402);
 
-        assertThat(response.forecasts()).hasSize(1);
-        assertThat(response.forecasts().getFirst().main().tempMin()).isEqualTo(19.8);
-        assertThat(response.forecasts().getFirst().main().tempMax()).isEqualTo(23.1);
-        assertThat(response.forecasts().getFirst().main().temp()).isEqualTo(21.5);
-        assertThat(response.forecasts().getFirst().weather().getFirst().description())
+        assertThat(response.list()).hasSize(1);
+        assertThat(response.list().get(0).main().tempMin()).isEqualTo(19.8);
+        assertThat(response.list().get(0).main().tempMax()).isEqualTo(23.1);
+        assertThat(response.list().get(0).main().temp()).isEqualTo(21.5);
+        assertThat(response.list().get(0).weather().get(0).description())
                 .isEqualTo("clear sky");
         server.verify(); // the request really happened
     }
