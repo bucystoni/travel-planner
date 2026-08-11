@@ -2,7 +2,7 @@ package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import org.springframework.stereotype.Service;
-import com.codecool.travelplanner.dto.WeatherApiResponse;
+import com.codecool.travelplanner.dto.weather.WeatherApiResponse;
 import org.springframework.web.client.RestClient;
 
 @Service
