@@ -1,9 +1,9 @@
-package com.codecool.travelplanner.integration.googleplaces;
+package com.codecool.travelplanner.repository.places;
 
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityResponseDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiResponseDto;
+import com.codecool.travelplanner.mapper.GooglePlaceMapper;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.POI;
+import com.codecool.travelplanner.repository.places.dto.*;
 import org.springframework.core.io.ClassPathResource;
 import tools.jackson.databind.ObjectMapper;
 
