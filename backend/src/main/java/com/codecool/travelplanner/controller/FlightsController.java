@@ -2,7 +2,7 @@ package com.codecool.travelplanner.controller;
 
 import com.codecool.travelplanner.api.FlightsApi;
 import com.codecool.travelplanner.model.FlightOfferDto;
-import com.codecool.travelplanner.service.ApiFlightDataService;
+
 import com.codecool.travelplanner.service.FlightDataProvider;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +20,10 @@ public class FlightsController implements FlightsApi {
 
     @Override
     public ResponseEntity<List<FlightOfferDto>> flightsGet(String destinationIataCode, String departureIataCode, LocalDate date) {
-        List<FlightOfferDto> tickets = flightDataProvider.getFlightOffers();
+        List<FlightOfferDto> tickets = flightDataProvider.getFlightOffers(
+                departureIataCode,
+                destinationIataCode,
+                date);
         return ResponseEntity.ok(tickets);
     }
 }

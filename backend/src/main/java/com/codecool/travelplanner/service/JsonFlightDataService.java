@@ -3,16 +3,15 @@ package com.codecool.travelplanner.service;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.mapper.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
-@Primary
 public class JsonFlightDataService implements FlightDataProvider{
 
     private final ObjectMapper objectMapper;
@@ -26,7 +25,9 @@ public class JsonFlightDataService implements FlightDataProvider{
     }
 
     @Override
-    public List<FlightOfferDto> getFlightOffers() {
+    public List<FlightOfferDto> getFlightOffers(String origin,
+                                                String destination,
+                                                LocalDate departureDate) {
         try {
             ClassPathResource resource =
                     new ClassPathResource("mock-data/ignav_response_BUD_to_LON_2026-08-27.json");
