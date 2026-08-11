@@ -1,7 +1,7 @@
 package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
-import com.codecool.travelplanner.dto.WeatherApiResponse;
+import com.codecool.travelplanner.dto.weather.WeatherApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
@@ -15,16 +15,16 @@ class WeatherDataServiceTest {
 
     // The answer we pretend OpenWeather sends back.
     private static final String FORECAST_JSON = """
-            {
-              "list": [
-                {
-                  "dt_txt": "2026-08-04 12:00:00",
-                  "main": { "temp": 21.5 },
-                  "weather": [ { "description": "clear sky" } ]
-                }
-              ]
-            }
-            """;
+    {
+      "list": [
+        {
+          "dt_txt": "2026-08-04 12:00:00",
+          "main": { "temp": 21.5, "temp_min": 19.8, "temp_max": 23.1 },
+          "weather": [ { "description": "clear sky" } ]
+        }
+      ]
+    }
+    """;
 
     @Test
     void getForecastReadsTemperatureAndDescription() {
@@ -43,9 +43,11 @@ class WeatherDataServiceTest {
 
         WeatherApiResponse response = service.getForecast(47.4979, 19.0402);
 
-        assertThat(response.getList()).hasSize(1);
-        assertThat(response.getList().get(0).getMain().getTemp()).isEqualTo(21.5);
-        assertThat(response.getList().get(0).getWeather().get(0).getDescription())
+        assertThat(response.forecasts()).hasSize(1);
+        assertThat(response.forecasts().getFirst().main().tempMin()).isEqualTo(19.8);
+        assertThat(response.forecasts().getFirst().main().tempMax()).isEqualTo(23.1);
+        assertThat(response.forecasts().getFirst().main().temp()).isEqualTo(21.5);
+        assertThat(response.forecasts().getFirst().weather().getFirst().description())
                 .isEqualTo("clear sky");
         server.verify(); // the request really happened
     }
