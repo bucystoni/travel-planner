@@ -1,11 +1,11 @@
-package com.codecool.travelplanner.integration.googleplaces;
+package com.codecool.travelplanner.mapper;
 
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GoogleCityResponseDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiDto;
-import com.codecool.travelplanner.integration.googleplaces.dto.GooglePoiResponseDto;
-import com.codecool.travelplanner.model.City;
-import com.codecool.travelplanner.model.POI;
+import com.codecool.travelplanner.dto.places.GoogleCityDto;
+import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
+import com.codecool.travelplanner.dto.places.GooglePoiDto;
+import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
+import com.codecool.travelplanner.repository.places.model.City;
+import com.codecool.travelplanner.repository.places.model.POI;
 
 import java.util.List;
 

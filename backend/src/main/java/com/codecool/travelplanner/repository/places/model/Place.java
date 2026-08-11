@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.model;
+package com.codecool.travelplanner.repository.places.model;
 
 public class Place {
     private final String id;

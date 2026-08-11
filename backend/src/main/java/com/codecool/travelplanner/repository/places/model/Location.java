@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.model;
+package com.codecool.travelplanner.repository.places.model;
 
 public record Location(double latitude, double longitude) {
 }
