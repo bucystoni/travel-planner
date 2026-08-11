@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.integration.googleplaces;
+package com.codecool.travelplanner.googleplaces;
 
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.POI;
