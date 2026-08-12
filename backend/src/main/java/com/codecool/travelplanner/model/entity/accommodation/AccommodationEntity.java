@@ -16,13 +16,17 @@ public class AccommodationEntity {
 
     private String url;
 
+    @Column(name = "city_name")
+    private String cityName;
+
     public AccommodationEntity() {}
 
-    public AccommodationEntity(Long id, String name, String address, String url) {
+    public AccommodationEntity(Long id, String name, String address, String url, String cityName) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.url = url;
+        this.cityName = cityName;
     }
 
     public Long getId() {
@@ -39,5 +43,9 @@ public class AccommodationEntity {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getCityName() {
+        return cityName;
     }
 }

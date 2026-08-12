@@ -16,13 +16,17 @@ public class RestaurantEntity {
 
     private String url;
 
+    @Column(name = "city_name")
+    private String cityName;
+
     public RestaurantEntity() {}
 
-    public RestaurantEntity(Long id, String name, String address, String url) {
+    public RestaurantEntity(Long id, String name, String address, String url, String cityName) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.url = url;
+        this.cityName = cityName;
     }
 
     public Long getId() {
@@ -39,5 +43,9 @@ public class RestaurantEntity {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getCityName() {
+        return cityName;
     }
 }
