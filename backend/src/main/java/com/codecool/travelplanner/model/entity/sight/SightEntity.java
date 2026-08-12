@@ -1,5 +1,6 @@
 package com.codecool.travelplanner.model.entity.sight;
 
+import com.codecool.travelplanner.model.entity.city.CityEntity;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,17 +17,17 @@ public class SightEntity {
 
     private String url;
 
-    @Column(name = "city_name")
-    private String cityName;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private CityEntity city;
 
     public SightEntity() {}
 
-    public SightEntity(Long id, String name, String address, String url, String cityName) {
+    public SightEntity(Long id, String name, String address, String url) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.url = url;
-        this.cityName = cityName;
     }
 
     public Long getId() {
@@ -45,7 +46,7 @@ public class SightEntity {
         return url;
     }
 
-    public String getCityName() {
-        return cityName;
+    public CityEntity getCity() {
+        return city;
     }
 }

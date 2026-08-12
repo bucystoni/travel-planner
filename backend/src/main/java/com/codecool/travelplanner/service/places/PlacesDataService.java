@@ -1,9 +1,7 @@
 package com.codecool.travelplanner.service.places;
 
-import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.mapper.GooglePlaceMapper;
 import com.codecool.travelplanner.model.City;
-import com.codecool.travelplanner.model.PointOfInterest;
 import com.codecool.travelplanner.model.PointOfInterestDto;
 import com.codecool.travelplanner.repository.places.PlacesSearchRepository;
 import org.springframework.stereotype.Service;

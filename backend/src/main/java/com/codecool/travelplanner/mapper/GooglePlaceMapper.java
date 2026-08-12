@@ -7,10 +7,13 @@ import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.PointOfInterest;
 import com.codecool.travelplanner.model.PointOfInterestDto;
+import com.codecool.travelplanner.model.entity.restaurant.RestaurantEntity;
 
 import java.util.List;
 
 public class GooglePlaceMapper {
+
+             // ==================== GOOGLE API --> PointOfInterestDto ==================== //
 
     public static PointOfInterestDto convertResponseToDto(City city, GooglePoiResponseDto poiResponse) {
         PointOfInterestDto poiDto = new PointOfInterestDto();
@@ -46,4 +49,7 @@ public class GooglePlaceMapper {
 
         return poi;
     }
+
+        // ==================== SQL Entity --> PointOfInterestDto ==================== //
+
 }
