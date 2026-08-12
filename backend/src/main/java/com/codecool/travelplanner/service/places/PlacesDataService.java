@@ -24,8 +24,18 @@ public class PlacesDataService {
         return currentCity;
     }
 
+    public PointOfInterestDto getAccommodations(String destinationName) {
+        City city = searchCity(destinationName);
+        return GooglePlaceMapper.convertResponseToDto(city, repository.searchAccomodations(city));
+    }
+
     public PointOfInterestDto getRestaurants(String destinationName) {
         City city = searchCity(destinationName);
         return GooglePlaceMapper.convertResponseToDto(city, repository.searchRestaurants(city));
+    }
+
+    public PointOfInterestDto getSights(String destinationName) {
+        City city = searchCity(destinationName);
+        return GooglePlaceMapper.convertResponseToDto(city, repository.searchSights(city));
     }
 }

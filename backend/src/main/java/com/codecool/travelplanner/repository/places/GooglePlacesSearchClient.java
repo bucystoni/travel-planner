@@ -47,7 +47,7 @@ public class GooglePlacesSearchClient implements PlacesSearchRepository {
     }
 
     @Override
-    public GooglePoiResponseDto searchHotels(City city) {
+    public GooglePoiResponseDto searchAccomodations(City city) {
         String search = "hotels in " + city.getName();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")

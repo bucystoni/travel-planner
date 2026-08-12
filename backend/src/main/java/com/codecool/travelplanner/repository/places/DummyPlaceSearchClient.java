@@ -51,7 +51,7 @@ public class DummyPlaceSearchClient implements PlacesSearchRepository {
     }
 
     @Override
-    public GooglePoiResponseDto searchHotels(City city) {
+    public GooglePoiResponseDto searchAccomodations(City city) {
         return searchPoi(city, "hotels");
     }
 

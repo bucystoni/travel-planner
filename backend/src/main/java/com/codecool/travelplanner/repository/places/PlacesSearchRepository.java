@@ -9,7 +9,7 @@ public interface PlacesSearchRepository {
 
     GooglePoiResponseDto searchRestaurants(City city);
 
-    GooglePoiResponseDto searchHotels(City city);
+    GooglePoiResponseDto searchAccomodations(City city);
 
     GooglePoiResponseDto searchSights(City city);
 
