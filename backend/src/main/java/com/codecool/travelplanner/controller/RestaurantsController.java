@@ -3,8 +3,10 @@ package com.codecool.travelplanner.controller;
 import com.codecool.travelplanner.api.RestaurantsApi;
 import com.codecool.travelplanner.model.PointOfInterestDto;
 import com.codecool.travelplanner.service.places.PlacesDataService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 @RestController
@@ -19,6 +21,7 @@ public class RestaurantsController implements RestaurantsApi {
     @Override
     public ResponseEntity<PointOfInterestDto> restaurantsGet(String destinationName) {
 
-        return null;
+        PointOfInterestDto restaurants = placesDataService.getRestaurants(destinationName);
+        return new ResponseEntity<>(restaurants, HttpStatus.OK);
     }
 }

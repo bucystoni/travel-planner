@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 
-@Component
-public class GooglePlacesSearchClient implements PlacesSearchClient{
+public class GooglePlacesSearchClient implements PlacesSearchRepository {
     private final RestClient restClient;
 
     public GooglePlacesSearchClient(RestClient.Builder builder, @Value("${google.places.api-key}") String apiKey) {
@@ -43,7 +42,6 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
                 .body(new GoogleSearchTextRequestDto(search, "restaurant"))
                 .retrieve()
                 .body(GooglePoiResponseDto.class);
-
 
         return response;
     }

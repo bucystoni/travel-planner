@@ -4,16 +4,18 @@ import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-public class DummyPlaceSearchClient implements PlacesSearchClient {
+@Component
+public class DummyPlaceSearchClient implements PlacesSearchRepository {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
     private String buildFilePath(String cityName, String type) {
-        return "mock-data/" + cityName.toLowerCase() + "-" + type + ".json";
+        return "mock-data/" + type + "-" + cityName.toLowerCase() + ".json";
     }
 
     private String buildFilePathForCity(String cityName) {

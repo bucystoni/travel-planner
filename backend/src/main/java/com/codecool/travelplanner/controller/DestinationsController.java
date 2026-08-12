@@ -27,4 +27,6 @@ public class DestinationsController implements DestinationsApi {
                 date);
         return ResponseEntity.ok(tickets);
     }
+
+
 }

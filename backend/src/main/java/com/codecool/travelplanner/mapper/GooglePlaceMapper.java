@@ -12,9 +12,9 @@ import java.util.List;
 
 public class GooglePlaceMapper {
 
-    public static PointOfInterestDto convertResponseToDto(GoogleCityResponseDto cityResponse, GooglePoiResponseDto poiResponse) {
+    public static PointOfInterestDto convertResponseToDto(City city, GooglePoiResponseDto poiResponse) {
         PointOfInterestDto poiDto = new PointOfInterestDto();
-        poiDto.setCity(convertResponseToCityList(cityResponse).getFirst());
+        poiDto.setCity(city);
         poiDto.setPointsOfInterest(convertResponseToPoiList(poiResponse));
 
         return poiDto;
@@ -25,7 +25,7 @@ public class GooglePlaceMapper {
         return dto.getPlaces().stream().map(GooglePlaceMapper::convertDtoToPoi).toList();
     }
 
-    private static List<City> convertResponseToCityList(GoogleCityResponseDto dto) {
+    public static List<City> convertResponseToCityList(GoogleCityResponseDto dto) {
         return dto.getPlaces().stream().map(GooglePlaceMapper::convertDtoToCity).toList();
     }
 

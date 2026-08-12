@@ -1,17 +1,31 @@
 package com.codecool.travelplanner.service.places;
 
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
+import com.codecool.travelplanner.mapper.GooglePlaceMapper;
+import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.PointOfInterest;
-import com.codecool.travelplanner.repository.places.PlacesSearchClient;
+import com.codecool.travelplanner.model.PointOfInterestDto;
+import com.codecool.travelplanner.repository.places.PlacesSearchRepository;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class PlacesDataService {
-    private final PlacesSearchClient placesSearchClient;
+    private final PlacesSearchRepository repository;
+    private City currentCity;
 
-    public PlacesDataService(PlacesSearchClient placesSearchClient) {
-        this.placesSearchClient = placesSearchClient;
+    public PlacesDataService(PlacesSearchRepository repository) {
+        this.repository = repository;
+        this.currentCity = null;
     }
 
-    public PointOfInterest searchCity(GoogleCityResponseDto response) {
-        return null;
-    };
+    public City searchCity(String destinationName) {
+        currentCity = GooglePlaceMapper.convertResponseToCityList(repository.searchCity(destinationName)).getFirst();
+        return currentCity;
+    }
+
+    public PointOfInterestDto getRestaurants(String destinationName) {
+        City city = searchCity(destinationName);
+        return GooglePlaceMapper.convertResponseToDto(city, repository.searchRestaurants(city));
+    }
 }
