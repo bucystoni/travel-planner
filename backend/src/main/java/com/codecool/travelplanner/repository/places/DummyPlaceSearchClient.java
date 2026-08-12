@@ -9,7 +9,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-@Component
+
 public class DummyPlaceSearchClient implements PlacesSearchRepository {
 
     private final ObjectMapper mapper = new ObjectMapper();
