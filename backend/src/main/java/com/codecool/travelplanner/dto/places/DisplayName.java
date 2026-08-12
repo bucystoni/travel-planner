@@ -1,3 +1,3 @@
-package com.codecool.travelplanner.repository.places.dto;
+package com.codecool.travelplanner.dto.places;
 
 public record DisplayName(String text, String languageCode) {}

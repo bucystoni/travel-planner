@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.repository.places.dto;
+package com.codecool.travelplanner.dto.places;
 
 import java.util.List;
 

@@ -92,8 +92,6 @@ paths:
           schema:
             type: string
             format: date
-
-
       responses:
         '200':
           description: List of available flights
@@ -120,9 +118,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Accommodation'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /restaurants:
     get:
@@ -140,9 +136,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Restaurant'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /sights:
     get:
@@ -160,9 +154,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Sight'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /trips:
     get:
@@ -332,41 +324,37 @@ components:
           type: integer
           format: int32
 
-    Accommodation:
+    PointOfInterest:
       type: object
       properties:
-        id:
-          type: string
         name:
           type: string
-        address:
+        url:
           type: string
-        websiteUri:
+        address:
           type: string
 
-    Restaurant:
+    City:
       type: object
       properties:
-        id:
-          type: string
         name:
           type: string
-        address:
-          type: string
-        websiteUri:
-          type: string
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
 
-    Sight:
+    PointOfInterestDto:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        address:
-          type: string
-        websiteUri:
-          type: string
+        city:
+          $ref: '#/components/schemas/City'
+        pointsOfInterest:
+          type: array
+          items:
+            $ref: '#/components/schemas/PointOfInterest'
 
     Trip:
       type: object
@@ -380,15 +368,15 @@ components:
         restaurant:
           type: array
           items:
-            $ref: '#/components/schemas/Restaurant'
+            $ref: '#/components/schemas/PointOfInterest'
         accommodation:
           type: array
           items:
-            $ref: '#/components/schemas/Accommodation'
+            $ref: '#/components/schemas/PointOfInterest'
         sight:
           type: array
           items:
-            $ref: '#/components/schemas/Sight'
+            $ref: '#/components/schemas/PointOfInterest'
         departureDate:
           type: string
           format: date
@@ -406,15 +394,15 @@ components:
         restaurant:
           type: array
           items:
-            $ref: '#/components/schemas/Restaurant'
+            $ref: '#/components/schemas/PointOfInterest'
         accommodation:
           type: array
           items:
-            $ref: '#/components/schemas/Accommodation'
+            $ref: '#/components/schemas/PointOfInterest'
         sight:
           type: array
           items:
-            $ref: '#/components/schemas/Sight'
+            $ref: '#/components/schemas/PointOfInterest'
         departureDate:
           type: string
           format: date
