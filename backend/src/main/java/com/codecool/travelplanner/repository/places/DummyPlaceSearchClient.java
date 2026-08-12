@@ -8,7 +8,6 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-
 public class DummyPlaceSearchClient implements PlacesSearchClient {
 
     private final ObjectMapper mapper = new ObjectMapper();
@@ -27,7 +26,6 @@ public class DummyPlaceSearchClient implements PlacesSearchClient {
             String path = buildFilePathForCity(cityName);
             ClassPathResource resource = new ClassPathResource(path);
             GoogleCityResponseDto response = mapper.readValue(resource.getInputStream(), GoogleCityResponseDto.class);
-            //return GooglePlaceMapper.convertResponseToCityList(response).getFirst();
             return response;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -39,7 +37,6 @@ public class DummyPlaceSearchClient implements PlacesSearchClient {
             String path = buildFilePath(city.getName(), type);
             ClassPathResource resource = new ClassPathResource(path);
             GooglePoiResponseDto response = mapper.readValue(resource.getInputStream(), GooglePoiResponseDto.class);
-            //return GooglePlaceMapper.convertResponseToPoiList(response);
             return response;
         } catch (IOException e) {
             throw new RuntimeException(e);

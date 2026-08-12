@@ -50,7 +50,7 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
 
     @Override
     public GooglePoiResponseDto searchHotels(City city) {
-        String search = "hotels in " + city.toString();
+        String search = "hotels in " + city.getName();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")
                 .header("X-Goog-FieldMask", "places.id,places.formattedAddress,places.websiteUri,places.displayName")
@@ -63,7 +63,7 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
 
     @Override
     public GooglePoiResponseDto searchSights(City city) {
-        String search = "sights in " + city.toString();
+        String search = "sights in " + city.getName();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")
                 .header("X-Goog-FieldMask", "places.id,places.formattedAddress,places.websiteUri,places.displayName")

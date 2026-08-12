@@ -118,9 +118,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PointOfInterest'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /restaurants:
     get:
@@ -138,9 +136,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PointOfInterest'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /sights:
     get:
@@ -158,9 +154,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PointOfInterest'
+                $ref: '#/components/schemas/PointOfInterestDto'
 
   /trips:
     get:
@@ -339,6 +333,28 @@ components:
           type: string
         address:
           type: string
+
+    City:
+      type: object
+      properties:
+        name:
+          type: string
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+
+    PointOfInterestDto:
+      type: object
+      properties:
+        city:
+          $ref: '#/components/schemas/City'
+        pointsOfInterest:
+          type: array
+          items:
+            $ref: '#/components/schemas/PointOfInterest'
 
     Trip:
       type: object
