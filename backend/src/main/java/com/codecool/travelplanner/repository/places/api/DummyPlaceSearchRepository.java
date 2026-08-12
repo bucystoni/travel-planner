@@ -3,7 +3,6 @@ package com.codecool.travelplanner.repository.places.api;
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
-import com.codecool.travelplanner.repository.places.PlacesSearchRepository;
 import org.springframework.core.io.ClassPathResource;
 import tools.jackson.databind.ObjectMapper;
 

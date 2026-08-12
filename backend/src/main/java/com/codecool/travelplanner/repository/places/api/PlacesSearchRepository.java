@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.repository.places;
+package com.codecool.travelplanner.repository.places.api;
 
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
