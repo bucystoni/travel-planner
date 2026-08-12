@@ -1,15 +1,14 @@
 package com.codecool.travelplanner.repository.places;
 
 
-import com.codecool.travelplanner.mapper.GooglePlaceMapper;
+import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
+import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
+import com.codecool.travelplanner.dto.places.GoogleSearchTextRequestDto;
 import com.codecool.travelplanner.model.City;
-import com.codecool.travelplanner.model.POI;
-import com.codecool.travelplanner.repository.places.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-import java.util.List;
 
 @Component
 public class GooglePlacesSearchClient implements PlacesSearchClient{
@@ -23,22 +22,21 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
     }
 
     @Override
-    public City searchCity(String search) { // TODO: Implement CityNotFoundException
+    public GoogleCityResponseDto searchCity(String cityName) { // TODO: Implement CityNotFoundException
         GoogleCityResponseDto response = restClient.post()
                 .uri("/places:searchText")
                 .header("X-Goog-FieldMask", "places.id,places.displayName,places.location")
-                .body(new GoogleSearchTextRequestDto(search, "locality"))
+                .body(new GoogleSearchTextRequestDto(cityName, "locality"))
                 .retrieve()
                 .body(GoogleCityResponseDto.class);
 
-        List<City> results = GooglePlaceMapper.convertResponseToCityList(response);
-        return results.getFirst();
+        return response;
     }
 
 
     @Override
-    public List<POI> searchRestaurants(City city) {
-        String search = "restaurants in " + city.toString();
+    public GooglePoiResponseDto searchRestaurants(City city) {
+        String search = "restaurants in " + city.getName();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")
                 .header("X-Goog-FieldMask", "places.id,places.formattedAddress,places.websiteUri,places.displayName")
@@ -46,11 +44,12 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
                 .retrieve()
                 .body(GooglePoiResponseDto.class);
 
-        return GooglePlaceMapper.convertResponseToPoiList(response);
+
+        return response;
     }
 
     @Override
-    public List<POI> searchHotels(City city) {
+    public GooglePoiResponseDto searchHotels(City city) {
         String search = "hotels in " + city.toString();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")
@@ -59,11 +58,11 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
                 .retrieve()
                 .body(GooglePoiResponseDto.class);
 
-        return GooglePlaceMapper.convertResponseToPoiList(response);
+        return response;
     }
 
     @Override
-    public List<POI> searchSights(City city) {
+    public GooglePoiResponseDto searchSights(City city) {
         String search = "sights in " + city.toString();
         GooglePoiResponseDto response = restClient.post()
                 .uri("/places:searchText")
@@ -72,6 +71,6 @@ public class GooglePlacesSearchClient implements PlacesSearchClient{
                 .retrieve()
                 .body(GooglePoiResponseDto.class);
 
-        return GooglePlaceMapper.convertResponseToPoiList(response);
+        return response;
     }
 }

@@ -1,6 +1,9 @@
 package com.codecool.travelplanner.mapper;
 
-import com.codecool.travelplanner.repository.places.dto.*;
+import com.codecool.travelplanner.dto.places.GoogleCityDto;
+import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
+import com.codecool.travelplanner.dto.places.GooglePoiDto;
+import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.POI;
 
