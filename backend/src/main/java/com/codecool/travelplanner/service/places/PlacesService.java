@@ -4,6 +4,7 @@ import com.codecool.travelplanner.dto.places.GoogleCityDto;
 import com.codecool.travelplanner.dto.places.GooglePoiDto;
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
+import com.codecool.travelplanner.exception.CityNotFoundException;
 import com.codecool.travelplanner.mapper.places.PlacesEntityMapper;
 import com.codecool.travelplanner.mapper.places.PlacesMapper;
 import com.codecool.travelplanner.model.City;
@@ -45,14 +46,16 @@ public class PlacesService {
 
     public CityEntity searchCity(String destinationName) {
         CityEntity cityEntity;
-        Optional<List<CityEntity>> databaseCities = cityRepository.findByName(destinationName);
+        List<CityEntity> databaseCities = cityRepository.findByName(destinationName);
 
-        if (databaseCities.isPresent()) {
-            cityEntity = databaseCities.get().getFirst();
+        if (!databaseCities.isEmpty()) {
+            cityEntity = databaseCities.getFirst();
             return cityEntity;
-
         } else {
             GoogleCityResponseDto cityResponse = repository.searchCity(destinationName);
+            if (cityResponse.getPlaces() == null || cityResponse.getPlaces().isEmpty()) {
+                throw new CityNotFoundException(destinationName);
+            }
             GoogleCityDto cityDto = cityResponse.getPlaces().getFirst();
 
             cityEntity = entityMapper.toCity(cityDto);
@@ -77,6 +80,7 @@ public class PlacesService {
 
         } else {
             GooglePoiResponseDto accommodations = repository.searchAccomodations(cityDto);
+
             List<AccommodationEntity> accommodationEntities = entityMapper.toAccommodations(accommodations, cityEntity);
             accommodationRepository.saveAll(accommodationEntities);
 
@@ -100,7 +104,7 @@ public class PlacesService {
             return dto;
 
         } else{
-            GooglePoiResponseDto restaurants = repository.searchAccomodations(cityDto);
+            GooglePoiResponseDto restaurants = repository.searchRestaurants(cityDto);
             List<RestaurantEntity> restaurantEntities = entityMapper.toRestaurants(restaurants, cityEntity);
             restaurantRepository.saveAll(restaurantEntities);
 
