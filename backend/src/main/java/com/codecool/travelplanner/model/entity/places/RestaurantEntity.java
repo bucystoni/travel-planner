@@ -8,7 +8,7 @@ public class RestaurantEntity extends PlaceEntity {
 
     public RestaurantEntity(){}
 
-    public RestaurantEntity(Long id, String name, String address, String url, CityEntity city) {
-        super(id, name, address, url, city);
+    public RestaurantEntity(String name, String address, String url, CityEntity city) {
+        super( name, address, url, city);
     }
 }

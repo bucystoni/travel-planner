@@ -21,8 +21,7 @@ public abstract class PlaceEntity {
 
     public PlaceEntity() {}
 
-    public PlaceEntity(Long id, String name, String address, String url, CityEntity city) {
-        this.id = id;
+    public PlaceEntity(String name, String address, String url, CityEntity city) {
         this.name = name;
         this.address = address;
         this.url = url;

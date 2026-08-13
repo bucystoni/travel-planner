@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.mapper;
+package com.codecool.travelplanner.mapper.flight;
 
 import com.codecool.travelplanner.dto.flight.FlightSegmentDto;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;

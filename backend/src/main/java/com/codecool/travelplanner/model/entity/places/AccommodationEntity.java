@@ -8,7 +8,7 @@ public class AccommodationEntity extends PlaceEntity {
 
     public AccommodationEntity() {}
 
-    public AccommodationEntity(Long id, String name, String address, String url, CityEntity city) {
-        super(id, name, address, url, city);
+    public AccommodationEntity(String name, String address, String url, CityEntity city) {
+        super(name, address, url, city);
     }
 }

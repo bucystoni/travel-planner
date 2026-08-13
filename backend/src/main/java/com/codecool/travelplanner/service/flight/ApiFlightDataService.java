@@ -2,7 +2,7 @@ package com.codecool.travelplanner.service.flight;
 
 import com.codecool.travelplanner.configuration.IgnavConfig;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
-import com.codecool.travelplanner.mapper.FlightMapper;
+import com.codecool.travelplanner.mapper.flight.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;

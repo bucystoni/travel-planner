@@ -2,7 +2,7 @@ package com.codecool.travelplanner.controller;
 
 import com.codecool.travelplanner.api.RestaurantsApi;
 import com.codecool.travelplanner.model.PointOfInterestDto;
-import com.codecool.travelplanner.service.places.PlacesDataService;
+import com.codecool.travelplanner.service.places.PlacesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestaurantsController implements RestaurantsApi {
 
-    private final PlacesDataService placesDataService;
+    private final PlacesService placesDataService;
 
-    public RestaurantsController(PlacesDataService placesDataService) {
+    public RestaurantsController(PlacesService placesDataService) {
         this.placesDataService = placesDataService;
     }
 

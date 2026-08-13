@@ -8,7 +8,7 @@ public class SightEntity extends PlaceEntity {
 
     public SightEntity() {}
 
-    public SightEntity(Long id, String name, String address, String url, CityEntity city) {
-        super(id, name, address, url, city);
+    public SightEntity( String name, String address, String url, CityEntity city) {
+        super( name, address, url, city);
     }
 }

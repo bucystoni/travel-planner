@@ -19,13 +19,13 @@ public class CityEntity {
 
     private double latitude;
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
     private List<RestaurantEntity> restaurants = new ArrayList<>();
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
     private List<AccommodationEntity> accommodations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
     private List<SightEntity> sights = new ArrayList<>();
 
     public CityEntity() {}

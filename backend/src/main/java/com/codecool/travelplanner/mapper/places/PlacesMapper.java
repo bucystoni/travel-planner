@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.mapper;
+package com.codecool.travelplanner.mapper.places;
 
 import com.codecool.travelplanner.dto.places.GoogleCityDto;
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
@@ -12,7 +12,7 @@ import com.codecool.travelplanner.model.entity.places.PlaceEntity;
 
 import java.util.List;
 
-public class GooglePlaceMapper {
+public class PlacesMapper {
 
              // ==================== GOOGLE API --> PointOfInterestDto ==================== //
 
@@ -26,11 +26,11 @@ public class GooglePlaceMapper {
     }
 
     private static List<PointOfInterest> convertResponseToPoiList(GooglePoiResponseDto dto) {
-        return dto.getPlaces().stream().map(GooglePlaceMapper::convertDtoToPoi).toList();
+        return dto.getPlaces().stream().map(PlacesMapper::convertDtoToPoi).toList();
     }
 
     public static List<City> convertResponseToCityList(GoogleCityResponseDto dto) {
-        return dto.getPlaces().stream().map(GooglePlaceMapper::convertDtoToCity).toList();
+        return dto.getPlaces().stream().map(PlacesMapper::convertDtoToCity).toList();
     }
 
     private static City convertDtoToCity(GoogleCityDto dto) {
