@@ -4,7 +4,8 @@ import com.codecool.travelplanner.model.entity.places.RestaurantEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RestaurantRepository extends JpaRepository<RestaurantEntity, Long> {
-    List<RestaurantEntity> findByCityName(String cityName);
+    Optional<List<RestaurantEntity>> findByCityName(String cityName);
 }

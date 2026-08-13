@@ -13,4 +13,6 @@ public interface PlacesSearchRepository {
 
     GooglePoiResponseDto searchSights(City city);
 
+
+
 }
