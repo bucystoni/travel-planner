@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.repository.places;
+package com.codecool.travelplanner.repository.places.api;
 
 
 import com.codecool.travelplanner.configuration.GoogleConfig;
@@ -6,16 +6,15 @@ import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.dto.places.GoogleSearchTextRequestDto;
 import com.codecool.travelplanner.model.City;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 @Component
-public class GooglePlacesSearchClient implements PlacesSearchRepository {
+public class GooglePlacesSearchRepository implements PlacesSearchRepository {
     private final RestClient restClient;
     private final GoogleConfig config;
 
-    public GooglePlacesSearchClient(RestClient.Builder builder, GoogleConfig config) {
+    public GooglePlacesSearchRepository(RestClient.Builder builder, GoogleConfig config) {
         this.config = config;
         this.restClient = builder
                 .baseUrl(config.getBaseUrl())

@@ -1,6 +1,6 @@
 package com.codecool.travelplanner.service.flight;
 
-import com.codecool.travelplanner.mapper.FlightMapper;
+import com.codecool.travelplanner.mapper.flight.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.repository.flight.FlightOfferRepository;

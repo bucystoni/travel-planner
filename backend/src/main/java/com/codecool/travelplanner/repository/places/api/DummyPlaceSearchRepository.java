@@ -1,16 +1,15 @@
-package com.codecool.travelplanner.repository.places;
+package com.codecool.travelplanner.repository.places.api;
 
 import com.codecool.travelplanner.dto.places.GoogleCityResponseDto;
 import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
 
-public class DummyPlaceSearchClient implements PlacesSearchRepository {
+public class DummyPlaceSearchRepository implements PlacesSearchRepository {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
