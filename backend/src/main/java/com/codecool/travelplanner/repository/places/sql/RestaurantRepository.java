@@ -1,6 +1,6 @@
 package com.codecool.travelplanner.repository.places.sql;
 
-import com.codecool.travelplanner.model.entity.restaurant.RestaurantEntity;
+import com.codecool.travelplanner.model.entity.places.RestaurantEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

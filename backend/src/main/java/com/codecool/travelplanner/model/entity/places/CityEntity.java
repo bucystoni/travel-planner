@@ -1,8 +1,5 @@
-package com.codecool.travelplanner.model.entity.city;
+package com.codecool.travelplanner.model.entity.places;
 
-import com.codecool.travelplanner.model.entity.accommodation.AccommodationEntity;
-import com.codecool.travelplanner.model.entity.restaurant.RestaurantEntity;
-import com.codecool.travelplanner.model.entity.sight.SightEntity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

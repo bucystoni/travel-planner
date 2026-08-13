@@ -1,11 +1,9 @@
-package com.codecool.travelplanner.model.entity.accommodation;
+package com.codecool.travelplanner.model.entity.places;
 
-import com.codecool.travelplanner.model.entity.city.CityEntity;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "accommodations")
-public class AccommodationEntity {
+@MappedSuperclass
+public abstract class PlaceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +19,14 @@ public class AccommodationEntity {
     @JoinColumn(name = "city_id")
     private CityEntity city;
 
-    public AccommodationEntity() {}
+    public PlaceEntity() {}
 
-    public AccommodationEntity(Long id, String name, String address, String url) {
+    public PlaceEntity(Long id, String name, String address, String url, CityEntity city) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.url = url;
+        this.city = city;
     }
 
     public Long getId() {

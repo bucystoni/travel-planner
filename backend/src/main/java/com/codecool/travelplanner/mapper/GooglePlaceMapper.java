@@ -7,9 +7,8 @@ import com.codecool.travelplanner.dto.places.GooglePoiResponseDto;
 import com.codecool.travelplanner.model.City;
 import com.codecool.travelplanner.model.PointOfInterest;
 import com.codecool.travelplanner.model.PointOfInterestDto;
-import com.codecool.travelplanner.model.entity.accommodation.AccommodationEntity;
-import com.codecool.travelplanner.model.entity.restaurant.RestaurantEntity;
-import com.codecool.travelplanner.model.entity.sight.SightEntity;
+import com.codecool.travelplanner.model.entity.places.PlaceEntity;
+
 
 import java.util.List;
 
@@ -54,75 +53,27 @@ public class GooglePlaceMapper {
 
         // ==================== SQL Entity --> PointOfInterestDto ==================== //
 
-    public PointOfInterestDto convertAccommodationEntityToPointOfInterestDto(List<AccommodationEntity> entities) {
+    public PointOfInterestDto convertPlaceEntityToPointOfInterestDto(List<PlaceEntity> entities) {
         City city = new City();
         city.setName(entities.getFirst().getCity().getName());
         city.setLongitude(entities.getFirst().getCity().getLongitude());
         city.setLatitude(entities.getFirst().getCity().getLatitude());
 
-        List<PointOfInterest> accommodations = entities.stream()
-                .map(this::convertAccommodationEntityToPointOfInterest).toList();
+        List<PointOfInterest> places = entities.stream()
+                .map(this::convertPlaceEntityToPointOfInterest).toList();
 
         PointOfInterestDto poiDto = new PointOfInterestDto();
         poiDto.setCity(city);
-        poiDto.setPointsOfInterest(accommodations);
+        poiDto.setPointsOfInterest(places);
 
         return poiDto;
     }
 
-    private PointOfInterest convertAccommodationEntityToPointOfInterest(AccommodationEntity accommodationEntity) {
-        PointOfInterest accommodation = new PointOfInterest();
-        accommodation.setName(accommodationEntity.getName());
-        accommodation.setAddress(accommodationEntity.getAddress());
-        accommodation.setUrl(accommodationEntity.getUrl());
-        return accommodation;
-    }
-
-    public PointOfInterestDto convertRestaurantEntityToPointOfInterestDto(List<RestaurantEntity> entities) {
-        City city = new City();
-        city.setName(entities.getFirst().getCity().getName());
-        city.setLongitude(entities.getFirst().getCity().getLongitude());
-        city.setLatitude(entities.getFirst().getCity().getLatitude());
-
-        List<PointOfInterest> restaurants = entities.stream()
-                .map(this::convertRestaurantEntityToPointOfInterest).toList();
-
-        PointOfInterestDto poiDto = new PointOfInterestDto();
-        poiDto.setCity(city);
-        poiDto.setPointsOfInterest(restaurants);
-
-        return poiDto;
-    }
-
-    private PointOfInterest convertRestaurantEntityToPointOfInterest(RestaurantEntity restaurantEntity) {
-        PointOfInterest restaurant = new PointOfInterest();
-        restaurant.setName(restaurantEntity.getName());
-        restaurant.setAddress(restaurantEntity.getAddress());
-        restaurant.setUrl(restaurantEntity.getUrl());
-        return restaurant;
-    }
-
-    public PointOfInterestDto convertSightEntityToPointOfInterestDto(List<SightEntity> entities) {
-        City city = new City();
-        city.setName(entities.getFirst().getCity().getName());
-        city.setLongitude(entities.getFirst().getCity().getLongitude());
-        city.setLatitude(entities.getFirst().getCity().getLatitude());
-
-        List<PointOfInterest> sights = entities.stream()
-                .map(this::convertSightEntityToPointOfInterest).toList();
-
-        PointOfInterestDto poiDto = new PointOfInterestDto();
-        poiDto.setCity(city);
-        poiDto.setPointsOfInterest(sights);
-
-        return poiDto;
-    }
-
-    private PointOfInterest convertSightEntityToPointOfInterest(SightEntity sightEntity) {
-        PointOfInterest sight = new PointOfInterest();
-        sight.setName(sightEntity.getName());
-        sight.setAddress(sightEntity.getAddress());
-        sight.setUrl(sightEntity.getUrl());
-        return sight;
+    private PointOfInterest convertPlaceEntityToPointOfInterest(PlaceEntity entity) {
+        PointOfInterest place = new PointOfInterest();
+        place.setName(entity.getName());
+        place.setAddress(entity.getAddress());
+        place.setUrl(entity.getUrl());
+        return place;
     }
 }
