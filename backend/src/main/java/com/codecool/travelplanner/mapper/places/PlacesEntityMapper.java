@@ -12,16 +12,30 @@ import java.util.List;
 public class PlacesEntityMapper {
 
     public List<AccommodationEntity> toAccommodations(GooglePoiResponseDto response, CityEntity city) {
-        return response.getPlaces().stream().map(place -> toAccommodation(place, city)).toList();
+        if (response.getPlaces() == null) {
+            return List.of(); // if there are no results in response return empty list
+        }
+
+        return response.getPlaces()
+                .stream()
+                .map(place -> toAccommodation(place, city)).toList();
     }
 
     public List<RestaurantEntity> toRestaurants(GooglePoiResponseDto response, CityEntity city) {
+        if (response.getPlaces() == null) {
+            return List.of(); // if there are no results in response return empty list
+        }
+
         return response.getPlaces()
                 .stream()
                 .map(place -> toRestaurant(place, city)).toList();
     }
 
     public List<SightEntity> toSights(GooglePoiResponseDto response, CityEntity city) {
+        if (response.getPlaces() == null) {
+            return List.of(); // if there are no results in response return empty list
+        }
+
         return response.getPlaces()
                 .stream()
                 .map(place -> toSight(place, city)).toList();

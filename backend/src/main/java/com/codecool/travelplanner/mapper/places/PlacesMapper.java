@@ -28,8 +28,10 @@ public class PlacesMapper {
         return poiDto;
     }
 
-    private static List<PointOfInterest> convertResponseToPoiList(
-            GooglePoiResponseDto dto) {
+    private static List<PointOfInterest> convertResponseToPoiList(GooglePoiResponseDto dto) {
+        if (dto.getPlaces() == null) {
+            return List.of(); // if there are no results in response return empty list
+        }
 
         return dto.getPlaces()
                 .stream()
@@ -37,8 +39,7 @@ public class PlacesMapper {
                 .toList();
     }
 
-    public static List<City> convertResponseToCityList(
-            GoogleCityResponseDto dto) {
+    public static List<City> convertResponseToCityList(GoogleCityResponseDto dto) {
 
         return dto.getPlaces()
                 .stream()
