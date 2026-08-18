@@ -39,13 +39,15 @@ public class PlacesDataImportService {
     }
 
     public void importPlacesData() {
-        GoogleCityDto dto = getCity();
-        CityEntity city = placesEntityMapper.toCity(dto);
-        cityRepository.save(city);
+        GoogleCityDto cityDto = getCity();
 
-        List<AccommodationEntity> accommodations = placesEntityMapper.toAccommodations(getAccommodation(), city);
-        List<RestaurantEntity> restaurants = placesEntityMapper.toRestaurants(getRestaurant(), city);
-        List<SightEntity> sights = placesEntityMapper.toSights(getSight(), city);
+        CityEntity cityEntity = cityRepository.findByName(cityDto.displayName().text())
+                .stream().findFirst()
+                .orElseGet(() -> cityRepository.save(placesEntityMapper.toCity(cityDto)));
+
+        List<AccommodationEntity> accommodations = placesEntityMapper.toAccommodations(getAccommodation(), cityEntity);
+        List<RestaurantEntity> restaurants = placesEntityMapper.toRestaurants(getRestaurant(), cityEntity);
+        List<SightEntity> sights = placesEntityMapper.toSights(getSight(), cityEntity);
 
         accommodationRepository.saveAll(accommodations);
         restaurantRepository.saveAll(restaurants);
@@ -83,7 +85,6 @@ public class PlacesDataImportService {
     }
 
     private GoogleCityDto getCity() {
-
         try {
             ClassPathResource rescource = new ClassPathResource("mock-data/london.json");
             GoogleCityResponseDto responses = objectMapper.readValue(rescource.getInputStream(), GoogleCityResponseDto.class);
@@ -95,8 +96,6 @@ public class PlacesDataImportService {
     }
 
     public boolean isDatabaseInitialized() {
-        return accommodationRepository.count() > 0
-                && restaurantRepository.count() > 0
-                && sightRepository.count() > 0;
+        return !cityRepository.findByName("London").isEmpty();
     }
 }

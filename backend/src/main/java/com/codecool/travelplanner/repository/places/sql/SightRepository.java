@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SightRepository extends JpaRepository<SightEntity, Long> {
-    Optional<List<SightEntity>> findByCityName(String cityName);
+    List<SightEntity> findByCityName(String cityName);
 }
