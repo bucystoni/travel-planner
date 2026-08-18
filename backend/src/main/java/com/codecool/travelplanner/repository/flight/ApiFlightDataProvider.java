@@ -1,9 +1,9 @@
-package com.codecool.travelplanner.service.flight;
+package com.codecool.travelplanner.repository.flight;
 
 import com.codecool.travelplanner.configuration.IgnavConfig;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
-import com.codecool.travelplanner.mapper.flight.FlightMapper;
-import com.codecool.travelplanner.model.FlightOfferDto;
+import com.codecool.travelplanner.mapper.flight.FlightEntityMapper;
+import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -11,23 +11,22 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class ApiFlightDataService implements FlightDataProvider {
-
-    private final RestClient restClient;
+public class ApiFlightDataProvider implements FlightDataProvider {
+    private final FlightEntityMapper entityMapper;
     private final IgnavConfig ignavConfig;
-    private final FlightMapper flightMapper;
+    private final RestClient restClient;
 
-    public ApiFlightDataService(RestClient restClient, IgnavConfig ignavConfig, FlightMapper flightMapper) {
-        this.restClient = restClient;
+    public ApiFlightDataProvider(
+            FlightEntityMapper entityMapper,
+            IgnavConfig ignavConfig,
+            RestClient restClient) {
+        this.entityMapper = entityMapper;
         this.ignavConfig = ignavConfig;
-        this.flightMapper = flightMapper;
+        this.restClient = restClient;
     }
 
     @Override
-    public List<FlightOfferDto> getFlightOffers(String origin,
-                                                String destination,
-                                                LocalDate departureDate) {
-
+    public List<FlightOfferEntity> getFlightOffers(String origin, String destination, LocalDate departureDate) {
         String url = ignavConfig.getBaseUrl() + "/fares/one-way";
 
         String body = """
@@ -46,6 +45,6 @@ public class ApiFlightDataService implements FlightDataProvider {
                 .retrieve()
                 .body(FlightResponseDto.class);
 
-        return flightMapper.toFlightOffers(response);
+        return entityMapper.toFlightOffers(response);
     }
 }

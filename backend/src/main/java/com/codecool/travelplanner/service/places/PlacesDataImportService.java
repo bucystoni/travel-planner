@@ -12,6 +12,7 @@ import com.codecool.travelplanner.repository.places.sql.AccommodationRepository;
 import com.codecool.travelplanner.repository.places.sql.CityRepository;
 import com.codecool.travelplanner.repository.places.sql.RestaurantRepository;
 import com.codecool.travelplanner.repository.places.sql.SightRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
