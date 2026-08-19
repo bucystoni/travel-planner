@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.service;
+package com.codecool.travelplanner.service.weather;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import com.codecool.travelplanner.dto.weather.WeatherApiResponse;
