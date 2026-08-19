@@ -2,7 +2,7 @@ package com.codecool.travelplanner.service;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import com.codecool.travelplanner.dto.weather.WeatherApiResponse;
-import com.codecool.travelplanner.service.weather.WeatherDataService;
+import service.weather.WeatherDataService;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;

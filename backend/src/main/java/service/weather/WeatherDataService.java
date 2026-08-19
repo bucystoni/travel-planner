@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.service.weather;
+package service.weather;
 
 import com.codecool.travelplanner.configuration.OpenWeatherConfiguration;
 import org.springframework.stereotype.Service;
