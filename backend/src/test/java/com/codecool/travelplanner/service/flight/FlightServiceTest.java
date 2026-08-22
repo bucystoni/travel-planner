@@ -4,7 +4,6 @@ import com.codecool.travelplanner.mapper.flight.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.repository.flight.FlightDataProvider;
-import service.flight.FlightService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

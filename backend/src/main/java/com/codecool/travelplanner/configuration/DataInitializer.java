@@ -1,7 +1,7 @@
 package com.codecool.travelplanner.configuration;
 
-import service.flight.FlightDataImportService;
-import service.places.PlacesDataImportService;
+import com.codecool.travelplanner.service.flight.FlightDataImportService;
+import com.codecool.travelplanner.service.places.PlacesDataImportService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class PlacesExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(CityNotFoundException.class)
     public ProblemDetail handleCityNotFound(CityNotFoundException e) {
@@ -15,6 +15,16 @@ public class PlacesExceptionHandler {
 
     @ExceptionHandler(PlacesApiException.class)
     public ProblemDetail handleApiException(PlacesApiException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_GATEWAY, e.getMessage());
+    }
+
+    @ExceptionHandler(WeatherApiException.class)
+    public ProblemDetail handleWeatherApiException(WeatherApiException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_GATEWAY, e.getMessage());
+    }
+
+    @ExceptionHandler(FlightApiException.class)
+    public ProblemDetail handleFlightApiException(FlightApiException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_GATEWAY, e.getMessage());
     }
 

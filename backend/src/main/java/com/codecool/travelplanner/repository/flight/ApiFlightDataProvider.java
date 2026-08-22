@@ -2,10 +2,12 @@ package com.codecool.travelplanner.repository.flight;
 
 import com.codecool.travelplanner.configuration.IgnavConfig;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
+import com.codecool.travelplanner.exception.FlightApiException;
 import com.codecool.travelplanner.mapper.flight.FlightEntityMapper;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -37,14 +39,18 @@ public class ApiFlightDataProvider implements FlightDataProvider {
         }
         """.formatted(origin, destination, departureDate);
 
-        FlightResponseDto response = restClient.post()
-                .uri(url)
-                .header("X-Api-Key", ignavConfig.getApiKey())
-                .header("Content-Type", "application/json")
-                .body(body)
-                .retrieve()
-                .body(FlightResponseDto.class);
+        try {
+            FlightResponseDto response = restClient.post()
+                    .uri(url)
+                    .header("X-Api-Key", ignavConfig.getApiKey())
+                    .header("Content-Type", "application/json")
+                    .body(body)
+                    .retrieve()
+                    .body(FlightResponseDto.class);
 
-        return entityMapper.toFlightOffers(response);
+            return entityMapper.toFlightOffers(response);
+        } catch (RestClientException e) {
+            throw new FlightApiException("Flight API encountered an issue", e);
+        }
     }
 }
