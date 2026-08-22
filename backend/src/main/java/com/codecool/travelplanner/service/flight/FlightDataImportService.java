@@ -1,10 +1,11 @@
-package service.flight;
+package com.codecool.travelplanner.service.flight;
 
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.mapper.flight.FlightEntityMapper;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.repository.flight.FlightOfferRepository;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 

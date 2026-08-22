@@ -3,7 +3,7 @@ package com.codecool.travelplanner.controller;
 import com.codecool.travelplanner.api.DestinationsApi;
 import com.codecool.travelplanner.model.FlightOfferDto;
 
-import service.flight.FlightService;
+import com.codecool.travelplanner.service.flight.FlightService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
