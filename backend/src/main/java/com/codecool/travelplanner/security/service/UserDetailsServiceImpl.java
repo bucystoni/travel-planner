@@ -1,4 +1,4 @@
-package com.codecool.travelplanner.security;
+package com.codecool.travelplanner.security.service;
 
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
