@@ -1,5 +1,6 @@
 package com.codecool.travelplanner.security.configuration;
 
+import com.codecool.travelplanner.security.jwt.JwtUtils;
 import com.codecool.travelplanner.security.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,12 +45,18 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public JwtUtils jwtUtils() {
+        return new JwtUtils();
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable()).cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
-                            .anyRequest().authenticated());
+                                .requestMatchers("/trips").authenticated()
+                            .anyRequest().permitAll());
         http.authenticationProvider(authenticationProvider());
         return http.build();
     }
@@ -59,7 +66,7 @@ public class WebSecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:5173"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Access-Control-Allow-Origin"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
