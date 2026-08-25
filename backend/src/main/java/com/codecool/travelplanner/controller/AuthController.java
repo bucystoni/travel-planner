@@ -2,8 +2,7 @@ package com.codecool.travelplanner.controller;
 
 import com.codecool.travelplanner.api.AuthApi;
 import com.codecool.travelplanner.model.AuthResponse;
-import com.codecool.travelplanner.model.LoginRequest;
-import com.codecool.travelplanner.model.playload.UserRequest;
+import com.codecool.travelplanner.model.UserRequest;
 import com.codecool.travelplanner.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,13 +25,8 @@ public class AuthController implements AuthApi {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-
-
-
-
-
     @Override
-    public ResponseEntity<AuthResponse> authLoginPost(LoginRequest request) {
+    public ResponseEntity<AuthResponse> authLoginPost(@RequestBody UserRequest request) {
         AuthResponse dummyResponse = new AuthResponse();
         dummyResponse.setToken("dummy-jwt-token-1234567890");
 

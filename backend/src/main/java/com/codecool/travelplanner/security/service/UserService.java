@@ -2,7 +2,7 @@ package com.codecool.travelplanner.security.service;
 
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
-import com.codecool.travelplanner.model.playload.UserRequest;
+import com.codecool.travelplanner.model.UserRequest;
 import com.codecool.travelplanner.repository.user.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
