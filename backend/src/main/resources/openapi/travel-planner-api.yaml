@@ -44,33 +44,23 @@ paths:
 
   /destinations:
     get:
-      summary: Search/autocomplete destinations
+      summary: Search destinations (cities) by name
       parameters:
-        - name: destinationIataCode
+        - name: name
           in: query
           required: true
           schema:
             type: string
-        - name: departureIataCode
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
+            minLength: 2
       responses:
         '200':
-          description: List of matching destinations
+          description: List of matching cities
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FlightOfferDto'
+                  $ref: '#/components/schemas/City'
 
   /flights:
     get:
