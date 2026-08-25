@@ -270,8 +270,14 @@ components:
     AuthResponse:
       type: object
       properties:
-        token:
+        jwt:
           type: string
+        username:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
 
     FlightOfferDto:
       type: object
