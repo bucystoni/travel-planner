@@ -68,6 +68,7 @@ public class FlightMapper {
                 .toList();
 
         return new FlightOfferDto()
+                .id(entity.getId())
                 .price(entity.getPrice())
                 .currency(entity.getCurrency())
                 .cabinClass(entity.getCabinClass())

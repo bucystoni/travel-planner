@@ -19,15 +19,6 @@ public class PlacesMapper {
 
     // ==================== GOOGLE API --> PointOfInterestDto ==================== //
 
-    public static PointOfInterestDto convertResponseToDto(City city, GooglePoiResponseDto poiResponse) {
-
-        PointOfInterestDto poiDto = new PointOfInterestDto();
-        poiDto.setCity(city);
-        poiDto.setPointsOfInterest(convertResponseToPoiList(poiResponse));
-
-        return poiDto;
-    }
-
     private static List<PointOfInterest> convertResponseToPoiList(GooglePoiResponseDto dto) {
         if (dto.getPlaces() == null) {
             return List.of(); // if there are no results in response return empty list
@@ -84,6 +75,7 @@ public class PlacesMapper {
     private PointOfInterest convertPlaceEntityToPointOfInterest(PlaceEntity entity) {
 
         PointOfInterest place = new PointOfInterest();
+        place.setId(entity.getId());
         place.setName(entity.getName());
         place.setAddress(entity.getAddress());
         place.setUrl(entity.getUrl());

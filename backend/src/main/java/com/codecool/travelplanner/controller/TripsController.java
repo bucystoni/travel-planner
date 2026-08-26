@@ -16,7 +16,7 @@ public class TripsController implements TripsApi {
     @Override
     public ResponseEntity<List<Trip>> tripsGet() {
         Trip trip1 = new Trip();
-        trip1.setId(1);
+        trip1.setId((long) 1);
         trip1.setDestination("Paris");
         trip1.setDepartureDate(LocalDate.of(2026, 7, 29));
         trip1.setReturnDate(LocalDate.of(2026, 8, 2));
@@ -26,7 +26,7 @@ public class TripsController implements TripsApi {
         trip1.setSight(List.of());
 
         Trip trip2 = new Trip();
-        trip2.setId(2);
+        trip2.setId((long) 2);
         trip2.setDestination("London");
         trip2.setDepartureDate(LocalDate.of(2026, 7, 29));
         trip2.setReturnDate(LocalDate.of(2026, 8, 2));
@@ -43,7 +43,7 @@ public class TripsController implements TripsApi {
     @Override
     public ResponseEntity<Trip> tripsPost(TripRequest request) {
         Trip trip = new Trip();
-        trip.setId(3);
+        trip.setId((long) 3);
         trip.setDestination(request.getDestination());
         trip.setDepartureDate(request.getDepartureDate());
         trip.setReturnDate(request.getReturnDate());
@@ -56,7 +56,7 @@ public class TripsController implements TripsApi {
     }
 
     @Override
-    public ResponseEntity<Trip> tripsIdGet(Integer id) {
+    public ResponseEntity<Trip> tripsIdGet(Long id) {
         Trip trip = new Trip();
         trip.setId(id);
         trip.setDestination("Paris");
@@ -71,7 +71,7 @@ public class TripsController implements TripsApi {
     }
 
     @Override
-    public ResponseEntity<Trip> tripsIdPut(Integer id, TripRequest request) {
+    public ResponseEntity<Trip> tripsIdPut(Long id, TripRequest request) {
         Trip trip = new Trip();
         trip.setId(id);
         trip.setDestination(request.getDestination());
@@ -86,7 +86,7 @@ public class TripsController implements TripsApi {
     }
 
     @Override
-    public ResponseEntity<Void> tripsIdDelete(Integer id) {
+    public ResponseEntity<Void> tripsIdDelete(Long id) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
