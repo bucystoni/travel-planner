@@ -1,54 +1,51 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { post } from "../api/client.js"
 
 export default function RegisterPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [error, setError] = useState(null);
-    const [submitting, setSubmitting] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
-        setSubmitting(true);
+        setLoading(true);
         setError(null);
 
         try {
-            const response = await fetch("http://localhost:8080/api/auth/register", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({email, password, username})
-            });
-
-            if (!response.ok) {
-                const message = await response.text();
-                setError(message || "Registration failed.");
-                return;
-            }
-
+            const body = { email, password, username };
+            await post("auth/register", body);
             navigate("/login", { replace: true });
-        } catch {
-            setError("Cannot reach the server. Is the backend running?");
+
+        } catch (error) {
+            setError(error.message);
+
         } finally {
-            setSubmitting(false);
+            setLoading(false);
         }
     }
 
     return (<div>
-        <h1>RegisterPage</h1>
+        <h1>Registration</h1>
         {error && <p role={"alert"}>{error}</p>}
+
         <form onSubmit={handleSubmit}>
             <label htmlFor={"username"}>Username</label>
             <input id={"username"} value={username}
-                   onChange={(e) => setUsername(e.target.value)}/>
+                onChange={(e) => setUsername(e.target.value)} />
+
             <label htmlFor={"email"}>Email</label>
             <input id={"email"} value={email}
-                   onChange={(e) => setEmail(e.target.value)}/>
+                onChange={(e) => setEmail(e.target.value)} />
+
             <label htmlFor={"password"}>Password</label>
             <input id={"password"} value={password} type="password"
-                   onChange={(e) => setPassword(e.target.value)}/>
-            <button type="submit" disabled={submitting}>Register</button>
+                onChange={(e) => setPassword(e.target.value)} />
+
+            <button type="submit" disabled={loading}>Register</button>
         </form>
     </div>)
 }

@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:8080/api";
 
-async function request(url, options = {}) {
+ async function request(url, options = {}) {
     const token = localStorage.getItem("token");
 
     const headers = {
@@ -18,7 +18,9 @@ async function request(url, options = {}) {
     });
 
     if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        const message = await response.text();
+
+        throw new Error(message || `Request failed with status ${response.status}`);
     }
 
     return response.json();
@@ -43,4 +45,6 @@ function post(endpoint, body) {
     });
 }
 
-//TODO: implement delete and patch functions when the backend is ready for these operations
+export { get, post };
+
+//TODO: implement delete and patch functions when the backend is ready for admin operations
