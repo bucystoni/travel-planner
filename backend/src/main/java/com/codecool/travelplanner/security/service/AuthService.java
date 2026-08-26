@@ -1,5 +1,7 @@
 package com.codecool.travelplanner.security.service;
 
+import com.codecool.travelplanner.exception.InvalidCredentialsException;
+import com.codecool.travelplanner.exception.UserAlreadyExistsException;
 import com.codecool.travelplanner.model.AuthResponse;
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
@@ -7,10 +9,10 @@ import com.codecool.travelplanner.model.UserRequest;
 import com.codecool.travelplanner.repository.user.UserRepository;
 import com.codecool.travelplanner.security.jwt.JwtUtils;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +45,7 @@ public class AuthService {
 
     public void registerUser(UserRequest request) {
         if (userRepository.findUserByUsername(request.getUsername()).isPresent()) {
-            throw new IllegalArgumentException(format("Username %s is already taken", request.getUsername()));
+            throw new UserAlreadyExistsException(format("Username %s is already taken", request.getUsername()));
         }
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(request.getUsername());
@@ -57,16 +59,20 @@ public class AuthService {
     private Authentication authenticateUser(UserRequest request) {
         Optional<UserEntity> user;
 
-        if (request.getUsername().equals("") || request.getUsername() == null) {
+        if (request.getUsername().isEmpty() || request.getUsername() == null) {
             user = userRepository.findUserByEmail(request.getEmail());
         } else {
             user = userRepository.findUserByUsername(request.getUsername());
         }
 
-        if (user.isEmpty()) throw new UsernameNotFoundException("Invalid credentials");
+        if (user.isEmpty()) throw new InvalidCredentialsException("Invalid username or password");
 
+        try {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.get().getUsername(), request.getPassword());
         return authenticationManager.authenticate(token);
+        } catch (BadCredentialsException e) {
+            throw new InvalidCredentialsException("Invalid username or password");
+        }
     }
 
     public AuthResponse login(UserRequest request) {

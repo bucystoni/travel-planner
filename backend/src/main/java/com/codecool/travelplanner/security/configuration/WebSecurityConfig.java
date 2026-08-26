@@ -1,5 +1,6 @@
 package com.codecool.travelplanner.security.configuration;
 
+import com.codecool.travelplanner.security.jwt.JwtTokenFilter;
 import com.codecool.travelplanner.security.jwt.JwtUtils;
 import com.codecool.travelplanner.security.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -26,6 +28,10 @@ public class WebSecurityConfig {
 
     public WebSecurityConfig(UserDetailsServiceImpl userDetailsService) {
         this.userDetailsService = userDetailsService;
+    }
+
+    public JwtTokenFilter jwtTokenFilter() {
+        return new JwtTokenFilter(jwtUtils(), userDetailsService);
     }
 
     @Bean
@@ -56,8 +62,12 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/trips").authenticated()
-                            .anyRequest().permitAll());
+                                .anyRequest().permitAll());
+
         http.authenticationProvider(authenticationProvider());
+
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
