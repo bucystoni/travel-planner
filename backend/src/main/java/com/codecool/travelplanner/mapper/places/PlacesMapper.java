@@ -91,7 +91,7 @@ public class PlacesMapper {
         return place;
     }
 
-    public City convertResponseToCity(CityEntity entity) {
+    public static City convertResponseToCity(CityEntity entity) {
         City city = new City();
         city.setName(entity.getName());
         city.setLatitude(entity.getLatitude());
