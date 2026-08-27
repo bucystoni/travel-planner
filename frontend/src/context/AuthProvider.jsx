@@ -1,23 +1,24 @@
 import { useState} from "react";
+import {AuthContext} from "./AuthContext.jsx";
 
 export function AuthProvider({children}) {
-    const [token, setToken] = useState(() => localStorage.getItem("token"));
+    const [token, setToken] = useState(() => localStorage.getItem("jwt"));
 
     function login(newToken) {
         setToken(newToken);
-        localStorage.setItem("token", newToken);
+        localStorage.setItem("jwt", newToken);
     }
 
     function logout() {
         setToken(null);
-        localStorage.removeItem("token");
+        localStorage.removeItem("jwt");
     }
 
     const value = { token, login, logout}
 
     return (
-        <AuthProvider.Provider value={value}>
+        <AuthContext.Provider value={value}>
             {children}
-        </AuthProvider.Provider>
+        </AuthContext.Provider>
     )
 }
