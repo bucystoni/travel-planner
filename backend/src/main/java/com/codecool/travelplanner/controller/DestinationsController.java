@@ -28,5 +28,4 @@ public class DestinationsController implements DestinationsApi {
         return ResponseEntity.ok(List.of(city));
     }
 
-
 }
