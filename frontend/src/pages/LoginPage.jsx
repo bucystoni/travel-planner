@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useAuth} from "../hooks/useAuth.js";
-import {post} from "../api/client.js";
+import { useAuth } from "../hooks/useAuth.js";
+import { post } from "../api/client.js";
 
 export default function LoginPage() {
     const [username, setUsername] = useState("");
@@ -18,14 +18,13 @@ export default function LoginPage() {
 
         try {
             const body = { username, password };
-            const response = await post("/auth/login", body);
-            const data = await response.json();
-            login(data.jwt)
-            navigate("/destinations", { replace: true });
+            const data = await post("/auth/login", body);
+            login(data.jwt);
 
+            navigate("/destinations", { replace: true });
         } catch (error) {
             setError(error.message);
-            
+
         } finally {
             setLoading(false);
         }
@@ -38,12 +37,12 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
             <label htmlFor={"username"}>Username</label>
             <input id={"username"} value={username}
-                   onChange={(e) => setUsername(e.target.value)} />
+                onChange={(e) => setUsername(e.target.value)} />
 
             <label htmlFor={"password"}>Password</label>
             <input id={"password"} value={password} type="password"
-                   onChange={(e) => setPassword(e.target.value)} />
-                   
+                onChange={(e) => setPassword(e.target.value)} />
+
             <button type="submit" disabled={loading}>Login</button>
         </form>
     </div>)

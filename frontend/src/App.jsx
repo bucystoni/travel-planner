@@ -9,33 +9,33 @@ import RestaurantsPage from "./pages/RestaurantsPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Layout from "./components/Layout.jsx";
 import CityProviderLayout from "./components/CityProviderLayout.jsx";
-import { AuthProvider } from "./context/AuthProvider.jsx";
+
 
 function App() {
 
 
   return (
-    <AuthProvider>
-      <Routes>
-        <Route element={<Layout />}>
 
-          <Route path="/registration" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+    <Routes>
+      <Route element={<Layout />}>
 
-          <Route element={<CityProviderLayout />}>
-            <Route index element={<LandingPage />} />
-            <Route path="/destinations" element={<LandingPage />} />
-            <Route path="/flights" element={<FlightsPage />} />
-            <Route path="/accommodations" element={<AccommodationsPage />} />
-            <Route path="/restaurants" element={<RestaurantsPage />} />
-            <Route path="/sights" element={<SightsPage />} />
-          </Route>
+        <Route path="/registration" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
 
-          <Route path="*" element={<NotFoundPage />} />
-
+        <Route element={<CityProviderLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="/destinations" element={<LandingPage />} />
+          <Route path="/flights" element={<FlightsPage />} />
+          <Route path="/accommodations" element={<AccommodationsPage />} />
+          <Route path="/restaurants" element={<RestaurantsPage />} />
+          <Route path="/sights" element={<SightsPage />} />
         </Route>
-      </Routes>
-    </AuthProvider>
+
+        <Route path="*" element={<NotFoundPage />} />
+
+      </Route>
+    </Routes>
+
   )
 }
 

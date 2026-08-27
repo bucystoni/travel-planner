@@ -1,25 +1,41 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import  useCity  from "../hooks/useCity"
-import {get} from "../api/client.js"
+import useCity from "../hooks/useCity.js"
+import { get } from "../api/client.js"
+import { useEffect, useState } from "react";
+
 
 
 export default function FlightsPage() {
     const { city } = useCity();
-    const [date, setDate] = useState(null);
-    const [departure, setDeparture] = useState(null);
-    const [destination, setDestination] = useState(city ? city.name : "");
+    const [date, setDate] = useState("");
+    const [departure, setDeparture] = useState("");
+    const [destination, setDestination] = useState("");
+
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        if (city) {
+            setDestination(city.name);
+        }
+    }, [city]);
 
     async function handleSubmit(e) {
         e.preventDefault();
         setLoading(true);
         setError(null);
 
+        if (!date || !departure || !destination) {
+            setError("Please fill in all fields.");
+            setLoading(false);
+            return;
+        }
+
         try {
-            const response = await get("/flights", { destination, departure, date });
+            const response = await get("/flights", {
+                destinationIataCode: destination,
+                departureIataCode: departure,
+                date
+            });
             console.log(response);
 
         } catch (error) {
@@ -55,7 +71,7 @@ export default function FlightsPage() {
                 onChange={(e) => setDestination(e.target.value)}
             />
 
-             <button type="submit" disabled={loading}>Search</button>
+            <button type="submit" disabled={loading}>Search</button>
 
         </form>
     </div>

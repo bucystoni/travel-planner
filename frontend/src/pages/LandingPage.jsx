@@ -19,7 +19,7 @@ export default function LandingPage() {
         try {
             const response = await get("/destinations", {name: search});
 
-            setCity(await response);
+            setCity(response[0]);
             navigate("/flights", { replace: true });
         } catch (error) {
             setError(error.message);
