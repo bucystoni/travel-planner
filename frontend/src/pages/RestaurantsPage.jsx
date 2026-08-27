@@ -11,6 +11,8 @@ export default function RestaurantsPage() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const [restaurants, setRestaurants] = useState(null);
+
     useEffect(() => {
         if (city) {
             setSearch(city.name);
@@ -32,8 +34,7 @@ export default function RestaurantsPage() {
             const response = await get("/restaurants", {
                 destinationName: search
             });
-
-            console.log(response);
+            setRestaurants(response);
 
         } catch (error) {
             setError(error.message);
@@ -69,7 +70,14 @@ export default function RestaurantsPage() {
                 >
                     Sights
                 </button>
+
             </form>
+
+            {restaurants && (
+                <pre>
+                    {JSON.stringify(restaurants, null, 2)}
+                </pre>
+            )}
         </div>
     );
 }

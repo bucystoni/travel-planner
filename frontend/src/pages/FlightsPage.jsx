@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function FlightsPage() {
+    const { city } = useCity();
     const navigate = useNavigate();
 
-    const { city } = useCity();
     const [date, setDate] = useState("");
     const [departure, setDeparture] = useState("");
     const [destination, setDestination] = useState("");
+
+    const [flights, setFlights] = useState(null);
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -38,7 +40,7 @@ export default function FlightsPage() {
                 departureIataCode: departure,
                 date
             });
-            console.log(response);
+            setFlights(response);
 
         } catch (error) {
             setError(error.message);
@@ -77,6 +79,12 @@ export default function FlightsPage() {
             <button onClick={() => navigate("/accommodations")}>
                 Accommodations
             </button>
+
+            {flights && (
+                <pre>
+                    {JSON.stringify(flights, null, 2)}
+                </pre>
+            )}
 
         </form>
     </div>

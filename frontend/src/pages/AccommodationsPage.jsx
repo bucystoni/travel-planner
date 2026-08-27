@@ -11,6 +11,8 @@ export default function AccommodationsPage() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const [accommodations, setAccommodations] = useState(null);
+
     useEffect(() => {
         if (city) {
             setSearch(city.name);
@@ -32,8 +34,7 @@ export default function AccommodationsPage() {
             const response = await get("/accommodations", {
                 destinationName: search
             });
-
-            console.log(response);
+            setAccommodations(response);
 
         } catch (error) {
             setError(error.message);
@@ -69,7 +70,15 @@ export default function AccommodationsPage() {
                 >
                     Restaurants
                 </button>
+
+
             </form>
+
+            {accommodations && (
+                <pre>
+                    {JSON.stringify(accommodations, null, 2)}
+                </pre>
+            )}
         </div>
     );
 }

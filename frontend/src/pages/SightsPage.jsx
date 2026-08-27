@@ -8,14 +8,16 @@ export default function SightsPage() {
     const [search, setSearch] = useState("");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    
+
+    const [sights, setSights] = useState(null);
+
     useEffect(() => {
         if (city) {
             setSearch(city.name);
         }
     }, [city]);
 
-async function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         setLoading(true);
         setError(null);
@@ -30,8 +32,7 @@ async function handleSubmit(e) {
             const response = await get("/sights", {
                 destinationName: search
             });
-
-            console.log(response);
+            setSights(response);
 
         } catch (error) {
             setError(error.message);
@@ -62,6 +63,12 @@ async function handleSubmit(e) {
                 </button>
 
             </form>
+
+            {sights && (
+                <pre>
+                    {JSON.stringify(sights, null, 2)}
+                </pre>
+            )}
         </div>
     );
 }
