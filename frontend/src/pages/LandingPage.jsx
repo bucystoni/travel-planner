@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCity } from "../hooks/useCity.js";
+import  useCity  from "../hooks/useCity.js";
 import { get } from "../api/client.js"
 
 
@@ -19,8 +19,8 @@ export default function LandingPage() {
         try {
             const response = await get("/destinations", {name: search});
 
-            setCity(await response.json());
-            navigate("/accommodations", { replace: true });
+            setCity(await response);
+            navigate("/flights", { replace: true });
         } catch (error) {
             setError(error.message);
         } finally {
@@ -31,7 +31,7 @@ export default function LandingPage() {
 
     return (
         <div>
-            <h1>Landing Page</h1>
+            <h1>Travel Planner</h1>
             <p>Please type the destination where you would like to go:</p>
             {error && <p role={"alert"}>{error}</p>}
 
