@@ -10,18 +10,17 @@ export default function FlightsPage() {
 
     const [date, setDate] = useState("");
     const [departure, setDeparture] = useState("");
-    const [destination, setDestination] = useState("");
+    const [destination, setDestination] = useState(city ? city.name : "");
 
     const [flights, setFlights] = useState(null);
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (city) {
-            setDestination(city.name);
-        }
-    }, [city]);
+    const [prevCity, setPrevCity] = useState(city);
+    if (city !== prevCity) {
+        setPrevCity(city);
+        setDestination(city ? city.name : "");
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();

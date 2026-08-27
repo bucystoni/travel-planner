@@ -7,17 +7,17 @@ export default function RestaurantsPage() {
     const { city } = useCity();
     const navigate = useNavigate();
 
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState(city ? city.name : "");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const [restaurants, setRestaurants] = useState(null);
+    const [prevCity, setPrevCity] = useState(city);
+    if (city !== prevCity) {
+        setPrevCity(city);
+        setSearch(city ? city.name : "");
+    }
 
-    useEffect(() => {
-        if (city) {
-            setSearch(city.name);
-        }
-    }, [city]);
 
     async function handleSubmit(e) {
         e.preventDefault();

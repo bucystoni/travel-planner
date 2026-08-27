@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 export default function SightsPage() {
     const { city } = useCity();
 
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState(city ? city.name : "");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const [sights, setSights] = useState(null);
-
-    useEffect(() => {
-        if (city) {
-            setSearch(city.name);
-        }
-    }, [city]);
+    const [prevCity, setPrevCity] = useState(city);
+    if (city !== prevCity) {
+        setPrevCity(city);
+        setSearch(city ? city.name : "");
+    }
+    
 
     async function handleSubmit(e) {
         e.preventDefault();
