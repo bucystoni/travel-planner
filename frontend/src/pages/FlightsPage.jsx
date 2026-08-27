@@ -1,10 +1,12 @@
 import useCity from "../hooks/useCity.js"
 import { get } from "../api/client.js"
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function FlightsPage() {
+    const navigate = useNavigate();
+
     const { city } = useCity();
     const [date, setDate] = useState("");
     const [departure, setDeparture] = useState("");
@@ -72,6 +74,9 @@ export default function FlightsPage() {
             />
 
             <button type="submit" disabled={loading}>Search</button>
+            <button onClick={() => navigate("/accommodations")}>
+                Accommodations
+            </button>
 
         </form>
     </div>
