@@ -2,11 +2,17 @@ import useCity from "../hooks/useCity.js"
 import { get } from "../api/client.js"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import findAirports from "../utils/airportUtils.js";
 
 
 export default function FlightsPage() {
     const { city } = useCity();
     const navigate = useNavigate();
+    const [departureOptions, setDepartureOptions] = useState([]);
+    const [destinationOptions, setDestinationOptions] = useState([]);
+
+    const [destinationIata, setDestinationIata] = useState("")
+    const [departureIata, setDepartureIata] = useState("")
 
     const [date, setDate] = useState("");
     const [departure, setDeparture] = useState("");
@@ -33,10 +39,11 @@ export default function FlightsPage() {
             return;
         }
 
+
         try {
             const response = await get("/flights", {
-                destinationIataCode: destination,
-                departureIataCode: departure,
+                destinationIataCode: destinationIata,
+                departureIataCode: departureIata,
                 date
             });
             setFlights(response);
@@ -46,6 +53,32 @@ export default function FlightsPage() {
         } finally {
             setLoading(false);
         }
+    }
+
+    function handleDepartureChange(e) {
+        const value = e.target.value;
+
+        setDeparture(value);
+        setDepartureOptions(findAirports(value));
+    }
+
+    function handleDestinationChange(e) {
+        const value = e.target.value;
+
+        setDestination(value);
+        setDestinationOptions(findAirports(value));
+    }
+
+    function handleDepartureSelect(airport) {
+        setDeparture(`${airport.name} — ${airport.city} (${airport.iata})`);
+        setDepartureIata(airport.iata);
+        setDepartureOptions([]);
+    }
+
+    function handleDestinationSelect(airport) {
+        setDestination(`${airport.name} — ${airport.city} (${airport.iata})`);
+        setDestinationIata(airport.iata);
+        setDestinationOptions([]);
     }
 
     return <div>
@@ -60,22 +93,51 @@ export default function FlightsPage() {
                 onChange={(e) => setDate(e.target.value)}
             />
 
-            <input
-                type="text"
-                placeholder="Departure IATA"
-                value={departure}
-                onChange={(e) => setDeparture(e.target.value)}
-            />
+            <div>
+                <input
+                    type="text"
+                    value={departure}
+                    onChange={handleDepartureChange}
+                />
 
-            <input
-                type="text"
-                placeholder="Destination IATA"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-            />
+                {departureOptions.length > 0 && (
+                    <div>
+                        {departureOptions.map((airport) => (
+                            <div
+                                key={airport.iata}
+                                onClick={() => handleDepartureSelect(airport)}
+                            >
+                                {airport.name} — {airport.city} ({airport.iata})
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            <div>
+                <input
+                    type="text"
+                    value={destination}
+                    onChange={handleDestinationChange}
+                />
+
+                {destinationOptions.length > 0 && (
+                    <div>
+                        {destinationOptions.map((airport) => (
+                            <div
+                                key={airport.iata}
+                                onClick={() => handleDestinationSelect(airport)}
+                            >
+                                {airport.name} — {airport.city} ({airport.iata})
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
 
             <button type="submit" disabled={loading}>Search</button>
-            <button onClick={() => navigate("/accommodations")}>
+
+            <button type="button" onClick={() => navigate("/accommodations")}>
                 Accommodations
             </button>
 
