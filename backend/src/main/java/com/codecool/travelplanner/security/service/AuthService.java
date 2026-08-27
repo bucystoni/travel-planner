@@ -56,6 +56,20 @@ public class AuthService {
         userRepository.save(userEntity);
     }
 
+    public void createAdminIfNotExists(){
+        if(userRepository.findUserByUsername("admin").isPresent()){
+            return;
+        }
+        UserEntity admin = new UserEntity();
+        admin.setUsername("admin");
+        admin.setEmail("admin@gmail.com");
+        admin.setPassword("admin123");
+        admin.setRoles(Set.of(Role.ROLE_ADMIN));
+
+        userRepository.save(admin);
+
+    }
+
     private Authentication authenticateUser(UserRequest request) {
         Optional<UserEntity> user;
 

@@ -1,8 +1,10 @@
 package com.codecool.travelplanner.model.entity.trip;
 
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
+import com.codecool.travelplanner.model.entity.places.AccommodationEntity;
 import com.codecool.travelplanner.model.entity.places.CityEntity;
 import com.codecool.travelplanner.model.entity.places.RestaurantEntity;
+import com.codecool.travelplanner.model.entity.places.SightEntity;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
 import jakarta.persistence.*;
 
@@ -42,14 +44,14 @@ public class TripEntity {
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "accommodation_id")
     )
-    private List<RestaurantEntity> accommodations = new ArrayList<>();
+    private List<AccommodationEntity> accommodations = new ArrayList<>();
     @ManyToMany
     @JoinTable(
             name = "trip_sights",
             joinColumns = @JoinColumn(name = "trip_id"),
             inverseJoinColumns = @JoinColumn(name = "sight_id")
     )
-    private List<RestaurantEntity> sights = new ArrayList<>();
+    private List<SightEntity> sights = new ArrayList<>();
 
 
     public TripEntity() {
@@ -99,11 +101,11 @@ public class TripEntity {
         this.flightOffer = flightOffer;
     }
 
-    public List<RestaurantEntity> getAccommodations() {
+    public List<AccommodationEntity> getAccommodations() {
         return accommodations;
     }
 
-    public void setAccommodations(List<RestaurantEntity> accommodations) {
+    public void setAccommodations(List<AccommodationEntity> accommodations) {
         this.accommodations = accommodations;
     }
 
@@ -115,11 +117,11 @@ public class TripEntity {
         this.restaurants = restaurants;
     }
 
-    public List<RestaurantEntity> getSights() {
+    public List<SightEntity> getSights() {
         return sights;
     }
 
-    public void setSights(List<RestaurantEntity> sights) {
+    public void setSights(List<SightEntity> sights) {
         this.sights = sights;
     }
 }
