@@ -1,6 +1,6 @@
 import useCity from "../hooks/useCity.js"
 import { get } from "../api/client.js"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
