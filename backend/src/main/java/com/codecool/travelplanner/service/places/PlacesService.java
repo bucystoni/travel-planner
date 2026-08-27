@@ -45,7 +45,6 @@ public class PlacesService {
 
         if (!databaseCities.isEmpty()) {
             cityEntity = databaseCities.getFirst();
-            return cityEntity;
         } else {
             GoogleCityResponseDto cityResponse = repository.searchCity(destinationName);
             if (cityResponse.getPlaces() == null || cityResponse.getPlaces().isEmpty()) {
@@ -56,77 +55,77 @@ public class PlacesService {
             cityEntity = entityMapper.toCity(cityDto);
             cityRepository.save(cityEntity);
 
-            return cityEntity;
         }
+        return cityEntity;
     }
 
     public PointOfInterestDto getAccommodations(String destinationName) {
         PointOfInterestDto dto;
 
         CityEntity cityEntity = searchCity(destinationName);
-        City cityDto = mapper.convertResponseToCity(cityEntity);
+        City cityDto = PlacesMapper.convertResponseToCity(cityEntity);
 
         List<AccommodationEntity> databaseAccommodations = accommodationRepository.findByCityName(cityEntity.getName());
 
         if (!databaseAccommodations.isEmpty()) {
             List<PlaceEntity> places = new ArrayList<>(databaseAccommodations);
             dto = mapper.convertResponseToDto(cityDto, places);
-            return dto;
 
         } else {
             GooglePoiResponseDto accommodations = repository.searchAccomodations(cityDto);
 
             List<AccommodationEntity> accommodationEntities = entityMapper.toAccommodations(accommodations, cityEntity);
-            accommodationRepository.saveAll(accommodationEntities);
+            List<AccommodationEntity> saved = accommodationRepository.saveAll(accommodationEntities);
+            List<PlaceEntity> savedAccommodations = new ArrayList<>(saved);
 
-            dto = mapper.convertResponseToDto(cityDto, accommodations);
-            return dto;
+            dto = mapper.convertResponseToDto(cityDto, savedAccommodations);
         }
+        return dto;
     }
 
     public PointOfInterestDto getRestaurants(String destinationName) {
         PointOfInterestDto dto;
 
         CityEntity cityEntity = searchCity(destinationName);
-        City cityDto = mapper.convertResponseToCity(cityEntity);
+        City cityDto = PlacesMapper.convertResponseToCity(cityEntity);
 
         List<RestaurantEntity> databaseRestaurants = restaurantRepository.findByCityName(cityEntity.getName());
 
         if (!databaseRestaurants.isEmpty()){
             List<PlaceEntity> places = new ArrayList<>(databaseRestaurants);
             dto = mapper.convertResponseToDto(cityDto, places);
-            return dto;
 
         } else{
             GooglePoiResponseDto restaurants = repository.searchRestaurants(cityDto);
             List<RestaurantEntity> restaurantEntities = entityMapper.toRestaurants(restaurants, cityEntity);
-            restaurantRepository.saveAll(restaurantEntities);
+            List<RestaurantEntity> saved = restaurantRepository.saveAll(restaurantEntities);
+            List<PlaceEntity> savedRestaurants = new ArrayList<>(saved);
 
-            dto = mapper.convertResponseToDto(cityDto, restaurants);
-            return dto;
+            dto = mapper.convertResponseToDto(cityDto, savedRestaurants);
         }
+        return dto;
     }
 
     public PointOfInterestDto getSights(String destinationName) {
         PointOfInterestDto dto;
 
         CityEntity cityEntity = searchCity(destinationName);
-        City cityDto = mapper.convertResponseToCity(cityEntity);
+        City cityDto = PlacesMapper.convertResponseToCity(cityEntity);
 
         List<SightEntity> databaseSights = sightRepository.findByCityName(cityEntity.getName());
 
         if (!databaseSights.isEmpty()) {
             List<PlaceEntity> places = new ArrayList<>(databaseSights);
             dto = mapper.convertResponseToDto(cityDto, places);
-            return dto;
 
         } else {
             GooglePoiResponseDto sights = repository.searchSights(cityDto);
             List<SightEntity> sightEntities = entityMapper.toSights(sights, cityEntity);
-            sightRepository.saveAll(sightEntities);
+            List<SightEntity> saved = sightRepository.saveAll(sightEntities);
+            List<PlaceEntity> savedSights = new ArrayList<>(saved);
 
-            dto = mapper.convertResponseToDto(cityDto, sights);
-            return dto;
+            dto = mapper.convertResponseToDto(cityDto, savedSights);
         }
+        return dto;
     }
 }

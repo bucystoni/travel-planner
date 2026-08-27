@@ -61,13 +61,14 @@ public class FlightMapper {
                 .toList();
     }
 
-    private FlightOfferDto toFlightOffer(FlightOfferEntity entity) {
+    public FlightOfferDto toFlightOffer(FlightOfferEntity entity) {
         List<FlightSegmentDto> segments = entity.getSegments()
                 .stream()
                 .map(this::toFlightSegment)
                 .toList();
 
         return new FlightOfferDto()
+                .id(entity.getId())
                 .price(entity.getPrice())
                 .currency(entity.getCurrency())
                 .cabinClass(entity.getCabinClass())
