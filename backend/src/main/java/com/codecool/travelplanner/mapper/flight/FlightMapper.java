@@ -61,7 +61,7 @@ public class FlightMapper {
                 .toList();
     }
 
-    private FlightOfferDto toFlightOffer(FlightOfferEntity entity) {
+    public FlightOfferDto toFlightOffer(FlightOfferEntity entity) {
         List<FlightSegmentDto> segments = entity.getSegments()
                 .stream()
                 .map(this::toFlightSegment)
