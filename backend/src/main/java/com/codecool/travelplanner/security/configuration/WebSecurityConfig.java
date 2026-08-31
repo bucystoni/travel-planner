@@ -59,12 +59,12 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable()).cors(cors -> cors.configurationSource(corsConfigurationSource()))
+        http.csrf(csrf -> csrf.disable().cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/trips").authenticated()
-                                .anyRequest().permitAll());
+                                .anyRequest().permitAll()));
 
         http.authenticationProvider(authenticationProvider());
 

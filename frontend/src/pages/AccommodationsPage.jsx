@@ -33,7 +33,7 @@ export default function AccommodationsPage() {
             const response = await get("/accommodations", {
                 destinationName: search
             });
-            setAccommodations(response);
+            setAccommodations(await response.json());
 
         } catch (error) {
             setError(error.message);
