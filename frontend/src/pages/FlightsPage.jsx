@@ -46,7 +46,7 @@ export default function FlightsPage() {
                 departureIataCode: departureIata,
                 date
             });
-            setFlights(response);
+            setFlights(await response.json());
 
         } catch (error) {
             setError(error.message);

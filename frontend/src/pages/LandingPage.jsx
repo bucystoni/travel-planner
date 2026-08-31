@@ -17,10 +17,10 @@ export default function LandingPage() {
         setError(null);
 
         try {
-            const response = await get("/destinations", {name: search});
-
-            setCity(response[0]);
-            navigate("/flights", { replace: true });
+            const response = await get("/destinations", { name: search });
+            const data = await response.json()
+            setCity(data[0]);
+            navigate("/flights");
         } catch (error) {
             setError(error.message);
         } finally {

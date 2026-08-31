@@ -17,7 +17,7 @@ export default function RegisterPage() {
 
         try {
             const body = { email, password, username };
-            await post("/auth/register", body);
+            await post("/auth/register", { body : body, headers: {} });
             navigate("/login", { replace: true });
 
         } catch (error) {

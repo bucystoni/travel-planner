@@ -12,9 +12,11 @@ const BASE_URL = "http://localhost:8080/api";
         headers.Authorization = `Bearer ${token}`;
     }
 
+
     const response = await fetch(`${BASE_URL}${url}`, {
-        ...options,
-        headers,
+        method: options.method,
+        headers : headers,
+        body : JSON.stringify(options.body)
     });
 
     if (!response.ok) {
@@ -23,7 +25,9 @@ const BASE_URL = "http://localhost:8080/api";
         throw new Error(message || `Request failed with status ${response.status}`);
     }
 
-    return response.json();
+
+
+    return response;
 }
 
 function get(endpoint, params = {}) {
@@ -38,10 +42,10 @@ function get(endpoint, params = {}) {
     });
 }
 
-function post(endpoint, body) {
+function post(endpoint, options) {
     return request(endpoint, {
         method: "POST",
-        body: JSON.stringify(body)
+        body: options.body
     });
 }
 

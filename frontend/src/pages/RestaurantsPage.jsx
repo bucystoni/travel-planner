@@ -34,7 +34,7 @@ export default function RestaurantsPage() {
             const response = await get("/restaurants", {
                 destinationName: search
             });
-            setRestaurants(response);
+            setRestaurants(await response.json());
 
         } catch (error) {
             setError(error.message);

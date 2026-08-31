@@ -32,7 +32,7 @@ export default function SightsPage() {
             const response = await get("/sights", {
                 destinationName: search
             });
-            setSights(response);
+            setSights(await response.json());
 
         } catch (error) {
             setError(error.message);
