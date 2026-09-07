@@ -2,7 +2,8 @@ package com.codecool.travelplanner.controller;
 
 import com.codecool.travelplanner.api.AuthApi;
 import com.codecool.travelplanner.model.AuthResponse;
-import com.codecool.travelplanner.model.UserRequest;
+import com.codecool.travelplanner.model.LoginRequest;
+import com.codecool.travelplanner.model.RegisterRequest;
 import com.codecool.travelplanner.security.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,13 +21,13 @@ public class AuthController implements AuthApi {
     }
 
     @Override
-    public ResponseEntity<Void> authRegisterPost(@RequestBody UserRequest request) {
+    public ResponseEntity<Void> registerUser(@RequestBody RegisterRequest request) {
         authService.registerUser(request);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<AuthResponse> authLoginPost(@RequestBody UserRequest request) {
+    public ResponseEntity<AuthResponse> loginUser(@RequestBody LoginRequest request) {
         AuthResponse response = authService.login(request);
         return ResponseEntity.ok(response);
     }
