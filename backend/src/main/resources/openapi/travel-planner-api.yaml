@@ -242,6 +242,23 @@ paths:
         '404':
           description: Trip not found
 
+
+  /admin/trips:
+    get:
+      summary: List all trips across all users (admin only)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: List of all trips
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+
+
 components:
   securitySchemes:
     bearerAuth:

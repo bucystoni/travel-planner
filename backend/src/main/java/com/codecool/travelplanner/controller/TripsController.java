@@ -1,5 +1,6 @@
 package com.codecool.travelplanner.controller;
 
+import com.codecool.travelplanner.api.AdminApi;
 import com.codecool.travelplanner.api.TripsApi;
 import com.codecool.travelplanner.model.Trip;
 import com.codecool.travelplanner.model.TripRequest;
@@ -12,17 +13,31 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.NativeWebRequest;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class TripsController implements TripsApi {
+public class TripsController implements TripsApi, AdminApi {
     private final TripService tripService;
     private final UserRepository userRepository;
 
     public TripsController(TripService tripService, UserRepository userRepository) {
         this.tripService = tripService;
         this.userRepository = userRepository;
+    }
+
+    @Override
+    public Optional<NativeWebRequest> getRequest() {
+        return TripsApi.super.getRequest();
+    }
+
+    @Override
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<Trip>> adminTripsGet() {
+        List<Trip> trips = tripService.getAllTrips();
+        return new ResponseEntity<>(trips, HttpStatus.OK);
     }
 
     @Override
