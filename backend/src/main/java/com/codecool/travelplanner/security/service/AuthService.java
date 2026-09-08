@@ -7,7 +7,6 @@ import com.codecool.travelplanner.model.LoginRequest;
 import com.codecool.travelplanner.model.RegisterRequest;
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
-import com.codecool.travelplanner.model.UserRequest;
 import com.codecool.travelplanner.repository.user.UserRepository;
 import com.codecool.travelplanner.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Value;
