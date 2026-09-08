@@ -3,11 +3,14 @@ package com.codecool.travelplanner.security.service;
 import com.codecool.travelplanner.exception.InvalidCredentialsException;
 import com.codecool.travelplanner.exception.UserAlreadyExistsException;
 import com.codecool.travelplanner.model.AuthResponse;
+import com.codecool.travelplanner.model.LoginRequest;
+import com.codecool.travelplanner.model.RegisterRequest;
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
 import com.codecool.travelplanner.model.UserRequest;
 import com.codecool.travelplanner.repository.user.UserRepository;
 import com.codecool.travelplanner.security.jwt.JwtUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,6 +33,9 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
+    @Value("${ADMIN_PASSWORD}")
+    private String adminPassword;
+
 
     public AuthService(
             UserRepository userRepository,
@@ -43,7 +49,7 @@ public class AuthService {
 
     }
 
-    public void registerUser(UserRequest request) {
+    public void registerUser(RegisterRequest request) {
         if (userRepository.findUserByUsername(request.getUsername()).isPresent()) {
             throw new UserAlreadyExistsException(format("Username %s is already taken", request.getUsername()));
         }
@@ -70,10 +76,10 @@ public class AuthService {
 
     }
 
-    private Authentication authenticateUser(UserRequest request) {
+    private Authentication authenticateUser(LoginRequest request) {
         Optional<UserEntity> user;
 
-        if (request.getUsername().isEmpty() || request.getUsername() == null) {
+        if (request.getUsername() == null || request.getUsername().isBlank()) {
             user = userRepository.findUserByEmail(request.getEmail());
         } else {
             user = userRepository.findUserByUsername(request.getUsername());
@@ -89,7 +95,7 @@ public class AuthService {
         }
     }
 
-    public AuthResponse login(UserRequest request) {
+    public AuthResponse login(LoginRequest request) {
         Authentication authentication = authenticateUser(request);
         String token = jwtUtils.generateJwtToken(authentication);
 

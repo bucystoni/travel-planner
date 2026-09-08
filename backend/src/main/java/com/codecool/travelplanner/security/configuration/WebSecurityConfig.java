@@ -5,6 +5,7 @@ import com.codecool.travelplanner.security.jwt.JwtUtils;
 import com.codecool.travelplanner.security.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -63,8 +64,10 @@ public class WebSecurityConfig {
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/trips").authenticated()
-                                .anyRequest().permitAll()));
+                                .requestMatchers(HttpMethod.GET,
+                                        "/destinations", "/flights",
+                                        "/sights", "/restaurants", "/accommodations").permitAll()
+                                .anyRequest().authenticated()));
 
         http.authenticationProvider(authenticationProvider());
 

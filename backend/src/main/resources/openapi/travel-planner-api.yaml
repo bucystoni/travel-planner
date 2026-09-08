@@ -10,13 +10,14 @@ servers:
 paths:
   /auth/register:
     post:
+      operationId: registerUser
       summary: Register a new user
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserRequest'
+              $ref: '#/components/schemas/RegisterRequest'
       responses:
         '201':
           description: User successfully registered
@@ -25,13 +26,14 @@ paths:
 
   /auth/login:
     post:
+      operationId: loginUser
       summary: Log in a user
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserRequest'
+              $ref: '#/components/schemas/LoginRequest'
       responses:
         '200':
           description: Successful login
@@ -267,8 +269,21 @@ components:
       bearerFormat: JWT
 
   schemas:
-    UserRequest:
+
+    RegisterRequest:
       type: object
+      required: [ username, email, password ]
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        username:
+          type: string
+
+    LoginRequest:
+      type: object
+      required: [ password ]
       properties:
         email:
           type: string
@@ -401,9 +416,11 @@ components:
 
     TripRequest:
       type: object
+      required: [destination, departureDate]
       properties:
         destination:
           type: string
+          minLength: 2
         flightTicket:
           $ref: '#/components/schemas/FlightOfferDto'
         restaurant:
