@@ -51,6 +51,12 @@ public class TripService {
                 .stream().map(tripMapper::toTrip).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<Trip> getAllTrips() {
+        return tripRepository.findAll().
+                stream().map(tripMapper::toTrip).toList();
+    }
+
     @Transactional
     public Trip createTrip(TripRequest request, UserEntity user) {
         TripEntity trip = new TripEntity();
