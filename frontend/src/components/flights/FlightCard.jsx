@@ -25,6 +25,9 @@ export default function FlightCard({ offer }) {
             {offer.segments.map((segment) => (
                 <FlightSegment key={`${segment.carrier}${segment.flightNumber}`} segment={segment} />
             ))}
+        <div>
+            <button>Book flight</button>
+        </div>
         </div>
     );
 }
