@@ -72,7 +72,6 @@ public class AuthService {
         admin.setRoles(Set.of(Role.ROLE_ADMIN));
 
         userRepository.save(admin);
-
     }
 
     private Authentication authenticateUser(LoginRequest request) {

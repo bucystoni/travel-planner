@@ -3,6 +3,7 @@ import { get } from "../api/client.js"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import findAirports from "../utils/airportUtils.js";
+import FlightResult from "../components/flights/FlightResult.jsx";
 
 
 export default function FlightsPage() {
@@ -140,13 +141,7 @@ export default function FlightsPage() {
             <button type="button" onClick={() => navigate("/accommodations")}>
                 Accommodations
             </button>
-
-            {flights && (
-                <pre>
-                    {JSON.stringify(flights, null, 2)}
-                </pre>
-            )}
-
         </form>
+           <FlightResult flights={flights} loading={loading} />
     </div>
 }
