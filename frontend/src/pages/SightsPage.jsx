@@ -1,6 +1,7 @@
 import useCity from "../hooks/useCity";
 import { get } from "../api/client.js";
 import { useState } from "react";
+import PlaceResult from "../components/places/PlaceResult.jsx";
 
 export default function SightsPage() {
     const { city } = useCity();
@@ -63,12 +64,7 @@ export default function SightsPage() {
                 </button>
 
             </form>
-
-            {sights && (
-                <pre>
-                    {JSON.stringify(sights, null, 2)}
-                </pre>
-            )}
+            <PlaceResult places={sights} loading={loading} />
         </div>
     );
 }

@@ -2,6 +2,7 @@ import useCity from "../hooks/useCity";
 import { get } from "../api/client.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PlaceResult from "../components/places/PlaceResult.jsx";
 
 export default function AccommodationsPage() {
     const { city } = useCity();
@@ -48,7 +49,6 @@ export default function AccommodationsPage() {
             <p>
                 Please choose a different city if it differs from the flight destination
             </p>
-
             {error && <p role={"alert"}>{error}</p>}
 
             <form onSubmit={handleSubmit}>
@@ -58,7 +58,6 @@ export default function AccommodationsPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
-
                 <button type="submit" disabled={loading}>
                     Search
                 </button>
@@ -69,15 +68,8 @@ export default function AccommodationsPage() {
                 >
                     Restaurants
                 </button>
-
-
             </form>
-
-            {accommodations && (
-                <pre>
-                    {JSON.stringify(accommodations, null, 2)}
-                </pre>
-            )}
+            <PlaceResult places={accommodations} loading={loading} />
         </div>
     );
 }
