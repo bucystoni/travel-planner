@@ -13,4 +13,8 @@ function formatPrice(price, currency) {
     return new Intl.NumberFormat(undefined, { style: "currency", currency }).format(price);
 }
 
-export {formatDuration, formatDepartureArrivalTime, formatPrice}
+function buildOfferKey(offer) {
+    return offer.segments.map(segment => `${segment.carrier}${segment.flightNumber}${segment.departureTime}`).join("-") + offer.price + offer.cabinClass;
+}
+
+export {formatDuration, formatDepartureArrivalTime, formatPrice, buildOfferKey}
