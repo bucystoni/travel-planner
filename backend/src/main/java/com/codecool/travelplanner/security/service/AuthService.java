@@ -68,8 +68,8 @@ public class AuthService {
         UserEntity admin = new UserEntity();
         admin.setUsername("admin");
         admin.setEmail("admin@gmail.com");
-        admin.setPassword(encoder.encode("admin123"));
-        admin.setRoles(Set.of(Role.ROLE_ADMIN));
+        admin.setPassword(encoder.encode(adminPassword));
+        admin.setRoles(Set.of(Role.ROLE_ADMIN, Role.ROLE_USER));
 
         userRepository.save(admin);
 
