@@ -8,7 +8,7 @@ export default function PlaceResult({ places, loading }) {
                 : places.length === 0
                     ? <p>Not found.</p>
                     : <ul className="place-list">
-                          {places.map((place) => (
+                          {places.pointsOfInterest.map((place) => (
                               <li key={place.id}><PlaceCard place={place} /></li>
                           ))}
                       </ul>;
