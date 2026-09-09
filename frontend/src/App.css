@@ -1,184 +1,148 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* ---------- shared glass card ---------- */
+.flight-card,
+.place-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+.flight-card:hover,
+.place-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(211, 180, 86, 0.45);
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+/* ---------- lists ---------- */
+.flight-list,
+.place-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
+.flight-list { grid-template-columns: 1fr; }
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.place-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
+/* the <li> is the grid item — let the card fill it */
+.place-list > li { display: flex; }
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
+/* ---------- flight card ---------- */
+.flight-card-header {
     display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
     flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-2);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.flight-card-header p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
+.flight-card-header p:first-child {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-right: auto;
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+/* centred at the bottom of the card */
+.flight-card button {
+    display: block;
+    margin: var(--space-3) auto 0;
+}
 
-  &::before,
-  &::after {
-    content: '';
+.flight-segment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    padding: var(--space-2);
+    margin-top: var(--space-2);
+    background: rgba(22, 93, 104, 0.22);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--teal);
+}
+
+.flight-segment p { margin: 0; font-size: 0.88rem; color: var(--off-white); }
+
+/* ---------- place card ---------- */
+.place-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+}
+
+.place-card p { margin: 0; }
+
+.place-card p:first-child {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--off-white);
+}
+
+.place-card a {
+    padding: 8px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+.place-card a:hover { background: var(--gold); color: var(--navy); text-decoration: none; }
+
+/* bottom of the card, horizontally centred */
+.place-card button {
+    margin-top: auto;
+    align-self: center;
+}
+
+/* ---------- airport autocomplete (FlightsPage) ---------- */
+form > div { position: relative; flex: 1 1 220px; }
+
+form > div > div {
     position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
+    top: calc(100% + 4px);
     left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
     right: 0;
-    border-right-color: var(--border);
-  }
+    z-index: 5;
+    max-height: 260px;
+    overflow-y: auto;
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+}
+
+form > div > div > div {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+form > div > div > div:hover { background: rgba(211, 180, 86, 0.18); color: var(--gold); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+    main { padding: var(--space-4) var(--space-2); }
+    form { flex-direction: column; align-items: stretch; }
+    form > div { flex: 1 1 auto; }
+    button { width: 100%; }
+    .flight-card-header { flex-direction: column; gap: var(--space-1); }
+    .place-card { align-items: stretch; }
+    .place-card a { text-align: center; }
+    .place-card button { align-self: stretch; }
 }

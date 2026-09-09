@@ -44,7 +44,7 @@ export default function AccommodationsPage() {
     }
 
     return (
-        <div>
+        <div className="page page-accommodations">
             <h1>Accommodations</h1>
             <p>
                 Please choose a different city if it differs from the flight destination
