@@ -30,7 +30,7 @@ export default function LandingPage() {
 
 
     return (
-        <div>
+        <div className="page page-landing">
             <h1>Travel Planner</h1>
             <p>Please type the destination where you would like to go:</p>
             {error && <p role={"alert"}>{error}</p>}

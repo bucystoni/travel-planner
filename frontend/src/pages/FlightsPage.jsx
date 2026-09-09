@@ -82,7 +82,7 @@ export default function FlightsPage() {
         setDestinationOptions([]);
     }
 
-    return <div>
+    return <div className="page page-flights">
         <h1>Flights</h1>
         <p>Please select a date and an airport where you would like to go:</p>
         {error && <p role={"alert"}>{error}</p>}

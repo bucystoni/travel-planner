@@ -43,7 +43,7 @@ export default function SightsPage() {
     }
 
     return (
-        <div>
+        <div className="page page-sights">
             <h1>Restaurants</h1>
             <p>
                 Please choose a different city if it differs from the flight destination
