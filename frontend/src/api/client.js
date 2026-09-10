@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.VITE_API_URL;
 
- async function request(url, options = {}) {
+async function request(url, options = {}) {
     const token = localStorage.getItem("jwt");
 
     const headers = {
@@ -12,22 +12,17 @@ const BASE_URL = import.meta.env.VITE_API_URL;
         headers.Authorization = `Bearer ${token}`;
     }
 
-    let response = null;
+    const fetchOptions = {
+        method: options.method,
+        headers: headers,
+    };
 
     if (options.body) {
-        response = await fetch(`${BASE_URL}${url}`, {
-                method: options.method,
-                headers : headers,
-                body : JSON.stringify(options.body)
-            });
-    } else {
-        response = await fetch(`${BASE_URL}${url}`, {
-                        method: options.method,
-                        headers : headers,
-                    });
+        fetchOptions.body = JSON.stringify(options.body);
     }
 
-    if (response.status === 204) return null;
+    const response = await fetch(`${BASE_URL}${url}`, fetchOptions);
+
     if (!response.ok) {
         const message = await response.text();
         throw new Error(message || `Request failed with status ${response.status}`);
