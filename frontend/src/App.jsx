@@ -9,6 +9,7 @@ import RestaurantsPage from "./pages/RestaurantsPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Layout from "./components/Layout.jsx";
 import CityProviderLayout from "./components/CityProviderLayout.jsx";
+import TripsPage from "./pages/TripsPage.jsx";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
         <Route path="/registration" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/trips" element={<TripsPage />} />
 
         <Route element={<CityProviderLayout />}>
           <Route index element={<LandingPage />} />
