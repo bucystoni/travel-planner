@@ -306,6 +306,17 @@ components:
 
     FlightOfferDto:
       type: object
+      required:
+        - ignavId
+        - origin
+        - destination
+        - departureDate
+        - price
+        - currency
+        - cabinClass
+        - requiresSelfTransfer
+        - totalDurationMinutes
+        - segments
       properties:
         ignavId:
           type: string

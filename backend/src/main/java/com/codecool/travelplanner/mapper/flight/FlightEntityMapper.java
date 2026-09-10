@@ -1,8 +1,10 @@
 package com.codecool.travelplanner.mapper.flight;
 
+import com.codecool.travelplanner.dto.flight.FlightSegmentDto;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.dto.ignav.ItineraryDto;
 import com.codecool.travelplanner.dto.ignav.SegmentDto;
+import com.codecool.travelplanner.model.FlightOfferDto;
 import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.model.entity.flight.FlightSegmentEntity;
 import org.springframework.stereotype.Component;
@@ -12,8 +14,7 @@ import java.util.List;
 
 @Component
 public class FlightEntityMapper {
-
-
+    // Ignav API response --> FlightOfferEntity
     public List<FlightOfferEntity> toFlightOffers(FlightResponseDto response) {
         String origin = response.origin();
         String destination = response.destination();
@@ -57,6 +58,40 @@ public class FlightEntityMapper {
                 segment.arrivalAirport(),
                 segment.departureTimeUtc(),
                 segment.arrivalTimeUtc(),
+                segment.durationMinutes());
+    }
+
+
+    // FlightOfferDto --> FlightOfferEntity
+    public FlightOfferEntity toFlightOfferEntity(FlightOfferDto dto) {
+        FlightOfferEntity entity = new FlightOfferEntity(
+                dto.getIgnavId(),
+                dto.getOrigin(),
+                dto.getDestination(),
+                dto.getDepartureDate(),
+                dto.getPrice(),
+                dto.getCurrency(),
+                dto.getCabinClass(),
+                dto.getRequiresSelfTransfer(),
+                dto.getTotalDurationMinutes());
+
+        dto.getSegments().forEach(segment -> {
+            FlightSegmentEntity segmentEntity = toFlightSegmentEntity(segment);
+            entity.addSegment(segmentEntity);
+        });
+
+        return entity;
+    }
+
+    private FlightSegmentEntity toFlightSegmentEntity(FlightSegmentDto segment) {
+        return new FlightSegmentEntity(
+                segment.carrier(),
+                segment.flightNumber(),
+                segment.aircraft(),
+                segment.departureAirport(),
+                segment.arrivalAirport(),
+                segment.departureTime(),
+                segment.arrivalTime(),
                 segment.durationMinutes());
     }
 }
