@@ -30,11 +30,11 @@ const BASE_URL = import.meta.env.VITE_API_URL;
     if (response.status === 204) return null;
     if (!response.ok) {
         const message = await response.text();
-
         throw new Error(message || `Request failed with status ${response.status}`);
     }
 
-    return await response.json();
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 }
 
 function get(endpoint, params = {}) {

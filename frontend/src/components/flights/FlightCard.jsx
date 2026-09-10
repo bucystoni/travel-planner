@@ -1,7 +1,16 @@
 import { formatDuration, formatPrice } from "../../utils/flightUtils.js";
 import FlightSegment from "./FlightSegment.jsx";
+import { useState } from "react";
+import useCity from "../../hooks/useCity.js";
+import useTrip from "../../hooks/useTrip.js";
 
 export default function FlightCard({ offer }) {
+    const { city } = useCity();
+    const { saveTrip } = useTrip();
+    const [saving, setSaving] = useState(false);
+    const [saved, setSaved] = useState(false);
+    const [error, setError] = useState(null);
+
     const stops = offer.segments.length - 1;
 
     let stopsText = "Direct";
@@ -10,6 +19,24 @@ export default function FlightCard({ offer }) {
     } else if (stops > 1) {
         stopsText = `${stops} stops`;
     }
+
+async function handleSave() {
+    setSaving(true);
+    setError(null);
+
+    try {
+        await saveTrip({
+            destination: city.name,
+            departureDate: offer.departureDate,
+            flightTicket: offer,
+        });
+        setSaved(true);
+    } catch (error) {
+        setError(error.message);
+    } finally {
+        setSaving(false);
+    }
+}
 
     return (
         <div className="flight-card">
@@ -26,7 +53,10 @@ export default function FlightCard({ offer }) {
                 <FlightSegment key={`${segment.carrier}${segment.flightNumber}`} segment={segment} />
             ))}
         <div>
-            <button>Book flight</button>
+            <button onClick={handleSave} disabled={saving || saved || !city}>
+                {saved ? "Saved ✓" : saving ? "Saving…" : "Save to my trip"}
+            </button>
+            {error && <p role="alert">{error}</p>}
         </div>
         </div>
     );
