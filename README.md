@@ -13,9 +13,11 @@ OpenAPI-generated interfaces (contract-first)
 
 ## Project Structure
 
+```
 travel-planner/
-├── backend/ # Spring Boot API
-└── frontend/ # React (Vite) app
+├── backend/    # Spring Boot API
+└── frontend/   # React (Vite) app
+```
 
 ## Getting Started
 
@@ -29,6 +31,7 @@ travel-planner/
 1. `cd backend`
 2. Set the following environment variables (e.g. in your IDE's run configuration):
 
+```
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/travel_planner
 SPRING_DATASOURCE_USERNAME=<your db username>
 SPRING_DATASOURCE_PASSWORD=<your db password>
@@ -38,6 +41,7 @@ GOOGLE_API_KEY=<your Google Places key>
 TRAVEL_PLANNER_JWT_SECRET=<a Base64-encoded secret>
 TRAVEL_PLANNER_JWT_EXPIRATION_MS=3600000
 ADMIN_PASSWORD=<password for the seeded admin account>
+```
 
 3. Run: `./mvnw spring-boot:run` (or run `BackendApplication` from your IDE)
 4. The API is available at `http://localhost:8080/api`
@@ -53,13 +57,17 @@ ADMIN_PASSWORD=<password for the seeded admin account>
 
 **Backend (unit + integration tests):**
 
+```
 cd backend
 ./mvnw test
+```
 
 **Frontend:**
 
+```
 cd frontend
 npm test
+```
 
 ## API Documentation
 
