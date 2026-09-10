@@ -31,6 +31,7 @@ public class FlightEntityMapper {
             LocalDate departureDate) {
 
         FlightOfferEntity entity = new FlightOfferEntity(
+                itinerary.ignavId(),
                 origin,
                 destination,
                 departureDate,

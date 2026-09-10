@@ -1,12 +1,12 @@
 package com.codecool.travelplanner.repository.flight;
 
-import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
+import com.codecool.travelplanner.model.FlightOfferDto;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface FlightDataProvider {
-    List<FlightOfferEntity> getFlightOffers(
+    List<FlightOfferDto> getFlightOffers(
             String origin,
             String destination,
             LocalDate departureDate);
