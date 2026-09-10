@@ -32,7 +32,8 @@ export default function TripsPage() {
                     ? <p role="alert">{error}</p>
                     : trips.length === 0
                         ? <p>You have no saved trips yet.</p>
-                        : <table className="trips-table">
+                        : <div className="trips-table-wrap">
+                              <table className="trips-table">
                               <thead>
                                   <tr>
                                       <th>Destination</th>
@@ -59,7 +60,8 @@ export default function TripsPage() {
                                       </tr>
                                   ))}
                               </tbody>
-                          </table>}
+                          </table>
+                          </div>}
         </div>
     );
 }
