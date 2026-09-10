@@ -11,8 +11,7 @@ import java.util.List;
 public class FlightOfferEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String origin;
 
@@ -44,6 +43,7 @@ public class FlightOfferEntity {
     }
 
     public FlightOfferEntity(
+            String id,
             String origin,
             String destination,
             LocalDate departureDate,
@@ -52,6 +52,7 @@ public class FlightOfferEntity {
             String cabinClass,
             boolean requiresSelfTransfer,
             int totalDurationMinutes) {
+        this.id = id;
         this.origin = origin;
         this.destination = destination;
         this.departureDate = departureDate;
@@ -67,7 +68,7 @@ public class FlightOfferEntity {
         segment.setFlightOffer(this);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
