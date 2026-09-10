@@ -31,10 +31,10 @@ export default function AccommodationsPage() {
         }
 
         try {
-            const response = await get("/accommodations", {
+            const data = await get("/accommodations", {
                 destinationName: search
             });
-            setAccommodations(await response.json());
+            setAccommodations(await data);
 
         } catch (error) {
             setError(error.message);

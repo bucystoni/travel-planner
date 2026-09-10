@@ -42,12 +42,12 @@ export default function FlightsPage() {
 
 
         try {
-            const response = await get("/flights", {
+            const data = await get("/flights", {
                 destinationIataCode: destinationIata,
                 departureIataCode: departureIata,
                 date
             });
-            setFlights(await response.json());
+            setFlights(await data);
 
         } catch (error) {
             setError(error.message);

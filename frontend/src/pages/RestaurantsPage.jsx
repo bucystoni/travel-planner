@@ -32,10 +32,10 @@ export default function RestaurantsPage() {
         }
 
         try {
-            const response = await get("/restaurants", {
+            const data = await get("/restaurants", {
                 destinationName: search
             });
-            setRestaurants(await response.json());
+            setRestaurants(await data);
 
         } catch (error) {
             setError(error.message);

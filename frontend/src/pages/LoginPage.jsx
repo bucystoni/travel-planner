@@ -19,7 +19,7 @@ export default function LoginPage() {
         try {
             const body = { username, password };
             const data = await post("/auth/login", { body });
-            login(data.jwt);
+            login(await data.jwt);
 
             navigate("/destinations", { replace: true });
         } catch (error) {
