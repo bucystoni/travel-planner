@@ -64,7 +64,8 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable().cors(Customizer.withDefaults())
+        http.csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
@@ -72,7 +73,7 @@ public class WebSecurityConfig {
                                         "/destinations", "/flights",
                                         "/sights", "/restaurants", "/accommodations",
                                         "/actuator/health").permitAll()
-                                .anyRequest().authenticated()));
+                                .anyRequest().authenticated());
 
         http.authenticationProvider(authenticationProvider());
 
