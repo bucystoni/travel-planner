@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth.js";
 import { post } from "../api/client.js";
+import useAuth from "../hooks/useAuth.js";
 
 export default function LoginPage() {
     const [username, setUsername] = useState("");
@@ -19,7 +19,7 @@ export default function LoginPage() {
         try {
             const body = { username, password };
             const data = await post("/auth/login", { body });
-            login(data.jwt);
+            login(await data.jwt);
 
             navigate("/destinations", { replace: true });
         } catch (error) {

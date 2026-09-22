@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class TripMapper {
-    private FlightMapper flightMapper;
-    private PlacesMapper placesMapper;
+    private final FlightMapper flightMapper;
+    private final PlacesMapper placesMapper;
 
 
     public TripMapper(FlightMapper flightMapper, PlacesMapper placesMapper) {

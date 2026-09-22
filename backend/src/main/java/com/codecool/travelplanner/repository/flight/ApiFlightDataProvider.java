@@ -3,8 +3,8 @@ package com.codecool.travelplanner.repository.flight;
 import com.codecool.travelplanner.configuration.IgnavConfig;
 import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.exception.FlightApiException;
-import com.codecool.travelplanner.mapper.flight.FlightEntityMapper;
-import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
+import com.codecool.travelplanner.mapper.flight.FlightMapper;
+import com.codecool.travelplanner.model.FlightOfferDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -14,21 +14,21 @@ import java.util.List;
 
 @Service
 public class ApiFlightDataProvider implements FlightDataProvider {
-    private final FlightEntityMapper entityMapper;
+    private final FlightMapper flightMapper;
     private final IgnavConfig ignavConfig;
     private final RestClient restClient;
 
     public ApiFlightDataProvider(
-            FlightEntityMapper entityMapper,
+            FlightMapper flightMapper,
             IgnavConfig ignavConfig,
             RestClient restClient) {
-        this.entityMapper = entityMapper;
+        this.flightMapper = flightMapper;
         this.ignavConfig = ignavConfig;
         this.restClient = restClient;
     }
 
     @Override
-    public List<FlightOfferEntity> getFlightOffers(String origin, String destination, LocalDate departureDate) {
+    public List<FlightOfferDto> getFlightOffers(String origin, String destination, LocalDate departureDate) {
         String url = ignavConfig.getBaseUrl() + "/fares/one-way";
 
         String body = """
@@ -48,7 +48,7 @@ public class ApiFlightDataProvider implements FlightDataProvider {
                     .retrieve()
                     .body(FlightResponseDto.class);
 
-            return entityMapper.toFlightOffers(response);
+            return flightMapper.toFlightOffers(response);
         } catch (RestClientException e) {
             throw new FlightApiException("Flight API encountered an issue", e);
         }

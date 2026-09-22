@@ -1,6 +1,5 @@
 package com.codecool.travelplanner.service.trip;
 
-import com.codecool.travelplanner.exception.InvalidTripReferenceException;
 import com.codecool.travelplanner.exception.TripNotFoundException;
 import com.codecool.travelplanner.mapper.trip.TripMapper;
 import com.codecool.travelplanner.model.PointOfInterest;
@@ -12,6 +11,7 @@ import com.codecool.travelplanner.model.entity.places.RestaurantEntity;
 import com.codecool.travelplanner.model.entity.places.SightEntity;
 import com.codecool.travelplanner.model.entity.trip.TripEntity;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
+import com.codecool.travelplanner.mapper.flight.FlightEntityMapper;
 import com.codecool.travelplanner.repository.flight.FlightOfferRepository;
 import com.codecool.travelplanner.repository.places.sql.AccommodationRepository;
 import com.codecool.travelplanner.repository.places.sql.RestaurantRepository;
@@ -21,7 +21,6 @@ import com.codecool.travelplanner.service.places.PlacesService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,17 +31,27 @@ public class TripService {
     private final AccommodationRepository accommodationRepository;
     private final RestaurantRepository restaurantRepository;
     private final SightRepository sightRepository;
-    private final FlightOfferRepository flightRepository;
+    private final FlightEntityMapper flightEntityMapper;
+    private final FlightOfferRepository flightOfferRepository;
 
 
-    public TripService(TripRepository tripRepository, TripMapper tripMapper, PlacesService placesService, AccommodationRepository accommodationRepository, RestaurantRepository restaurantRepository, SightRepository sightRepository, FlightOfferRepository flightRepository) {
+    public TripService(
+            TripRepository tripRepository,
+            TripMapper tripMapper,
+            PlacesService placesService,
+            AccommodationRepository accommodationRepository,
+            RestaurantRepository restaurantRepository,
+            SightRepository sightRepository,
+            FlightEntityMapper flightEntityMapper,
+            FlightOfferRepository flightOfferRepository) {
         this.tripRepository = tripRepository;
         this.tripMapper = tripMapper;
         this.placesService = placesService;
         this.accommodationRepository = accommodationRepository;
         this.restaurantRepository = restaurantRepository;
         this.sightRepository = sightRepository;
-        this.flightRepository = flightRepository;
+        this.flightEntityMapper = flightEntityMapper;
+        this.flightOfferRepository = flightOfferRepository;
     }
 
     @Transactional(readOnly = true) // TODO: N+1
@@ -61,6 +70,10 @@ public class TripService {
     public Trip createTrip(TripRequest request, UserEntity user) {
         TripEntity trip = new TripEntity();
         trip.setUser(user);
+        trip.setCity(placesService.searchCity(request.getDestination()));
+        trip.setDepartureDate(request.getDepartureDate());
+        trip.setReturnDate(request.getReturnDate());
+
         applyRequest(trip, request);
 
         TripEntity saved = tripRepository.save(trip);
@@ -91,56 +104,62 @@ public class TripService {
     }
 
     private void applyRequest(TripEntity trip, TripRequest request) {
-        trip.setCity(placesService.searchCity(request.getDestination()));
-        trip.setDepartureDate(request.getDepartureDate());
-        trip.setReturnDate(request.getReturnDate());
 
         // flight
-        FlightOfferEntity flightOffer = null;
         if (request.getFlightTicket() != null) {
-            Long flightId = request.getFlightTicket().getId();
-            flightOffer = flightRepository.findById(flightId)
-                    .orElseThrow(() -> new InvalidTripReferenceException(flightId));
-        }
-        trip.setFlightOffer(flightOffer);
+            String ignavId = request.getFlightTicket().getIgnavId();
 
-        //restaurants
-        List<RestaurantEntity> restaurants = List.of();
+            FlightOfferEntity flightOffer = flightOfferRepository.findById(ignavId)
+                    .orElseGet(() -> flightOfferRepository.save(
+                            flightEntityMapper.toFlightOfferEntity(request.getFlightTicket())
+                    ));
+
+            trip.setFlightOffer(flightOffer);
+        }
+
+        // restaurants
         if (request.getRestaurant() != null) {
             List<Long> ids = request.getRestaurant().stream()
                     .map(PointOfInterest::getId)
                     .toList();
-            restaurants = restaurantRepository.findAllById(ids);
+
+            List<RestaurantEntity> restaurants = restaurantRepository.findAllById(ids);
+
             if (restaurants.size() != ids.size()) {
                 throw new TripNotFoundException("Restaurant(s) not found");
             }
-        }
-        trip.setRestaurants(new ArrayList<>(restaurants));
 
-        //accommodation
-        List<AccommodationEntity> accommodations = List.of();
-        if (request.getAccommodation() !=null){
+            trip.getRestaurants().addAll(restaurants);
+        }
+
+        // accommodation
+        if (request.getAccommodation() != null) {
             List<Long> ids = request.getAccommodation().stream()
                     .map(PointOfInterest::getId)
                     .toList();
-            accommodations = accommodationRepository.findAllById(ids);
-            if(accommodations.size() != ids.size()) {
+
+            List<AccommodationEntity> accommodations = accommodationRepository.findAllById(ids);
+
+            if (accommodations.size() != ids.size()) {
                 throw new TripNotFoundException("Accommodation(s) not found");
             }
-        }
-        trip.setAccommodations(new ArrayList<>(accommodations));
 
-        //sights
-        List<SightEntity> sights = List.of();
-        if (request.getSight() !=null){
+            trip.getAccommodations().addAll(accommodations);
+        }
+
+        // sights
+        if (request.getSight() != null) {
             List<Long> ids = request.getSight().stream()
                     .map(PointOfInterest::getId)
                     .toList();
-            sights = sightRepository.findAllById(ids);
-            if(sights.size() != ids.size()) {
+
+            List<SightEntity> sights = sightRepository.findAllById(ids);
+
+            if (sights.size() != ids.size()) {
                 throw new TripNotFoundException("Sight(s) not found");
             }
+
+            trip.getSights().addAll(sights);
         }
-        trip.setSights(new ArrayList<>(sights));
     }
 }
