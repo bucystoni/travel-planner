@@ -1,11 +1,11 @@
 import { formatDuration, formatPrice } from "../../utils/flightUtils.js";
 import FlightSegment from "./FlightSegment.jsx";
 import { useState } from "react";
-import useCity from "../../hooks/useCity.js";
 import useTrip from "../../hooks/useTrip.js";
+import { findCityByIata } from "../../utils/airportUtils.js";
 
 export default function FlightCard({ offer }) {
-    const { city } = useCity();
+    const destinationCity = findCityByIata(offer.destination);
     const { saveTrip } = useTrip();
     const [saving, setSaving] = useState(false);
     const [saved, setSaved] = useState(false);
@@ -26,7 +26,7 @@ async function handleSave() {
 
     try {
         await saveTrip({
-            destination: city.name,
+            destination: destinationCity,
             departureDate: offer.departureDate,
             flightTicket: offer,
         });
@@ -53,7 +53,7 @@ async function handleSave() {
                 <FlightSegment key={`${segment.carrier}${segment.flightNumber}`} segment={segment} />
             ))}
         <div>
-            <button onClick={handleSave} disabled={saving || saved || !city}>
+            <button onClick={handleSave} disabled={saving || saved || !destinationCity}>
                 {saved ? "Saved ✓" : saving ? "Saving…" : "Save to my trip"}
             </button>
             {error && <p role="alert">{error}</p>}

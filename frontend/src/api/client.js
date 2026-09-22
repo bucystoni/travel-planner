@@ -58,6 +58,10 @@ function put(endpoint, options) {
     });
 }
 
-export { get, post, put };
+function del(endpoint) {
+    return request(endpoint, {
+        method: "DELETE"
+    });
+}
 
-//TODO: implement delete and patch functions when the backend is ready for admin operations
+export { get, post, put, del };

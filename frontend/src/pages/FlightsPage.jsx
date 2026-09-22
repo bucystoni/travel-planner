@@ -2,12 +2,12 @@ import useCity from "../hooks/useCity.js"
 import { get } from "../api/client.js"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import findAirports from "../utils/airportUtils.js";
+import { findAirports } from "../utils/airportUtils.js";
 import FlightResult from "../components/flights/FlightResult.jsx";
 
 
 export default function FlightsPage() {
-    const { city } = useCity();
+    const { city, setCity } = useCity();
     const navigate = useNavigate();
     const [departureOptions, setDepartureOptions] = useState([]);
     const [destinationOptions, setDestinationOptions] = useState([]);
@@ -77,9 +77,12 @@ export default function FlightsPage() {
     }
 
     function handleDestinationSelect(airport) {
+        const selectedCity = { name: airport.city };
         setDestination(`${airport.name} — ${airport.city} (${airport.iata})`);
         setDestinationIata(airport.iata);
         setDestinationOptions([]);
+        setCity(selectedCity);
+        setPrevCity(selectedCity);
     }
 
     return <div className="page page-flights">

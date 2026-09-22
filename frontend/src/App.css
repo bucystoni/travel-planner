@@ -1,4 +1,4 @@
-/* ---------- shared glass card ---------- */
+
 .flight-card,
 .place-card {
     background: var(--glass-bg);
@@ -18,7 +18,7 @@
     border-color: rgba(211, 180, 86, 0.45);
 }
 
-/* ---------- lists ---------- */
+
 .flight-list,
 .place-list {
     list-style: none;
@@ -35,10 +35,10 @@
     grid-auto-rows: 1fr;
 }
 
-/* the <li> is the grid item — let the card fill it */
+
 .place-list > li { display: flex; }
 
-/* ---------- flight card ---------- */
+
 .flight-card-header {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +58,7 @@
     margin-right: auto;
 }
 
-/* centred at the bottom of the card */
+
 .flight-card button {
     display: block;
     margin: var(--space-3) auto 0;
@@ -77,7 +77,7 @@
 
 .flight-segment p { margin: 0; font-size: 0.88rem; color: var(--off-white); }
 
-/* ---------- place card ---------- */
+
 .place-card {
     flex: 1;
     display: flex;
@@ -103,13 +103,13 @@
 }
 .place-card a:hover { background: var(--gold); color: var(--navy); text-decoration: none; }
 
-/* bottom of the card, horizontally centred */
+
 .place-card button {
     margin-top: auto;
     align-self: center;
 }
 
-/* ---------- airport autocomplete (FlightsPage) ---------- */
+
 form > div { position: relative; flex: 1 1 220px; }
 
 form > div > div {
@@ -135,7 +135,7 @@ form > div > div > div {
 }
 form > div > div > div:hover { background: rgba(211, 180, 86, 0.18); color: var(--gold); }
 
-/* ---------- responsive ---------- */
+
 @media (max-width: 760px) {
     main { padding: var(--space-4) var(--space-2); }
     form { flex-direction: column; align-items: stretch; }
@@ -147,12 +147,6 @@ form > div > div > div:hover { background: rgba(211, 180, 86, 0.18); color: var(
     .place-card button { align-self: stretch; }
 }
 
-/* ================================================================
-   NAVBAR — bejelentkezett állapot
-   ================================================================ */
-
-/* "My trips" a négy oldal-link mellé, ugyanazzal a kinézettel.
-   Felülírja a nth-child(1) szabályt, ami jobbra tolná. */
 header nav a[href="/trips"] {
     order: 1;
     margin-left: 0;
@@ -166,7 +160,6 @@ header nav a[href="/trips"]:hover {
     text-decoration: none;
 }
 
-/* Logout: a Login helyére, jobb szélre, ugyanazzal a gold gomb kinézettel */
 header nav button {
     order: 2;
     margin-left: auto;
@@ -186,24 +179,16 @@ header nav button:hover {
     border-color: var(--gold-soft);
 }
 
-/* ================================================================
-   PLACE CARD — mentés gomb
-   ================================================================ */
 
-/* a gombot tartó div a kártya aljára */
 .place-card > div {
     margin-top: auto;
     width: 100%;
 }
 
-/* a gomb balra, a "Check out the website" gomb alá */
 .place-card button {
     margin: var(--space-3) 0 var(--space-1);
 }
 
-/* ================================================================
-   REPÜLŐTÉR AUTOCOMPLETE — tömör háttér, ne lássunk át rajta
-   ================================================================ */
 
 form > div > div {
     background: rgba(12, 31, 42, 0.92);
@@ -215,10 +200,6 @@ form > div > div {
 .place-list {
     grid-auto-rows: auto;
 }
-
-/* ================================================================
-   MY TRIPS TÁBLÁZAT
-   ================================================================ */
 
 .trips-table-wrap {
     overflow-x: auto;
@@ -232,7 +213,7 @@ form > div > div {
 
 .trips-table {
     width: 100%;
-    min-width: 720px;
+    min-width: 640px;
     border-collapse: collapse;
     font-size: 0.92rem;
 }
@@ -241,10 +222,9 @@ form > div > div {
 .trips-table td {
     padding: var(--space-2) var(--space-3);
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
-/* fejléc: arany, ritkított kiskapitális */
 .trips-table thead th {
     font-size: 0.78rem;
     font-weight: 600;
@@ -255,7 +235,6 @@ form > div > div {
     border-bottom: 1px solid var(--glass-border);
 }
 
-/* sorok közötti halvány elválasztó */
 .trips-table tbody tr + tr td {
     border-top: 1px solid rgba(243, 244, 246, 0.08);
 }
@@ -264,7 +243,6 @@ form > div > div {
     background: rgba(243, 244, 246, 0.06);
 }
 
-/* első oszlop = a célváros, kiemelve */
 .trips-table td:first-child {
     font-family: var(--font-display);
     font-size: 1.05rem;
@@ -272,20 +250,38 @@ form > div > div {
     white-space: nowrap;
 }
 
-/* dátum és repjegy ne törjön több sorba */
 .trips-table td:nth-child(2),
 .trips-table td:nth-child(3) {
     white-space: nowrap;
     color: var(--text-muted);
 }
 
-/* a felsorolásos oszlopok kapjanak helyet */
 .trips-table td:nth-child(n+4) {
     color: var(--text-muted);
-    min-width: 170px;
+    min-width: 0px;
 }
 
 @media (max-width: 760px) {
     .trips-table th,
     .trips-table td { padding: var(--space-2); }
+}
+
+.trips-table td:last-child button {
+    width: auto;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--gold);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.trips-table td:last-child button:hover {
+    background: rgba(211, 180, 86, 0.16);
+    border-color: var(--gold);
+    color: var(--gold-soft);
 }
