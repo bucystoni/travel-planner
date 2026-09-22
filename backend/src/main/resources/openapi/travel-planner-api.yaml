@@ -44,6 +44,26 @@ paths:
         '401':
           description: Invalid credentials
 
+  /auth/refresh:
+    post:
+      operationId: refreshToken
+      summary: Refresh access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenRequest'
+      responses:
+        '200':
+          description: New access token generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Invalid or expired refresh token
+
   /destinations:
     get:
       summary: Search destinations (cities) by name
@@ -162,6 +182,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Trip'
+
     post:
       summary: Create a new trip
       security:
@@ -201,6 +222,7 @@ paths:
                 $ref: '#/components/schemas/Trip'
         '404':
           description: Trip not found
+
     put:
       summary: Update an existing trip
       security:
@@ -227,6 +249,7 @@ paths:
                 $ref: '#/components/schemas/Trip'
         '404':
           description: Trip not found
+
     delete:
       summary: Delete a trip
       security:
@@ -244,7 +267,6 @@ paths:
         '404':
           description: Trip not found
 
-
   /admin/trips:
     get:
       summary: List all trips across all users (admin only)
@@ -259,7 +281,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Trip'
-
 
 components:
   securitySchemes:
@@ -297,12 +318,22 @@ components:
       properties:
         jwt:
           type: string
+        refreshToken:
+          type: string
         username:
           type: string
         roles:
           type: array
           items:
             type: string
+
+    RefreshTokenRequest:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
 
     FlightOfferDto:
       type: object

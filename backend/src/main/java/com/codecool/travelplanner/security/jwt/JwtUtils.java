@@ -39,6 +39,15 @@ public class JwtUtils {
                 .compact();
     }
 
+    public String generateJwtToken(String username) {
+        return Jwts.builder()
+                .subject(username)
+                .issuedAt(new Date())
+                .expiration(new Date(new Date().getTime() + jwtExpirationMs))
+                .signWith(key())
+                .compact();
+    }
+
     private SecretKey key() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }

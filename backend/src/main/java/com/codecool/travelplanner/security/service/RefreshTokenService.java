@@ -13,6 +13,7 @@ import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.Base64;
 import java.util.HexFormat;
+import java.util.Optional;
 
 @Service
 public class RefreshTokenService {
@@ -47,6 +48,24 @@ public class RefreshTokenService {
         refreshTokenRepository.save(tokenEntity);
 
         return rawToken;
+    }
+
+    public RefreshTokenEntity validateRefreshToken(String rawToken) {
+        String tokenHash = hashToken(rawToken);
+        Optional<RefreshTokenEntity> token = refreshTokenRepository.findByTokenHash(tokenHash);
+
+        RefreshTokenEntity refreshToken = token.orElseThrow(() ->
+                new IllegalArgumentException("Invalid refresh token"));
+
+        if (refreshToken.getRevokedAt() != null) {
+            throw new IllegalArgumentException("Refresh token has been revoked");
+        }
+
+        if (refreshToken.getExpiresAt().isBefore(Instant.now())) {
+            throw new IllegalArgumentException("Refresh token has expired");
+        }
+
+        return refreshToken;
     }
 
     private String hashToken(String rawToken) {

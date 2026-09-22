@@ -5,6 +5,7 @@ import com.codecool.travelplanner.exception.UserAlreadyExistsException;
 import com.codecool.travelplanner.model.AuthResponse;
 import com.codecool.travelplanner.model.LoginRequest;
 import com.codecool.travelplanner.model.RegisterRequest;
+import com.codecool.travelplanner.model.entity.token.RefreshTokenEntity;
 import com.codecool.travelplanner.model.entity.user.Role;
 import com.codecool.travelplanner.model.entity.user.UserEntity;
 import com.codecool.travelplanner.repository.user.UserRepository;
@@ -31,6 +32,7 @@ public class AuthService {
     private final PasswordEncoder encoder;
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
+    private final RefreshTokenService refreshTokenService;
 
     @Value("${ADMIN_PASSWORD}")
     private String adminPassword;
@@ -40,11 +42,13 @@ public class AuthService {
             UserRepository userRepository,
             PasswordEncoder encoder,
             AuthenticationManager authenticationManager,
-            JwtUtils jwtUtils) {
+            JwtUtils jwtUtils,
+            RefreshTokenService refreshTokenService) {
         this.userRepository = userRepository;
         this.encoder = encoder;
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
+        this.refreshTokenService = refreshTokenService;
 
     }
 
@@ -97,6 +101,11 @@ public class AuthService {
         Authentication authentication = authenticateUser(request);
         String token = jwtUtils.generateJwtToken(authentication);
 
+        UserEntity user = userRepository.findUserByUsername(authentication.getName())
+                .orElseThrow();
+
+        String refreshToken = refreshTokenService.createRefreshToken(user);
+
         List<String> roles = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .filter(authority -> authority.startsWith("ROLE_"))
@@ -106,6 +115,28 @@ public class AuthService {
         response.setJwt(token);
         response.setUsername(authentication.getName());
         response.setRoles(roles);
+        response.setRefreshToken(refreshToken);
+
+        return response;
+    }
+
+    public AuthResponse refreshToken(String rawRefreshToken) {
+        RefreshTokenEntity refreshToken =
+                refreshTokenService.validateRefreshToken(rawRefreshToken);
+
+        UserEntity user = refreshToken.getUser();
+
+        String jwt = jwtUtils.generateJwtToken(user.getUsername());
+
+        List<String> roles = user.getRoles().stream()
+                .map(Role::getAuthority)
+                .toList();
+
+        AuthResponse response = new AuthResponse();
+        response.setJwt(jwt);
+        response.setUsername(user.getUsername());
+        response.setRoles(roles);
+        response.setRefreshToken(rawRefreshToken);
 
         return response;
     }
