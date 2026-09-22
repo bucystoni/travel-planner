@@ -2,6 +2,7 @@ import useCity from "../hooks/useCity";
 import { get } from "../api/client.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PlaceResult from "../components/places/PlaceResult.jsx";
 
 export default function RestaurantsPage() {
     const { city } = useCity();
@@ -31,10 +32,10 @@ export default function RestaurantsPage() {
         }
 
         try {
-            const response = await get("/restaurants", {
+            const data = await get("/restaurants", {
                 destinationName: search
             });
-            setRestaurants(await response.json());
+            setRestaurants(await data);
 
         } catch (error) {
             setError(error.message);
@@ -44,7 +45,7 @@ export default function RestaurantsPage() {
     }
 
     return (
-        <div>
+        <div className="page page-restaurants">
             <h1>Restaurants</h1>
             <p>
                 Please choose a different city if it differs from the flight destination
@@ -72,12 +73,7 @@ export default function RestaurantsPage() {
                 </button>
 
             </form>
-
-            {restaurants && (
-                <pre>
-                    {JSON.stringify(restaurants, null, 2)}
-                </pre>
-            )}
+            <PlaceResult places={restaurants} loading={loading} type="restaurant" />
         </div>
     );
 }

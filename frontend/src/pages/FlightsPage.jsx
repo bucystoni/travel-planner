@@ -2,11 +2,12 @@ import useCity from "../hooks/useCity.js"
 import { get } from "../api/client.js"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import findAirports from "../utils/airportUtils.js";
+import { findAirports } from "../utils/airportUtils.js";
+import FlightResult from "../components/flights/FlightResult.jsx";
 
 
 export default function FlightsPage() {
-    const { city } = useCity();
+    const { city, setCity } = useCity();
     const navigate = useNavigate();
     const [departureOptions, setDepartureOptions] = useState([]);
     const [destinationOptions, setDestinationOptions] = useState([]);
@@ -41,12 +42,12 @@ export default function FlightsPage() {
 
 
         try {
-            const response = await get("/flights", {
+            const data = await get("/flights", {
                 destinationIataCode: destinationIata,
                 departureIataCode: departureIata,
                 date
             });
-            setFlights(await response.json());
+            setFlights(await data);
 
         } catch (error) {
             setError(error.message);
@@ -76,12 +77,15 @@ export default function FlightsPage() {
     }
 
     function handleDestinationSelect(airport) {
+        const selectedCity = { name: airport.city };
         setDestination(`${airport.name} — ${airport.city} (${airport.iata})`);
         setDestinationIata(airport.iata);
         setDestinationOptions([]);
+        setCity(selectedCity);
+        setPrevCity(selectedCity);
     }
 
-    return <div>
+    return <div className="page page-flights">
         <h1>Flights</h1>
         <p>Please select a date and an airport where you would like to go:</p>
         {error && <p role={"alert"}>{error}</p>}
@@ -140,13 +144,7 @@ export default function FlightsPage() {
             <button type="button" onClick={() => navigate("/accommodations")}>
                 Accommodations
             </button>
-
-            {flights && (
-                <pre>
-                    {JSON.stringify(flights, null, 2)}
-                </pre>
-            )}
-
         </form>
+           <FlightResult flights={flights} loading={loading} />
     </div>
 }

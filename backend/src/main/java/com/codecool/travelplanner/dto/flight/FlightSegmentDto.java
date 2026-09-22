@@ -11,5 +11,4 @@ public record FlightSegmentDto(
         OffsetDateTime departureTime,
         OffsetDateTime arrivalTime,
         int durationMinutes) {
-
 }

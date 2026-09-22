@@ -1,6 +1,7 @@
 import useCity from "../hooks/useCity";
 import { get } from "../api/client.js";
 import { useState } from "react";
+import PlaceResult from "../components/places/PlaceResult.jsx";
 
 export default function SightsPage() {
     const { city } = useCity();
@@ -29,10 +30,10 @@ export default function SightsPage() {
         }
 
         try {
-            const response = await get("/sights", {
+            const data = await get("/sights", {
                 destinationName: search
             });
-            setSights(await response.json());
+            setSights(await data);
 
         } catch (error) {
             setError(error.message);
@@ -42,8 +43,8 @@ export default function SightsPage() {
     }
 
     return (
-        <div>
-            <h1>Restaurants</h1>
+        <div className="page page-sights">
+            <h1>Sights</h1>
             <p>
                 Please choose a different city if it differs from the flight destination
             </p>
@@ -63,12 +64,7 @@ export default function SightsPage() {
                 </button>
 
             </form>
-
-            {sights && (
-                <pre>
-                    {JSON.stringify(sights, null, 2)}
-                </pre>
-            )}
+            <PlaceResult places={sights} loading={loading} type="sight" />
         </div>
     );
 }

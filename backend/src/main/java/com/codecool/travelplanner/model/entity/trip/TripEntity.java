@@ -18,19 +18,25 @@ public class TripEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "departure_date")
     private LocalDate departureDate;
+
     @Column(name = "return_date")
     private LocalDate returnDate;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
+
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)
     private CityEntity city;
+
     @ManyToOne
     @JoinColumn(name = "flight_offer_id")
     private FlightOfferEntity flightOffer;
+
     @ManyToMany
     @JoinTable(
             name = "trip_restaurants",

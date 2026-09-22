@@ -17,8 +17,7 @@ export default function LandingPage() {
         setError(null);
 
         try {
-            const response = await get("/destinations", { name: search });
-            const data = await response.json()
+            const data = await get("/destinations", { name: search });
             setCity(data[0]);
             navigate("/flights");
         } catch (error) {
@@ -30,7 +29,7 @@ export default function LandingPage() {
 
 
     return (
-        <div>
+        <div className="page page-landing">
             <h1>Travel Planner</h1>
             <p>Please type the destination where you would like to go:</p>
             {error && <p role={"alert"}>{error}</p>}

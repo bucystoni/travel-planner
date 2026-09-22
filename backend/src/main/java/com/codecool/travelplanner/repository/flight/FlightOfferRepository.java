@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface FlightOfferRepository extends JpaRepository<FlightOfferEntity, Long> {
+public interface FlightOfferRepository extends JpaRepository<FlightOfferEntity, String> {
     @Query("""
        select distinct o from FlightOfferEntity o
        left join fetch o.segments

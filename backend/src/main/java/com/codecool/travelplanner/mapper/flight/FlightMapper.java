@@ -9,6 +9,7 @@ import com.codecool.travelplanner.model.entity.flight.FlightOfferEntity;
 import com.codecool.travelplanner.model.entity.flight.FlightSegmentEntity;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -17,14 +18,23 @@ public class FlightMapper {
     // ==================== IGNAV API --> FlightOfferDto ==================== //
 
     public List<FlightOfferDto> toFlightOffers(FlightResponseDto response) {
+        LocalDate departureDate = LocalDate.parse(response.departureDate());
 
         return response.itineraries()
                 .stream()
-                .map(this::toFlightOffer)
+                .map(itinerary -> toFlightOffer(
+                        itinerary,
+                        response.origin(),
+                        response.destination(),
+                        departureDate))
                 .toList();
     }
 
-    private FlightOfferDto toFlightOffer(ItineraryDto itinerary) {
+    private FlightOfferDto toFlightOffer(
+            ItineraryDto itinerary,
+            String origin,
+            String destination,
+            LocalDate departureDate) {
         List<FlightSegmentDto> segments = itinerary.outbound()
                 .segments()
                 .stream()
@@ -32,6 +42,10 @@ public class FlightMapper {
                 .toList();
 
         return new FlightOfferDto()
+                .ignavId(itinerary.ignavId())
+                .origin(origin)
+                .destination(destination)
+                .departureDate(departureDate)
                 .price(itinerary.price().amount())
                 .currency(itinerary.price().currency())
                 .cabinClass(itinerary.cabinClass())
@@ -68,7 +82,10 @@ public class FlightMapper {
                 .toList();
 
         return new FlightOfferDto()
-                .id(entity.getId())
+                .ignavId(entity.getId())
+                .origin(entity.getOrigin())
+                .destination(entity.getDestination())
+                .departureDate(entity.getDepartureDate())
                 .price(entity.getPrice())
                 .currency(entity.getCurrency())
                 .cabinClass(entity.getCabinClass())

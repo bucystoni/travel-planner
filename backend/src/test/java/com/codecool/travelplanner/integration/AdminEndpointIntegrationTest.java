@@ -23,25 +23,43 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         webEnvironment = SpringBootTest.WebEnvironment.MOCK,
         classes = BackendApplication.class)
 @AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application.properties")
+@TestPropertySource(
+        locations = "classpath:application.properties")
 @Transactional
-class TripsAuthorizationIntegrationTest {
+public class AdminEndpointIntegrationTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    void tripsEndpointRejectsRequestsWithoutToken() throws Exception {
-        mvc.perform(get("/trips"))
-                .andExpect(status().isForbidden());
+    void adminCanAccessAdminEndpoint() throws Exception {
+        String loginBody = """
+                {
+                  "username": "admin",
+                  "password": "test-admin-password"
+                }
+                """;
+
+        MvcResult mvcResult = mvc.perform(post("/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(loginBody))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String adminToken = read(mvcResult.getResponse().getContentAsString(), "$.jwt");
+
+        mvc.perform(get("/admin/trips")
+                        .header("Authorization", "Bearer " + adminToken))
+                .andExpect(status().isOk());
     }
 
+
     @Test
-    void tripsEndpointAcceptsRequestsWithValidToken() throws Exception {
+    void userCanNotAccessAdminEndpoint() throws Exception {
         String registerBody = """
                 {
-                  "username": "dave",
-                  "email": "dave@example.com",
+                  "username": "user",
+                  "email": "user@example.com",
                   "password": "secret123"
                 }
                 """;
@@ -53,22 +71,27 @@ class TripsAuthorizationIntegrationTest {
 
         String loginBody = """
                 {
-                  "username": "dave",
+                  "username": "user",
                   "password": "secret123"
                 }
                 """;
 
-        MvcResult loginResult = mvc.perform(post("/auth/login")
+        MvcResult mvcResult = mvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginBody))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String responseBody = loginResult.getResponse().getContentAsString();
-        String token = read(responseBody, "$.jwt");
+    String userToken = read(mvcResult.getResponse().getContentAsString(), "$.jwt");
 
-        mvc.perform(get("/trips")
-                        .header("Authorization", "Bearer " + token))
-                .andExpect(status().isOk());
+    mvc.perform(get("/admin/trips")
+                    .header("Authorization", "Bearer " + userToken))
+            .andExpect(status().isForbidden());
     }
+
+
+
 }
+
+
+
