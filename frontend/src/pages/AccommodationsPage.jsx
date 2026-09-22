@@ -69,7 +69,7 @@ export default function AccommodationsPage() {
                     Restaurants
                 </button>
             </form>
-            <PlaceResult places={accommodations} loading={loading} />
+            <PlaceResult places={accommodations} loading={loading} type="accommodation" />
         </div>
     );
 }

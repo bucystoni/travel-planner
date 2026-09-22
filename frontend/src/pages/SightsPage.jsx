@@ -44,7 +44,7 @@ export default function SightsPage() {
 
     return (
         <div className="page page-sights">
-            <h1>Restaurants</h1>
+            <h1>Sights</h1>
             <p>
                 Please choose a different city if it differs from the flight destination
             </p>
@@ -64,7 +64,7 @@ export default function SightsPage() {
                 </button>
 
             </form>
-            <PlaceResult places={sights} loading={loading} />
+            <PlaceResult places={sights} loading={loading} type="sight" />
         </div>
     );
 }

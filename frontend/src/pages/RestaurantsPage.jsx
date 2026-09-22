@@ -73,7 +73,7 @@ export default function RestaurantsPage() {
                 </button>
 
             </form>
-            <PlaceResult places={restaurants} loading={loading} />
+            <PlaceResult places={restaurants} loading={loading} type="restaurant" />
         </div>
     );
 }
