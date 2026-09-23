@@ -47,6 +47,8 @@ jobs:
   frontend:
     name: Frontend (lint + test + build)
     runs-on: ubuntu-latest
+    env:
+      VITE_API_URL: http://localhost:8080
     defaults:
       run:
         working-directory: frontend

@@ -33,6 +33,7 @@ travel-planner/
 
 ```
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/travel_planner
+APP_CORS_ALLOWED_ORIGINS=<comma-separated list of allowed frontend origins, e.g. http://localhost:5173>
 SPRING_DATASOURCE_USERNAME=<your db username>
 SPRING_DATASOURCE_PASSWORD=<your db password>
 OPENWEATHER_API_KEY=<your OpenWeatherMap key>
@@ -78,7 +79,9 @@ The API contract is defined in `backend/src/main/resources/openapi/travel-planne
 
 - **Backend:** deployed on [Render](https://render.com)
 - **Database:** [Neon](https://neon.tech) (managed PostgreSQL)
-- **Frontend:** deployed on [Cloudflare Pages](https://pages.cloudflare.com)
+- **Frontend:** deployed on [Cloudflare Pages](https://pages.cloudflare.com): requires
+    `VITE_API_URL` to be set (see `frontend/.env.production`; also configured in the
+    Cloudflare Pages build settings dashboard)
 
 ## Authentication
 
