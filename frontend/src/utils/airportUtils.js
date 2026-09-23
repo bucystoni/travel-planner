@@ -1,6 +1,6 @@
 import airports from "../data/airports_with_iata.json";
 
-function findAirports(city) {
+export function findAirports(city) {
     const airportList = Object.values(airports);
 
     return airportList
@@ -15,4 +15,8 @@ function findAirports(city) {
         }));
 }
 
-export default findAirports;
+export function findCityByIata(iata) {
+    const airport = Object.values(airports).find((a) => a.iata === iata);
+
+    return airport ? airport.city : null;
+}

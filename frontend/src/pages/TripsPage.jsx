@@ -1,12 +1,14 @@
 
 import { useEffect, useState } from "react";
-import { get } from "../api/client.js";
+import { get, del } from "../api/client.js";
 import { formatPrice } from "../utils/flightUtils.js";
+import useTrip from "../hooks/useTrip.js";
 
 export default function TripsPage() {
     const [trips, setTrips] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { trip: activeTrip, clearTrip } = useTrip();
 
     useEffect(() => {
         async function loadTrips() {
@@ -21,6 +23,19 @@ export default function TripsPage() {
         }
         loadTrips();
     }, []);
+
+    async function handleDelete(id) {
+        try {
+            await del(`/trips/${id}`);
+            setTrips((prev) => prev.filter((t) => t.id !== id));
+
+            if (activeTrip && activeTrip.id === id) {
+                clearTrip();
+            }
+        } catch (error) {
+            setError(error.message);
+        }
+    }
 
     return (
         <div className="page page-trips">
@@ -42,6 +57,7 @@ export default function TripsPage() {
                                       <th>Restaurants</th>
                                       <th>Accommodations</th>
                                       <th>Sights</th>
+                                      <th></th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -57,6 +73,23 @@ export default function TripsPage() {
                                           <td>{trip.restaurant.map((r) => r.name).join(", ") || "—"}</td>
                                           <td>{trip.accommodation.map((a) => a.name).join(", ") || "—"}</td>
                                           <td>{trip.sight.map((s) => s.name).join(", ") || "—"}</td>
+                                          <td>
+                                              <button
+                                                  onClick={() => handleDelete(trip.id)}
+                                                  aria-label={`Delete trip to ${trip.destination}`}
+                                                  title="Delete trip"
+                                              >
+                                                  <svg viewBox="0 0 24 24" width="23" height="23" fill="none"
+                                                       stroke="currentColor" strokeWidth="2"
+                                                       strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                      <path d="M3 6h18" />
+                                                      <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" />
+                                                      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                                                      <line x1="10" y1="11" x2="10" y2="17" />
+                                                      <line x1="14" y1="11" x2="14" y2="17" />
+                                                  </svg>
+                                              </button>
+                                          </td>
                                       </tr>
                                   ))}
                               </tbody>

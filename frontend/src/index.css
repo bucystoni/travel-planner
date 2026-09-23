@@ -1,4 +1,4 @@
-/* ---------- design tokens ---------- */
+
 :root {
     --navy: #122D3B;
     --navy-deep: #0C1F2A;
@@ -35,7 +35,7 @@
     --container: 1180px;
 }
 
-/* ---------- reset ---------- */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
@@ -46,7 +46,7 @@ body {
     background: var(--navy);
 }
 
-/* ---------- per-page backdrop ---------- */
+
 .page::before {
     content: "";
     position: fixed;
@@ -66,7 +66,7 @@ body {
 .page-restaurants    { --page-image: url("/restaurants.jpg"); }
 .page-sights         { --page-image: url("/sights.jpg"); }
 
-/* ---------- typography ---------- */
+
 h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 500;
@@ -92,7 +92,7 @@ a:hover { color: var(--gold-soft); text-decoration: underline; }
     outline-offset: 2px;
 }
 
-/* ---------- navbar ---------- */
+
 header {
     position: sticky;
     top: 0;
@@ -122,7 +122,7 @@ header nav a {
     transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-/* the four page links: visible border + hover fill */
+
 header nav a:nth-child(n+3) {
     border-color: var(--glass-border);
 }
@@ -134,7 +134,7 @@ header nav a:nth-child(n+3):hover {
     text-decoration: none;
 }
 
-/* Register / Login pushed right */
+
 header nav a:nth-child(1) { margin-left: auto; order: 2; }
 header nav a:nth-child(1):hover {
     background: rgba(243, 244, 246, 0.12);
@@ -162,7 +162,7 @@ main {
     padding: var(--space-5) var(--space-3);
 }
 
-/* ---------- forms ---------- */
+
 form {
     display: flex;
     flex-wrap: wrap;
@@ -193,10 +193,10 @@ input {
 input::placeholder { color: var(--slate); }
 input:focus { border-color: var(--gold); outline: none; }
 
-/* the airport inputs live inside a wrapper div — make them fill it */
+
 form > div > input { width: 100%; }
 
-/* dark native date picker + gold calendar icon */
+
 input[type="date"] {
     color-scheme: dark;
     cursor: pointer;
@@ -210,19 +210,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
 
-/* ---------- flights page: stacked search panel ---------- */
+
 .page-flights form {
     max-width: 640px;
     align-items: stretch;
 }
 
-/* each field takes a full row; the buttons then share the next row */
+
 .page-flights form > input,
 .page-flights form > div {
     flex: 1 1 100%;
 }
 
-/* ---------- buttons ---------- */
+
 button {
     padding: 12px 28px;
     font: inherit;
