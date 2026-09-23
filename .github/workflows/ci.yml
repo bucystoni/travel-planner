@@ -8,6 +8,7 @@ on:
     branches: [development]
   push:
     branches: [development]
+  workflow_dispatch: {}
 
 # The jobs only need to read the repository.
 permissions:
