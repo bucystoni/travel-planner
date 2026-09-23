@@ -33,6 +33,7 @@ travel-planner/
 
 ```
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/travel_planner
+APP_CORS_ALLOWED_ORIGINS=<comma-separated list of allowed frontend origins, e.g. http://localhost:5173>
 SPRING_DATASOURCE_USERNAME=<your db username>
 SPRING_DATASOURCE_PASSWORD=<your db password>
 OPENWEATHER_API_KEY=<your OpenWeatherMap key>
