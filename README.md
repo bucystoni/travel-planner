@@ -79,7 +79,9 @@ The API contract is defined in `backend/src/main/resources/openapi/travel-planne
 
 - **Backend:** deployed on [Render](https://render.com)
 - **Database:** [Neon](https://neon.tech) (managed PostgreSQL)
-- **Frontend:** deployed on [Cloudflare Pages](https://pages.cloudflare.com)
+- **Frontend:** deployed on [Cloudflare Pages](https://pages.cloudflare.com): requires
+    `VITE_API_URL` to be set (see `frontend/.env.production`; also configured in the
+    Cloudflare Pages build settings dashboard)
 
 ## Authentication
 
