@@ -44,4 +44,9 @@ public class GlobalExceptionHandler {
     public ProblemDetail handleTripNotFoundException(TripNotFoundException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
     }
+
+    @ExceptionHandler(InvalidTripReferenceException.class)
+    public ProblemDetail handleInvalidTripReference(InvalidTripReferenceException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
 }

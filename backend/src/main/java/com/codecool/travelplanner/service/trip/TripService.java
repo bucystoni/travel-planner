@@ -1,5 +1,6 @@
 package com.codecool.travelplanner.service.trip;
 
+import com.codecool.travelplanner.exception.InvalidTripReferenceException;
 import com.codecool.travelplanner.exception.TripNotFoundException;
 import com.codecool.travelplanner.mapper.trip.TripMapper;
 import com.codecool.travelplanner.model.PointOfInterest;
@@ -126,7 +127,7 @@ public class TripService {
             List<RestaurantEntity> restaurants = restaurantRepository.findAllById(ids);
 
             if (restaurants.size() != ids.size()) {
-                throw new TripNotFoundException("Restaurant(s) not found");
+                throw new InvalidTripReferenceException("Restaurant(s) not found");
             }
 
             trip.getRestaurants().addAll(restaurants);
@@ -141,7 +142,7 @@ public class TripService {
             List<AccommodationEntity> accommodations = accommodationRepository.findAllById(ids);
 
             if (accommodations.size() != ids.size()) {
-                throw new TripNotFoundException("Accommodation(s) not found");
+                throw new InvalidTripReferenceException("Accommodation(s) not found");
             }
 
             trip.getAccommodations().addAll(accommodations);
@@ -156,7 +157,7 @@ public class TripService {
             List<SightEntity> sights = sightRepository.findAllById(ids);
 
             if (sights.size() != ids.size()) {
-                throw new TripNotFoundException("Sight(s) not found");
+                throw new InvalidTripReferenceException("Sight(s) not found");
             }
 
             trip.getSights().addAll(sights);
