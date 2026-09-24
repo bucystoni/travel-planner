@@ -21,11 +21,11 @@ public class JwtUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${TRAVEL_PLANNER_JWT_SECRET}")
+    @Value("${travelplanner.jwt.secret}")
     private String jwtSecret;
 
-    @Value("${TRAVEL_PLANNER_JWT_EXPIRATION_MS}")
-    private int jwtExpirationMs;
+    @Value("${travelplanner.jwt.expiration-ms}")
+    private long jwtExpirationMs;
 
     public String generateJwtToken(Authentication authentication) {
         UserDetails userPrincipal =
