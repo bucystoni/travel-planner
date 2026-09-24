@@ -4,6 +4,20 @@ import { get, del } from "../api/client.js";
 import { formatPrice } from "../utils/flightUtils.js";
 import useTrip from "../hooks/useTrip.js";
 
+function PlaceList({ places }) {
+    if (places.length === 0) {
+        return "—";
+    }
+
+    return (
+        <ul className="trip-items">
+            {places.map((place) => (
+                <li key={place.id}>{place.name}</li>
+            ))}
+        </ul>
+    );
+}
+
 export default function TripsPage() {
     const [trips, setTrips] = useState([]);
     const [error, setError] = useState(null);
@@ -71,9 +85,9 @@ export default function TripsPage() {
                                                   ? `${trip.flightTicket.origin} → ${trip.flightTicket.destination} (${formatPrice(trip.flightTicket.price, trip.flightTicket.currency)})`
                                                   : "—"}
                                           </td>
-                                          <td>{trip.restaurant.map((r) => r.name).join(", ") || "—"}</td>
-                                          <td>{trip.accommodation.map((a) => a.name).join(", ") || "—"}</td>
-                                          <td>{trip.sight.map((s) => s.name).join(", ") || "—"}</td>
+                                          <td><PlaceList places={trip.restaurant} /></td>
+                                          <td><PlaceList places={trip.accommodation} /></td>
+                                          <td><PlaceList places={trip.sight} /></td>
                                           <td>
                                               {activeTrip && activeTrip.id === trip.id
                                                   ? <span className="trip-active">Active</span>
