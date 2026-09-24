@@ -285,3 +285,27 @@ form > div > div {
     border-color: var(--gold);
     color: var(--gold-soft);
 }
+
+.trips-table .trip-continue {
+    width: auto;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--glass-border);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.trips-table .trip-continue:hover {
+    background: rgba(211, 180, 86, 0.16);
+    border-color: var(--gold);
+}
+
+.trips-table .trip-active {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+}

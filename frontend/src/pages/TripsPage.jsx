@@ -8,7 +8,7 @@ export default function TripsPage() {
     const [trips, setTrips] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { trip: activeTrip, clearTrip } = useTrip();
+    const { trip: activeTrip, clearTrip, selectTrip } = useTrip();
 
     useEffect(() => {
         async function loadTrips() {
@@ -58,6 +58,7 @@ export default function TripsPage() {
                                       <th>Accommodations</th>
                                       <th>Sights</th>
                                       <th></th>
+                                      <th></th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -73,6 +74,11 @@ export default function TripsPage() {
                                           <td>{trip.restaurant.map((r) => r.name).join(", ") || "—"}</td>
                                           <td>{trip.accommodation.map((a) => a.name).join(", ") || "—"}</td>
                                           <td>{trip.sight.map((s) => s.name).join(", ") || "—"}</td>
+                                          <td>
+                                              {activeTrip && activeTrip.id === trip.id
+                                                  ? <span className="trip-active">Active</span>
+                                                  : <button className="trip-continue" onClick={() => selectTrip(trip)}>Continue</button>}
+                                          </td>
                                           <td>
                                               <button
                                                   onClick={() => handleDelete(trip.id)}
