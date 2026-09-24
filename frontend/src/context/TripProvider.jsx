@@ -2,10 +2,55 @@ import { useState } from "react";
 import { TripContext } from "./TripContext";
 import { post, put } from "../api/client.js";
 
+function collectPlaceIds(tripData) {
+    const restaurantIds = [];
+    const accommodationIds = [];
+    const sightIds = [];
+
+    for (const restaurant of tripData.restaurant) {
+        restaurantIds.push(restaurant.id);
+    }
+
+    for (const accommodation of tripData.accommodation) {
+        accommodationIds.push(accommodation.id);
+    }
+
+    for (const sight of tripData.sight) {
+        sightIds.push(sight.id);
+    }
+
+    return {
+        restaurant: restaurantIds,
+        accommodation: accommodationIds,
+        sight: sightIds,
+    };
+}
+
+function toItems(ids) {
+    const items = [];
+
+    for (const id of ids) {
+        items.push({ id: id });
+    }
+
+    return items;
+}
+
 export function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         const stored = localStorage.getItem("trip");
-        return stored ? JSON.parse(stored) : null;
+
+        if (!stored) {
+            return null;
+        }
+
+        const parsed = JSON.parse(stored);
+
+        if (!parsed.savedPlaces) {
+            parsed.savedPlaces = { restaurant: [], accommodation: [], sight: [] };
+        }
+
+        return parsed;
     });
 
     async function saveTrip({ destination, departureDate, flightTicket }) {
@@ -13,21 +58,48 @@ export function TripProvider({ children }) {
             body: { destination, departureDate, flightTicket },
         });
 
-        const newTrip = { id: created.id, destination, departureDate };
+        const newTrip = {
+            id: created.id,
+            destination: destination,
+            departureDate: departureDate,
+            savedPlaces: collectPlaceIds(created),
+        };
         setTrip(newTrip);
         localStorage.setItem("trip", JSON.stringify(newTrip));
 
         return created;
     }
 
-    async function addToTrip(partial) {
+    async function addToTrip(type, id) {
+        const ids = {
+            restaurant: Array.from(trip.savedPlaces.restaurant),
+            accommodation: Array.from(trip.savedPlaces.accommodation),
+            sight: Array.from(trip.savedPlaces.sight),
+        };
+
+        ids[type].push(id);
+
         const body = {
             destination: trip.destination,
             departureDate: trip.departureDate,
-            ...partial,
+            restaurant: toItems(ids.restaurant),
+            accommodation: toItems(ids.accommodation),
+            sight: toItems(ids.sight),
         };
 
-        return await put(`/trips/${trip.id}`, { body });
+        const updated = await put(`/trips/${trip.id}`, { body });
+
+        const newTrip = {
+            id: trip.id,
+            destination: trip.destination,
+            departureDate: trip.departureDate,
+            savedPlaces: collectPlaceIds(updated),
+        };
+
+        setTrip(newTrip);
+        localStorage.setItem("trip", JSON.stringify(newTrip));
+
+        return updated;
     }
 
     function clearTrip() {
