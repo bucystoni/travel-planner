@@ -34,7 +34,7 @@ export default function PlaceCard({ place, type, city }) {
                     {saved || alreadySaved ? "Saved ✓" : saving ? "Saving…" : "Save to my trip"}
                 </button>
 
-                {!trip && <p>Pick your flight first to start a trip</p>}
+                {!trip && <p>Pick a flight first, or continue a saved trip</p>}
                 {trip && !canSave && <p>Your trip is to {trip.destination} — save a flight to {city} first</p>}
                 {error && <p role="alert">{error}</p>}
             </div>

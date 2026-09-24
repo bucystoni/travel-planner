@@ -107,7 +107,19 @@ export function TripProvider({ children }) {
         localStorage.removeItem("trip");
     }
 
-    const value = { trip, saveTrip, addToTrip, clearTrip };
+    function selectTrip(tripData) {
+        const newTrip = {
+            id: tripData.id,
+            destination: tripData.destination,
+            departureDate: tripData.departureDate,
+            savedPlaces: collectPlaceIds(tripData),
+        };
+
+        setTrip(newTrip);
+        localStorage.setItem("trip", JSON.stringify(newTrip));
+    }
+
+    const value = { trip, saveTrip, addToTrip, clearTrip, selectTrip };
 
     return (
         <TripContext.Provider value={value}>
