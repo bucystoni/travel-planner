@@ -71,9 +71,6 @@ public class TripService {
     public Trip createTrip(TripRequest request, UserEntity user) {
         TripEntity trip = new TripEntity();
         trip.setUser(user);
-        trip.setCity(placesService.searchCity(request.getDestination()));
-        trip.setDepartureDate(request.getDepartureDate());
-        trip.setReturnDate(request.getReturnDate());
 
         applyRequest(trip, request);
 
@@ -106,6 +103,10 @@ public class TripService {
 
     private void applyRequest(TripEntity trip, TripRequest request) {
 
+        trip.setCity(placesService.searchCity(request.getDestination()));
+        trip.setDepartureDate(request.getDepartureDate());
+        trip.setReturnDate(request.getReturnDate());
+
         // flight
         if (request.getFlightTicket() != null) {
             String ignavId = request.getFlightTicket().getIgnavId();
@@ -130,6 +131,7 @@ public class TripService {
                 throw new InvalidTripReferenceException("Restaurant(s) not found");
             }
 
+            trip.getRestaurants().clear();
             trip.getRestaurants().addAll(restaurants);
         }
 
@@ -145,6 +147,7 @@ public class TripService {
                 throw new InvalidTripReferenceException("Accommodation(s) not found");
             }
 
+            trip.getAccommodations().clear();
             trip.getAccommodations().addAll(accommodations);
         }
 
@@ -160,6 +163,7 @@ public class TripService {
                 throw new InvalidTripReferenceException("Sight(s) not found");
             }
 
+            trip.getSights().clear();
             trip.getSights().addAll(sights);
         }
     }
