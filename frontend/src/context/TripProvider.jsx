@@ -3,21 +3,37 @@ import { TripContext } from "./TripContext";
 import { post, put } from "../api/client.js";
 
 function collectPlaceIds(tripData) {
-    const ids = [];
+    const restaurantIds = [];
+    const accommodationIds = [];
+    const sightIds = [];
 
     for (const restaurant of tripData.restaurant) {
-        ids.push(`restaurant-${restaurant.id}`);
+        restaurantIds.push(restaurant.id);
     }
 
     for (const accommodation of tripData.accommodation) {
-        ids.push(`accommodation-${accommodation.id}`);
+        accommodationIds.push(accommodation.id);
     }
 
     for (const sight of tripData.sight) {
-        ids.push(`sight-${sight.id}`);
+        sightIds.push(sight.id);
     }
 
-    return ids;
+    return {
+        restaurant: restaurantIds,
+        accommodation: accommodationIds,
+        sight: sightIds,
+    };
+}
+
+function toItems(ids) {
+    const items = [];
+
+    for (const id of ids) {
+        items.push({ id: id });
+    }
+
+    return items;
 }
 
 export function TripProvider({ children }) {
@@ -31,7 +47,7 @@ export function TripProvider({ children }) {
         const parsed = JSON.parse(stored);
 
         if (!parsed.savedPlaces) {
-            parsed.savedPlaces = [];
+            parsed.savedPlaces = { restaurant: [], accommodation: [], sight: [] };
         }
 
         return parsed;
@@ -55,10 +71,20 @@ export function TripProvider({ children }) {
     }
 
     async function addToTrip(type, id) {
+        const ids = {
+            restaurant: Array.from(trip.savedPlaces.restaurant),
+            accommodation: Array.from(trip.savedPlaces.accommodation),
+            sight: Array.from(trip.savedPlaces.sight),
+        };
+
+        ids[type].push(id);
+
         const body = {
             destination: trip.destination,
             departureDate: trip.departureDate,
-            [type]: [{ id: id }],
+            restaurant: toItems(ids.restaurant),
+            accommodation: toItems(ids.accommodation),
+            sight: toItems(ids.sight),
         };
 
         const updated = await put(`/trips/${trip.id}`, { body });

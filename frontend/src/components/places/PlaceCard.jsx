@@ -7,7 +7,7 @@ export default function PlaceCard({ place, type, city }) {
     const [saved, setSaved] = useState(false);
     const [error, setError] = useState(null);
     const canSave = trip !== null && trip.destination === city;
-    const alreadySaved = trip !== null && trip.savedPlaces.includes(`${type}-${place.id}`);
+    const alreadySaved = trip !== null && trip.savedPlaces[type].includes(place.id);
 
     async function handleSave() {
         setSaving(true);
