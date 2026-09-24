@@ -3,6 +3,7 @@ package com.codecool.travelplanner.security.configuration;
 import com.codecool.travelplanner.security.jwt.JwtTokenFilter;
 import com.codecool.travelplanner.security.jwt.JwtUtils;
 import com.codecool.travelplanner.security.service.UserDetailsServiceImpl;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -67,6 +68,19 @@ public class WebSecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                            response.setContentType("application/json");
+                            response.getWriter().write(
+                                    "{\"status\":401,\"title\":\"Unauthorized\",\"detail\":\"Authentication is required\"}");
+                        })
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            response.setContentType("application/json");
+                            response.getWriter().write(
+                                    "{\"status\":403,\"title\":\"Forbidden\",\"detail\":\"You do not have permission to access this resource\"}");
+                        }))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers(HttpMethod.GET,
@@ -76,7 +90,6 @@ public class WebSecurityConfig {
                                 .anyRequest().authenticated());
 
         http.authenticationProvider(authenticationProvider());
-
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
