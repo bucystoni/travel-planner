@@ -231,7 +231,6 @@ form > div > div {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gold);
-    white-space: nowrap;
     border-bottom: 1px solid var(--glass-border);
 }
 
@@ -250,9 +249,12 @@ form > div > div {
     white-space: nowrap;
 }
 
-.trips-table td:nth-child(2),
-.trips-table td:nth-child(3) {
+.trips-table td:nth-child(2) {
     white-space: nowrap;
+    color: var(--text-muted);
+}
+
+.trips-table td:nth-child(3) {
     color: var(--text-muted);
 }
 
@@ -284,4 +286,76 @@ form > div > div {
     background: rgba(211, 180, 86, 0.16);
     border-color: var(--gold);
     color: var(--gold-soft);
+}
+
+.trips-table .trip-continue {
+    width: auto;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--glass-border);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.trips-table .trip-continue:hover {
+    background: rgba(211, 180, 86, 0.16);
+    border-color: var(--gold);
+}
+
+.trips-table .trip-active {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.trip-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trip-items li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 5px;
+}
+
+.trip-items li:last-child {
+    margin-bottom: 0;
+}
+
+.trip-items li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.trips-table {
+    table-layout: fixed;
+}
+
+.trips-table th:nth-child(1) { width: 12%; }  /* destination */
+.trips-table th:nth-child(2) { width: 10%; }  /* departure */
+.trips-table th:nth-child(3) { width: 12%; }  /* flight */
+.trips-table th:nth-child(4) { width: 14%; }  /* restaurants */
+.trips-table th:nth-child(5) { width: 16%; }  /* accommodations */
+.trips-table th:nth-child(6) { width: 17%; }  /* sights */
+.trips-table th:nth-child(7) { width: 12%; }  /* continue */
+.trips-table th:nth-child(8) { width: 7%;  }  /* delete */
+
+.trips-table td:nth-child(7),
+.trips-table td:nth-child(8),
+.trips-table th:nth-child(7),
+.trips-table th:nth-child(8) {
+    padding-left: var(--space-1);
+    padding-right: var(--space-1);
 }
