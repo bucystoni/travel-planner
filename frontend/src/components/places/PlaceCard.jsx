@@ -7,13 +7,14 @@ export default function PlaceCard({ place, type, city }) {
     const [saved, setSaved] = useState(false);
     const [error, setError] = useState(null);
     const canSave = trip !== null && trip.destination === city;
+    const alreadySaved = trip !== null && trip.savedPlaces.includes(`${type}-${place.id}`);
 
     async function handleSave() {
         setSaving(true);
         setError(null);
 
         try {
-            await addToTrip({ [type]: [{ id: place.id }] });
+            await addToTrip(type, place.id);
             setSaved(true);
         } catch (error) {
             setError(error.message);
@@ -29,8 +30,8 @@ export default function PlaceCard({ place, type, city }) {
             <p> Address: {place.address} </p>
             {place.url && <a href={place.url} target="_blank" rel="noopener noreferrer">Check out the website here</a>}
             <div>
-                <button onClick={handleSave} disabled={!canSave || saving || saved}>
-                    {saved ? "Saved ✓" : saving ? "Saving…" : "Save to my trip"}
+                <button onClick={handleSave} disabled={!canSave || saving || saved || alreadySaved }>
+                    {saved || alreadySaved ? "Saved ✓" : saving ? "Saving…" : "Save to my trip"}
                 </button>
 
                 {!trip && <p>Pick your flight first to start a trip</p>}
