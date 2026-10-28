@@ -5,6 +5,7 @@ import com.codecool.travelplanner.dto.ignav.FlightResponseDto;
 import com.codecool.travelplanner.exception.FlightApiException;
 import com.codecool.travelplanner.mapper.flight.FlightMapper;
 import com.codecool.travelplanner.model.FlightOfferDto;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Primary
 public class ApiFlightDataProvider implements FlightDataProvider {
     private final FlightMapper flightMapper;
     private final IgnavConfig ignavConfig;
