@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-@Primary
 public class SqlFlightDataProvider implements FlightDataProvider {
     private final FlightOfferRepository flightOfferRepository;
     private final FlightMapper flightMapper;

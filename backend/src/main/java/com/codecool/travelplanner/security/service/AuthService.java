@@ -52,6 +52,9 @@ public class AuthService {
         if (userRepository.findUserByUsername(request.getUsername()).isPresent()) {
             throw new UserAlreadyExistsException(format("Username %s is already taken", request.getUsername()));
         }
+        if (userRepository.findUserByEmail(request.getEmail()).isPresent()) {
+            throw new UserAlreadyExistsException(format("Email %s is already taken", request.getEmail()));
+        }
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(request.getUsername());
         userEntity.setEmail(request.getEmail());
