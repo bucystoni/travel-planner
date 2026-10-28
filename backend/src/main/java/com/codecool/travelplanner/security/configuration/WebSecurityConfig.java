@@ -68,7 +68,7 @@ public class WebSecurityConfig {
                 .cors(Customizer.withDefaults())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/auth/**").permitAll()
+                        auth.requestMatchers("/auth/**", "/error").permitAll()
                                 .requestMatchers(HttpMethod.GET,
                                         "/destinations", "/flights",
                                         "/sights", "/restaurants", "/accommodations",
@@ -94,5 +94,4 @@ public class WebSecurityConfig {
         return source;
     }
 
-    //TODO: implement jwtUtils, custom exception, update filterChain with other endpoints, other filters (jwtTokenFilter)
 }
